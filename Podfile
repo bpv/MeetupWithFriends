@@ -8,6 +8,8 @@ pod 'Firebase/Core'
 pod 'Firebase/Database'
 pod 'Firebase/RemoteConfig'
 pod 'FirebaseUI'
+pod 'GoogleMaps'
+pod 'GooglePlaces'
 
 target ‘MeetupWithFriends’ do
 end

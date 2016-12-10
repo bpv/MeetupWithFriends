@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DA10D7151DFBE1D00083CEBD /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA10D7141DFBE1D00083CEBD /* HistoryTableViewController.swift */; };
+		DA10D7171DFBE2B80083CEBD /* GoogleConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA10D7161DFBE2B80083CEBD /* GoogleConstants.swift */; };
 		DAC9B5791DFBDB5F007A5008 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC9B5781DFBDB5F007A5008 /* AppDelegate.swift */; };
 		DAC9B57B1DFBDB5F007A5008 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC9B57A1DFBDB5F007A5008 /* MapViewController.swift */; };
 		DAC9B57E1DFBDB60007A5008 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAC9B57C1DFBDB60007A5008 /* Main.storyboard */; };
@@ -15,6 +16,8 @@
 		DAC9B5831DFBDB60007A5008 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAC9B5811DFBDB60007A5008 /* LaunchScreen.storyboard */; };
 		DAC9B58E1DFBDB60007A5008 /* MeetupWithFriendsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC9B58D1DFBDB60007A5008 /* MeetupWithFriendsTests.swift */; };
 		DAC9B5991DFBDB60007A5008 /* MeetupWithFriendsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC9B5981DFBDB60007A5008 /* MeetupWithFriendsUITests.swift */; };
+		DAE48C591DFBEDD30099E181 /* Settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAE48C581DFBEDD30099E181 /* Settings.plist */; };
+		DAE48C5B1DFBEE270099E181 /* Settings.Example.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAE48C5A1DFBEE270099E181 /* Settings.Example.plist */; };
 		DFF1E217A9434046E46659AE /* Pods_MeetupWithFriends.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53AFE76579E9121851EC8100 /* Pods_MeetupWithFriends.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +42,7 @@
 		53AFE76579E9121851EC8100 /* Pods_MeetupWithFriends.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MeetupWithFriends.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A539F2F5DCEE0315F3B887B /* Pods-MeetupWithFriends.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeetupWithFriends.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MeetupWithFriends/Pods-MeetupWithFriends.debug.xcconfig"; sourceTree = "<group>"; };
 		DA10D7141DFBE1D00083CEBD /* HistoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
+		DA10D7161DFBE2B80083CEBD /* GoogleConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleConstants.swift; sourceTree = "<group>"; };
 		DAC9B5751DFBDB5F007A5008 /* MeetupWithFriends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeetupWithFriends.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAC9B5781DFBDB5F007A5008 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DAC9B57A1DFBDB5F007A5008 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -52,6 +56,8 @@
 		DAC9B5941DFBDB60007A5008 /* MeetupWithFriendsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeetupWithFriendsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAC9B5981DFBDB60007A5008 /* MeetupWithFriendsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetupWithFriendsUITests.swift; sourceTree = "<group>"; };
 		DAC9B59A1DFBDB60007A5008 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DAE48C581DFBEDD30099E181 /* Settings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
+		DAE48C5A1DFBEE270099E181 /* Settings.Example.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Settings.Example.plist; sourceTree = "<group>"; };
 		F510727C48D8F9CFC33CF186 /* Pods-MeetupWithFriends.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeetupWithFriends.release.xcconfig"; path = "Pods/Target Support Files/Pods-MeetupWithFriends/Pods-MeetupWithFriends.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,6 +116,7 @@
 		DA10D7121DFBDD450083CEBD /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				DA10D7181DFBE2BC0083CEBD /* Google */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -119,6 +126,14 @@
 			children = (
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		DA10D7181DFBE2BC0083CEBD /* Google */ = {
+			isa = PBXGroup;
+			children = (
+				DA10D7161DFBE2B80083CEBD /* GoogleConstants.swift */,
+			);
+			name = Google;
 			sourceTree = "<group>";
 		};
 		DAC9B56C1DFBDB5F007A5008 = {
@@ -146,14 +161,14 @@
 		DAC9B5771DFBDB5F007A5008 /* MeetupWithFriends */ = {
 			isa = PBXGroup;
 			children = (
+				DAC9B5781DFBDB5F007A5008 /* AppDelegate.swift */,
 				DA10D7111DFBDD3C0083CEBD /* Controllers */,
 				DA10D7121DFBDD450083CEBD /* Models */,
 				DA10D7131DFBDD4B0083CEBD /* Views */,
-				DAC9B5781DFBDB5F007A5008 /* AppDelegate.swift */,
 				DAC9B57C1DFBDB60007A5008 /* Main.storyboard */,
 				DAC9B57F1DFBDB60007A5008 /* Assets.xcassets */,
 				DAC9B5811DFBDB60007A5008 /* LaunchScreen.storyboard */,
-				DAC9B5841DFBDB60007A5008 /* Info.plist */,
+				DAE48C571DFBEABA0099E181 /* Config */,
 			);
 			path = MeetupWithFriends;
 			sourceTree = "<group>";
@@ -174,6 +189,16 @@
 				DAC9B59A1DFBDB60007A5008 /* Info.plist */,
 			);
 			path = MeetupWithFriendsUITests;
+			sourceTree = "<group>";
+		};
+		DAE48C571DFBEABA0099E181 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				DAC9B5841DFBDB60007A5008 /* Info.plist */,
+				DAE48C581DFBEDD30099E181 /* Settings.plist */,
+				DAE48C5A1DFBEE270099E181 /* Settings.Example.plist */,
+			);
+			name = Config;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,7 +312,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAC9B5831DFBDB60007A5008 /* LaunchScreen.storyboard in Resources */,
+				DAE48C591DFBEDD30099E181 /* Settings.plist in Resources */,
 				DAC9B5801DFBDB60007A5008 /* Assets.xcassets in Resources */,
+				DAE48C5B1DFBEE270099E181 /* Settings.Example.plist in Resources */,
 				DAC9B57E1DFBDB60007A5008 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -363,6 +390,7 @@
 			files = (
 				DAC9B57B1DFBDB5F007A5008 /* MapViewController.swift in Sources */,
 				DAC9B5791DFBDB5F007A5008 /* AppDelegate.swift in Sources */,
+				DA10D7171DFBE2B80083CEBD /* GoogleConstants.swift in Sources */,
 				DA10D7151DFBE1D00083CEBD /* HistoryTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -520,7 +548,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bpv.MeetupWithFriends;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 3.0.1;
 			};
 			name = Debug;
 		};
@@ -533,7 +561,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bpv.MeetupWithFriends;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 3.0.1;
 			};
 			name = Release;
 		};
