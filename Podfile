@@ -10,6 +10,7 @@ pod 'Firebase/RemoteConfig'
 pod 'FirebaseUI'
 pod 'GoogleMaps'
 pod 'GooglePlaces'
+pod 'Alamofire'
 
 target ‘MeetupWithFriends’ do
 end
