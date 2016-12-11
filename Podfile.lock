@@ -113,6 +113,7 @@ PODS:
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
+  - SwiftyJSON (3.1.3)
   - TwitterCore (2.7.0):
     - Fabric
   - TwitterKit (2.7.0):
@@ -127,6 +128,7 @@ DEPENDENCIES:
   - FirebaseUI
   - GoogleMaps
   - GooglePlaces
+  - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
@@ -153,9 +155,10 @@ SPEC CHECKSUMS:
   GTMOAuth2: 7fc9c10f5c745f4d9850419ea88889fe3baa6b7d
   GTMSessionFetcher: a1f8ed39e4fe21c68957daed472c7afbcdf29166
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
+  SwiftyJSON: 38a8ea2006779c0fc4c310cb2ee8195327740faf
   TwitterCore: fbdbeaf6d2d20cf7c7aa4136fe5173c1c85df2e2
   TwitterKit: 97e729ceea041d174126235bf6ff67dcf37772d4
 
-PODFILE CHECKSUM: c86c2ef8d38f7405012014fa85fcbb7fba08667f
+PODFILE CHECKSUM: ba88a9fadf659c5777707f1051b238c2f82871fa
 
 COCOAPODS: 1.1.1

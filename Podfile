@@ -11,6 +11,7 @@ pod 'FirebaseUI'
 pod 'GoogleMaps'
 pod 'GooglePlaces'
 pod 'Alamofire'
+pod 'SwiftyJSON'
 
 target ‘MeetupWithFriends’ do
 end
