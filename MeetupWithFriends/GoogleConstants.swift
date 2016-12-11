@@ -29,4 +29,14 @@ struct GoogleConstants {
         static var ProjectID = GoogleConstants.settingsDict["googleProjectID"] as! String
         static var APIKey = GoogleConstants.settingsDict["googleMapsAPIKey"] as! String
     }
+    
+    struct Geocoding {
+        static var BaseURL = "https://maps.googleapis.com/maps/api/geocode/json"
+        
+        struct ParameterKeys {
+            static var Address = "address"
+            static var Components = "components"
+            static var APIKey = "key"
+        }
+    }
 }
