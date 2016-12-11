@@ -27,7 +27,7 @@
                                     <navigationItem title="Title" id="ppw-t9-I05"/>
                                 </items>
                             </navigationBar>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E5M-T1-Mbp">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E5M-T1-Mbp" customClass="GMSMapView">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -45,7 +45,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" id="sW9-Sg-gMM"/>
                     <connections>
-                        <outlet property="googleMapView" destination="E5M-T1-Mbp" id="kBa-5M-2CX"/>
+                        <outlet property="googleMapView" destination="E5M-T1-Mbp" id="GLN-iF-Vae"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
