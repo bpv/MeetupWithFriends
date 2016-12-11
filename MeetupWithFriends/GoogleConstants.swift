@@ -38,5 +38,14 @@ struct GoogleConstants {
             static var Components = "components"
             static var APIKey = "key"
         }
+        
+        struct ResponseKeys {
+            static var Results = "results"
+            static var Geometry = "geometry"
+            static var Location = "location"
+            static var Lat = "lat"
+            static var Lon = "lng"
+            static var Status = "status"
+        }
     }
 }

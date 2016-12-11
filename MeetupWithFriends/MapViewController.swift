@@ -50,15 +50,15 @@ class MapViewController: UIViewController {
             // TODO: perform validation on textfield
             let address = ((addressAlert.textFields?[0])! as UITextField).text! as String
             
-            GoogleMapsConvenience.forwardGeocodeAddress(address: address, withCompletionHandler: { (status, success) in
-                guard success == true else {
+            GoogleMapsConvenience.geocodeAddress(address: address, withCompletionHandler: { (coordinate, error) in
+                guard error == nil else {
                     // TODO: display error
                     print("There was an error")
                     return
                 }
                 
                 // create marker and center the map
-                
+
                 // load results
             })
         }
