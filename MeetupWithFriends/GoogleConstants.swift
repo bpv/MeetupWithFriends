@@ -30,6 +30,10 @@ struct GoogleConstants {
         static var APIKey = GoogleConstants.settingsDict["googleMapsAPIKey"] as! String
     }
     
+    struct Configuration {
+        static var StartingZoom: Float = 15.0
+    }
+    
     struct Geocoding {
         static var BaseURL = "https://maps.googleapis.com/maps/api/geocode/json"
         
@@ -46,6 +50,11 @@ struct GoogleConstants {
             static var Lat = "lat"
             static var Lon = "lng"
             static var Status = "status"
+        }
+        
+        struct ResponseValues {
+            static var OK = "OK"
+            static var ZeroResults = "ZERO_RESULTS"
         }
     }
 }

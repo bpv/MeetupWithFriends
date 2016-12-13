@@ -10,6 +10,7 @@
 		DA10D7151DFBE1D00083CEBD /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA10D7141DFBE1D00083CEBD /* HistoryTableViewController.swift */; };
 		DA10D7171DFBE2B80083CEBD /* GoogleConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA10D7161DFBE2B80083CEBD /* GoogleConstants.swift */; };
 		DA50B0531DFD1FE1007AE5CA /* GCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA50B0521DFD1FE1007AE5CA /* GCD.swift */; };
+		DA93633E1DFF9B8500FE1676 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA93633D1DFF9B8500FE1676 /* Helpers.swift */; };
 		DAC9B5791DFBDB5F007A5008 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC9B5781DFBDB5F007A5008 /* AppDelegate.swift */; };
 		DAC9B57B1DFBDB5F007A5008 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC9B57A1DFBDB5F007A5008 /* MapViewController.swift */; };
 		DAC9B57E1DFBDB60007A5008 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAC9B57C1DFBDB60007A5008 /* Main.storyboard */; };
@@ -46,6 +47,7 @@
 		DA10D7141DFBE1D00083CEBD /* HistoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
 		DA10D7161DFBE2B80083CEBD /* GoogleConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleConstants.swift; sourceTree = "<group>"; };
 		DA50B0521DFD1FE1007AE5CA /* GCD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCD.swift; sourceTree = "<group>"; };
+		DA93633D1DFF9B8500FE1676 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		DAC9B5751DFBDB5F007A5008 /* MeetupWithFriends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeetupWithFriends.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAC9B5781DFBDB5F007A5008 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DAC9B57A1DFBDB5F007A5008 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				DA50B0521DFD1FE1007AE5CA /* GCD.swift */,
+				DA93633D1DFF9B8500FE1676 /* Helpers.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 				DA50B0531DFD1FE1007AE5CA /* GCD.swift in Sources */,
 				DAC9B57B1DFBDB5F007A5008 /* MapViewController.swift in Sources */,
 				DAE48C5D1DFD11300099E181 /* GoogleMapsConvenience.swift in Sources */,
+				DA93633E1DFF9B8500FE1676 /* Helpers.swift in Sources */,
 				DAC9B5791DFBDB5F007A5008 /* AppDelegate.swift in Sources */,
 				DA10D7171DFBE2B80083CEBD /* GoogleConstants.swift in Sources */,
 				DA10D7151DFBE1D00083CEBD /* HistoryTableViewController.swift in Sources */,

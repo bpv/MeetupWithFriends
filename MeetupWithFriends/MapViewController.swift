@@ -26,7 +26,7 @@ class MapViewController: UIViewController {
         locationManager.requestWhenInUseAuthorization()
         
         // create GMSCamera and assign to map
-        let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 15.0)
+        let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: GoogleConstants.Configuration.StartingZoom)
         googleMapView.camera = camera
         
         // map configuration
@@ -52,14 +52,24 @@ class MapViewController: UIViewController {
             
             GoogleMapsConvenience.geocodeAddress(address: address, withCompletionHandler: { (coordinate, error) in
                 guard error == nil else {
-                    // TODO: display error
-                    print("There was an error")
+                    Helpers.displayError(view: self, errorString: error)
                     return
                 }
                 
-                // create marker and center the map
+                guard let coordinate = coordinate else {
+                    Helpers.displayError(view: self, errorString: "Please try another address or try again later")
+                    return
+                }
+                
+                // create marker
+                let position = CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude)
+                let marker = GMSMarker(position: position)
+                marker.map = self.googleMapView
+                
+                // center the map
+                self.centerMap(latitude: coordinate.latitude, longitude: coordinate.longitude)
 
-                // load results
+                // TODO: load results from Google Places
             })
         }
         
@@ -71,6 +81,12 @@ class MapViewController: UIViewController {
         addressAlert.addAction(closeAction)
         
         present(addressAlert, animated: true, completion: nil)
+    }
+    
+    // center the map on coordinates
+    func centerMap(latitude: Double, longitude: Double) {
+        let camera = GMSCameraPosition.camera(withLatitude: latitude, longitude: longitude, zoom: GoogleConstants.Configuration.StartingZoom)
+        googleMapView.animate(to: camera)
     }
 }
 

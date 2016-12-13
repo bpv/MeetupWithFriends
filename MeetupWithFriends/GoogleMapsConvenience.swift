@@ -28,27 +28,41 @@ class GoogleMapsConvenience {
         
         Alamofire.request(geocodeURL, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).validate().responseJSON { response in
             
+            // shortcut for geocoding constants
+            let constants = GoogleConstants.Geocoding.self
+
             switch response.result {
             case .success:
                 if let jsonObject = response.result.value {
                     let json = JSON(jsonObject)
                     
-                    guard json[GoogleConstants.Geocoding.ResponseKeys.Results].exists() else {
-                        withCompletionHandler(nil, json[GoogleConstants.Geocoding.ResponseKeys.Results].error?.localizedDescription)
+                    guard json[constants.ResponseKeys.Status].stringValue == constants.ResponseValues.OK else {
+                        if json[constants.ResponseKeys.Status].stringValue == constants.ResponseValues.ZeroResults {
+                            withCompletionHandler(nil, "Could not locate that address.  Please try another.")
+                        } else {
+                            // TODO: handle more errors
+                            withCompletionHandler(nil, "Could not locate that address.  Please try another.")
+                        }
+                        
                         return
                     }
                     
-                    guard let firstResult = json[GoogleConstants.Geocoding.ResponseKeys.Results].array?[0].dictionary else {
+                    guard json[constants.ResponseKeys.Results].exists() else {
+                        withCompletionHandler(nil, json[constants.ResponseKeys.Results].error?.localizedDescription)
+                        return
+                    }
+                    
+                    guard let firstResult = json[constants.ResponseKeys.Results].array?[0].dictionary else {
                         withCompletionHandler(nil, "First result did not exist")
                         return
                     }
                     
-                    guard let lat = firstResult[GoogleConstants.Geocoding.ResponseKeys.Geometry]?[GoogleConstants.Geocoding.ResponseKeys.Location][GoogleConstants.Geocoding.ResponseKeys.Lat].double else {
+                    guard let lat = firstResult[constants.ResponseKeys.Geometry]?[GoogleConstants.Geocoding.ResponseKeys.Location][GoogleConstants.Geocoding.ResponseKeys.Lat].double else {
                         withCompletionHandler(nil, "Lat did not exist")
                         return
                     }
                     
-                    guard let lon = firstResult[GoogleConstants.Geocoding.ResponseKeys.Geometry]?[GoogleConstants.Geocoding.ResponseKeys.Location][GoogleConstants.Geocoding.ResponseKeys.Lon].double else {
+                    guard let lon = firstResult[constants.ResponseKeys.Geometry]?[constants.ResponseKeys.Location][constants.ResponseKeys.Lon].double else {
                         withCompletionHandler(nil, "Lon did not exist")
                         return
                     }
