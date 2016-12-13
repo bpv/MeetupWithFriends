@@ -9,7 +9,7 @@
 import Foundation
 
 struct GoogleConstants {
-    static var settingsDict: [String: AnyObject] {
+    private static var settingsDict: [String: AnyObject] {
         var format = PropertyListSerialization.PropertyListFormat.xml //format of the property list
         var plistData:[String:AnyObject] = [:]  //our data
         let plistPath:String? = Bundle.main.path(forResource: "Settings", ofType: "plist")! //the path of the data
