@@ -64,6 +64,7 @@ class MapViewController: UIViewController {
                 // create marker
                 let position = CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude)
                 let marker = GMSMarker(position: position)
+                marker.icon = GMSMarker.markerImage(with: .green)
                 marker.map = self.googleMapView
                 
                 // center the map
