@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleMaps
+import GooglePlaces
 import CoreLocation
 
 class MapViewController: UIViewController {
@@ -15,18 +16,22 @@ class MapViewController: UIViewController {
 
     @IBOutlet weak var googleMapView: GMSMapView!
     var locationManager = CLLocationManager()
+    var placesClient: GMSPlacesClient!
     
     // Mark: View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // set up placesClient
+        placesClient = GMSPlacesClient.shared()
+        
         // set up Core Location
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         
         // create GMSCamera and assign to map
-        let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: GoogleConstants.Configuration.StartingZoom)
+        let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: GoogleConstants.Configuration.startingZoom)
         googleMapView.camera = camera
         
         // map configuration
@@ -70,7 +75,7 @@ class MapViewController: UIViewController {
                 // center the map
                 self.centerMap(latitude: coordinate.latitude, longitude: coordinate.longitude)
 
-                // TODO: load results from Google Places
+                // TODO: load resuts from Places API
             })
         }
         
@@ -86,7 +91,7 @@ class MapViewController: UIViewController {
     
     // center the map on coordinates
     func centerMap(latitude: Double, longitude: Double) {
-        let camera = GMSCameraPosition.camera(withLatitude: latitude, longitude: longitude, zoom: GoogleConstants.Configuration.StartingZoom)
+        let camera = GMSCameraPosition.camera(withLatitude: latitude, longitude: longitude, zoom: GoogleConstants.Configuration.startingZoom)
         googleMapView.animate(to: camera)
     }
 }
