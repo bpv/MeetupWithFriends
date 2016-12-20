@@ -12,6 +12,7 @@ pod 'GoogleMaps'
 pod 'GooglePlaces'
 pod 'Alamofire'
 pod 'SwiftyJSON'
+pod 'iCarousel'
 
 target ‘MeetupWithFriends’ do
 end
