@@ -110,7 +110,6 @@ PODS:
   - GTMSessionFetcher/Core (1.1.7)
   - GTMSessionFetcher/Full (1.1.7):
     - GTMSessionFetcher/Core (= 1.1.7)
-  - iCarousel (1.8.3)
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
@@ -119,6 +118,7 @@ PODS:
     - Fabric
   - TwitterKit (2.7.0):
     - TwitterCore (= 2.7.0)
+  - ZLSwipeableViewSwift (0.0.7)
 
 DEPENDENCIES:
   - Alamofire
@@ -129,8 +129,8 @@ DEPENDENCIES:
   - FirebaseUI
   - GoogleMaps
   - GooglePlaces
-  - iCarousel
   - SwiftyJSON
+  - ZLSwipeableViewSwift
 
 SPEC CHECKSUMS:
   Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
@@ -156,12 +156,12 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 2b2596cbb7186865e98cadf2b1e262d851c2b168
   GTMOAuth2: 7fc9c10f5c745f4d9850419ea88889fe3baa6b7d
   GTMSessionFetcher: a1f8ed39e4fe21c68957daed472c7afbcdf29166
-  iCarousel: d782f635afac190c49bb8ee455882284cff8b85f
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   SwiftyJSON: 38a8ea2006779c0fc4c310cb2ee8195327740faf
   TwitterCore: fbdbeaf6d2d20cf7c7aa4136fe5173c1c85df2e2
   TwitterKit: 97e729ceea041d174126235bf6ff67dcf37772d4
+  ZLSwipeableViewSwift: f5ee94c2e4220f900f5a129118af2aef23062900
 
-PODFILE CHECKSUM: 57cee917ca48d36fb078c37defaa602c6bec2814
+PODFILE CHECKSUM: 927d359897a24d8f6d7e594b57e73e936eb71821
 
 COCOAPODS: 1.1.1
