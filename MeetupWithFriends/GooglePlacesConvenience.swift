@@ -11,13 +11,14 @@ import Alamofire
 import SwiftyJSON
 
 class GooglePlacesConvenience {
-    class func getNearbyPlaces(latitude: Double, longitude: Double, pageToken: String?, withCompletionHandler: @escaping (_ places: Places?, _ error: String?) -> Void) {
+    class func getNearbyPlaces(latitude: Double, longitude: Double, type: String, pageToken: String?, withCompletionHandler: @escaping (_ places: Places?, _ error: String?) -> Void) {
         let url = GoogleConstants.Places.baseURL
         
         let parameters: [String: Any] = [
             GoogleConstants.Places.ParameterKeys.apiKey: GoogleConstants.API.apiKey,
             GoogleConstants.Places.ParameterKeys.location: "\(latitude),\(longitude)",
-            GoogleConstants.Places.ParameterKeys.radius: 5000,
+            GoogleConstants.Places.ParameterKeys.radius: 2500,
+            GoogleConstants.Places.ParameterKeys.type: type
         ]
         
         Alamofire.request(url, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).validate().responseJSON { (response) in

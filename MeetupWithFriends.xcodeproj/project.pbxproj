@@ -23,6 +23,7 @@
 		DAE48C591DFBEDD30099E181 /* Settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAE48C581DFBEDD30099E181 /* Settings.plist */; };
 		DAE48C5B1DFBEE270099E181 /* Settings.Example.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAE48C5A1DFBEE270099E181 /* Settings.Example.plist */; };
 		DAE48C5D1DFD11300099E181 /* GoogleMapsConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE48C5C1DFD11300099E181 /* GoogleMapsConvenience.swift */; };
+		DAE922FB1E08E944009EC66A /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE922FA1E08E944009EC66A /* ActivityViewController.swift */; };
 		DFF1E217A9434046E46659AE /* Pods_MeetupWithFriends.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53AFE76579E9121851EC8100 /* Pods_MeetupWithFriends.framework */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +69,7 @@
 		DAE48C581DFBEDD30099E181 /* Settings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
 		DAE48C5A1DFBEE270099E181 /* Settings.Example.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Settings.Example.plist; sourceTree = "<group>"; };
 		DAE48C5C1DFD11300099E181 /* GoogleMapsConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleMapsConvenience.swift; sourceTree = "<group>"; };
+		DAE922FA1E08E944009EC66A /* ActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		F510727C48D8F9CFC33CF186 /* Pods-MeetupWithFriends.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeetupWithFriends.release.xcconfig"; path = "Pods/Target Support Files/Pods-MeetupWithFriends/Pods-MeetupWithFriends.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -119,6 +121,7 @@
 			children = (
 				DAC9B57A1DFBDB5F007A5008 /* MapViewController.swift */,
 				DA10D7141DFBE1D00083CEBD /* HistoryTableViewController.swift */,
+				DAE922FA1E08E944009EC66A /* ActivityViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -414,6 +417,7 @@
 				DA50B0531DFD1FE1007AE5CA /* GCD.swift in Sources */,
 				DAC9B57B1DFBDB5F007A5008 /* MapViewController.swift in Sources */,
 				DA9363421DFFE14300FE1676 /* GooglePlacesConvenience.swift in Sources */,
+				DAE922FB1E08E944009EC66A /* ActivityViewController.swift in Sources */,
 				DAE48C5D1DFD11300099E181 /* GoogleMapsConvenience.swift in Sources */,
 				DA93633E1DFF9B8500FE1676 /* Helpers.swift in Sources */,
 				DAC9B5791DFBDB5F007A5008 /* AppDelegate.swift in Sources */,

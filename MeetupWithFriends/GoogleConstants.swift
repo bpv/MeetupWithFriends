@@ -31,7 +31,7 @@ struct GoogleConstants {
     }
     
     struct Configuration {
-        static var startingZoom: Float = 15.0
+        static var startingZoom: Float = 14.0
     }
     
     struct Geocoding {

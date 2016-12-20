@@ -18,6 +18,7 @@ class MapViewController: UIViewController {
     var locationManager = CLLocationManager()
     var placesClient: GMSPlacesClient!
     var places: Places!
+    var type: String!
     
     // Mark: View Lifecycle
     
@@ -92,7 +93,7 @@ class MapViewController: UIViewController {
     
     func loadNearbyPlaces(latitude: Double, longitude: Double, pageToken: String?) {
         // load resuts from Places API
-        GooglePlacesConvenience.getNearbyPlaces(latitude: latitude, longitude: longitude, pageToken: nil, withCompletionHandler: { (places, error) in
+        GooglePlacesConvenience.getNearbyPlaces(latitude: latitude, longitude: longitude, type: type, pageToken: nil, withCompletionHandler: { (places, error) in
             
             guard error == nil else {
                 Helpers.displayError(view: self, errorString: error)
@@ -120,7 +121,7 @@ class MapViewController: UIViewController {
                 } catch {
                     continue
                 }
-                marker.icon = UIImage(data: data, scale: 2)
+                marker.icon = UIImage(data: data, scale: 3)
                 marker.map = self.googleMapView
             }
         }
