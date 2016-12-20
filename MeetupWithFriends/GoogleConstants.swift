@@ -45,7 +45,7 @@ struct GoogleConstants {
     }
     
     struct Places {
-        static var baseURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/output"
+        static var baseURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
         
         struct ParameterKeys {
             static var apiKey = "key"

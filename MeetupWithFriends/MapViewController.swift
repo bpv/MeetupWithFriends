@@ -17,6 +17,7 @@ class MapViewController: UIViewController {
     @IBOutlet weak var googleMapView: GMSMapView!
     var locationManager = CLLocationManager()
     var placesClient: GMSPlacesClient!
+    var places: Places!
     
     // Mark: View Lifecycle
     
@@ -56,6 +57,7 @@ class MapViewController: UIViewController {
             let address = ((addressAlert.textFields?[0])! as UITextField).text! as String
             
             GoogleMapsConvenience.geocodeAddress(address: address, withCompletionHandler: { (coordinate, error) in
+                
                 guard error == nil else {
                     Helpers.displayError(view: self, errorString: error)
                     return
@@ -69,13 +71,12 @@ class MapViewController: UIViewController {
                 // create marker
                 let position = CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude)
                 let marker = GMSMarker(position: position)
-                marker.icon = GMSMarker.markerImage(with: .green)
                 marker.map = self.googleMapView
                 
                 // center the map
                 self.centerMap(latitude: coordinate.latitude, longitude: coordinate.longitude)
-
-                // TODO: load resuts from Places API
+                
+                self.loadNearbyPlaces(latitude: coordinate.latitude, longitude: coordinate.longitude, pageToken: nil)
             })
         }
         
@@ -87,6 +88,42 @@ class MapViewController: UIViewController {
         addressAlert.addAction(closeAction)
         
         present(addressAlert, animated: true, completion: nil)
+    }
+    
+    func loadNearbyPlaces(latitude: Double, longitude: Double, pageToken: String?) {
+        // load resuts from Places API
+        GooglePlacesConvenience.getNearbyPlaces(latitude: latitude, longitude: longitude, pageToken: nil, withCompletionHandler: { (places, error) in
+            
+            guard error == nil else {
+                Helpers.displayError(view: self, errorString: error)
+                return
+            }
+            
+            self.places = places
+
+            self.createMarkers()
+        })
+    }
+    
+    func createMarkers() {
+        performUIUpdatesOnMain {
+            for place in self.places.places {
+                let position = CLLocationCoordinate2D(latitude: place.latitude, longitude: place.longitude)
+                let marker = GMSMarker(position: position)
+                marker.title = place.name
+                
+                // get the image
+                // TODO: cache icon images
+                var data: Data
+                do {
+                    data = try Data(contentsOf: URL(string: place.icon)!)
+                } catch {
+                    continue
+                }
+                marker.icon = UIImage(data: data, scale: 2)
+                marker.map = self.googleMapView
+            }
+        }
     }
     
     // center the map on coordinates
