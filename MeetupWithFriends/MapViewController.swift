@@ -103,6 +103,8 @@ class MapViewController: UIViewController {
             self.places = places
 
             self.createMarkers()
+            
+            self.displayCards()
         })
     }
     
@@ -131,6 +133,12 @@ class MapViewController: UIViewController {
     func centerMap(latitude: Double, longitude: Double) {
         let camera = GMSCameraPosition.camera(withLatitude: latitude, longitude: longitude, zoom: GoogleConstants.Configuration.startingZoom)
         googleMapView.animate(to: camera)
+    }
+    
+    func displayCards() {
+        let controller = storyboard?.instantiateViewController(withIdentifier: "PlaceCardViewController") as! PlaceCardViewController
+        
+        present(controller, animated: true, completion: nil)
     }
 }
 
