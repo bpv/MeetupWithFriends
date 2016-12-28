@@ -45,7 +45,12 @@ struct GoogleConstants {
     }
     
     struct Places {
-        static var baseURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
+        static var baseURL = "https://maps.googleapis.com/maps/api/place/"
+        
+        struct Methods {
+            static var nearbySearch = "nearbysearch/json"
+            static var photo = "photo"
+        }
         
         struct ParameterKeys {
             static var apiKey = "key"
@@ -54,6 +59,10 @@ struct GoogleConstants {
             static var rankBy = "rankby"
             static var type = "type"
             static var pageToken = "pagetoken"
+            
+            static var photoReference = "photoreference"
+            static var maxHeight = "maxheight"
+            static var maxWidth = "maxWidth"
         }
     }
     
@@ -75,6 +84,12 @@ struct GoogleConstants {
         static var rating = "rating"
         static var types = "types"
         static var nextPageToken = "next_page_token"
+        
+        // Place photo specific keys
+        static var height = "height"
+        static var width = "width"
+        static var htmlAttributions = "html_attributions"
+        static var photoReference = "photo_reference"
     }
     
     struct ResponseValues {

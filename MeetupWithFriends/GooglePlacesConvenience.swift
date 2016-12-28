@@ -12,7 +12,8 @@ import SwiftyJSON
 
 class GooglePlacesConvenience {
     class func getNearbyPlaces(latitude: Double, longitude: Double, type: String, pageToken: String?, withCompletionHandler: @escaping (_ places: Places?, _ error: String?) -> Void) {
-        let url = GoogleConstants.Places.baseURL
+        
+        let url = GoogleConstants.Places.baseURL + GoogleConstants.Places.Methods.nearbySearch
         
         let parameters: [String: Any] = [
             GoogleConstants.Places.ParameterKeys.apiKey: GoogleConstants.API.apiKey,
@@ -51,15 +52,36 @@ class GooglePlacesConvenience {
                     
                     var placesToReturn = [Place]()
                     for place in places {
-                        guard let placeDict = place.dictionary else {
-                            withCompletionHandler(nil, "There was an error. Please try again.")
-                            return
-                        }
-                        
                         placesToReturn.append(Place(json: place))
                     }
                     
                     withCompletionHandler(Places(places: placesToReturn, nextPageToken: json[GoogleConstants.ResponseKeys.nextPageToken].stringValue), nil)
+                }
+            case .failure(let error):
+                withCompletionHandler(nil, error.localizedDescription)
+            }
+        }
+    }
+    
+    class func getPlacePhoto(reference: String, maxWidth: Int, maxHeight: Int, withCompletionHandler: @escaping (_ photo: UIImage?, _ error: String?) -> Void) {
+        
+        let url = GoogleConstants.Places.baseURL + GoogleConstants.Places.Methods.photo
+        
+        let parameters: [String: Any] = [
+            GoogleConstants.Places.ParameterKeys.apiKey: GoogleConstants.API.apiKey,
+            GoogleConstants.Places.ParameterKeys.photoReference: reference,
+            GoogleConstants.Places.ParameterKeys.maxWidth: maxWidth,
+            GoogleConstants.Places.ParameterKeys.maxHeight: maxHeight
+        ]
+        
+        Alamofire.request(url, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).validate().responseData { (response) in
+            
+            switch response.result {
+            case .success:
+                if let data = response.result.value {
+                    withCompletionHandler(UIImage(data: data), nil)
+                } else {
+                    withCompletionHandler(nil, "No image was returned")
                 }
             case .failure(let error):
                 withCompletionHandler(nil, error.localizedDescription)

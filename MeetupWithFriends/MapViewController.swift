@@ -138,6 +138,9 @@ class MapViewController: UIViewController {
     func displayCards() {
         let controller = storyboard?.instantiateViewController(withIdentifier: "PlaceCardViewController") as! PlaceCardViewController
         
+        // load places
+        controller.places = places
+            
         present(controller, animated: true, completion: nil)
     }
 }

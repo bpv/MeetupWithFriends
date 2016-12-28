@@ -9,13 +9,7 @@
 /* Begin PBXBuildFile section */
 		DA10D7151DFBE1D00083CEBD /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA10D7141DFBE1D00083CEBD /* HistoryTableViewController.swift */; };
 		DA10D7171DFBE2B80083CEBD /* GoogleConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA10D7161DFBE2B80083CEBD /* GoogleConstants.swift */; };
-		DA23235D1E0A2613003F4AD2 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA23235C1E0A2613003F4AD2 /* CardView.swift */; };
-		DA23235F1E0A261C003F4AD2 /* CardContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA23235E1E0A261C003F4AD2 /* CardContentView.xib */; };
 		DA50B0531DFD1FE1007AE5CA /* GCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA50B0521DFD1FE1007AE5CA /* GCD.swift */; };
-		DA5C4C1F1E0A1FFF00BC88E8 /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5C4C1B1E0A1FFF00BC88E8 /* Direction.swift */; };
-		DA5C4C201E0A1FFF00BC88E8 /* Scheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5C4C1C1E0A1FFF00BC88E8 /* Scheduler.swift */; };
-		DA5C4C211E0A1FFF00BC88E8 /* ViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5C4C1D1E0A1FFF00BC88E8 /* ViewManager.swift */; };
-		DA5C4C221E0A1FFF00BC88E8 /* ZLSwipeableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5C4C1E1E0A1FFF00BC88E8 /* ZLSwipeableView.swift */; };
 		DA5C4C251E0A21B700BC88E8 /* PlaceCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5C4C241E0A21B700BC88E8 /* PlaceCardViewController.swift */; };
 		DA72EAF31E00F75C00066674 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA72EAF21E00F75C00066674 /* Place.swift */; };
 		DA93633E1DFF9B8500FE1676 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA93633D1DFF9B8500FE1676 /* Helpers.swift */; };
@@ -56,13 +50,8 @@
 		7A539F2F5DCEE0315F3B887B /* Pods-MeetupWithFriends.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeetupWithFriends.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MeetupWithFriends/Pods-MeetupWithFriends.debug.xcconfig"; sourceTree = "<group>"; };
 		DA10D7141DFBE1D00083CEBD /* HistoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
 		DA10D7161DFBE2B80083CEBD /* GoogleConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleConstants.swift; sourceTree = "<group>"; };
-		DA23235C1E0A2613003F4AD2 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
-		DA23235E1E0A261C003F4AD2 /* CardContentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardContentView.xib; sourceTree = "<group>"; };
 		DA50B0521DFD1FE1007AE5CA /* GCD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCD.swift; sourceTree = "<group>"; };
-		DA5C4C1B1E0A1FFF00BC88E8 /* Direction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
-		DA5C4C1C1E0A1FFF00BC88E8 /* Scheduler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scheduler.swift; sourceTree = "<group>"; };
-		DA5C4C1D1E0A1FFF00BC88E8 /* ViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewManager.swift; sourceTree = "<group>"; };
-		DA5C4C1E1E0A1FFF00BC88E8 /* ZLSwipeableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZLSwipeableView.swift; sourceTree = "<group>"; };
+		DA5304C71E0F695300EFCD49 /* SwiftExample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftExample-Bridging-Header.h"; sourceTree = "<group>"; };
 		DA5C4C241E0A21B700BC88E8 /* PlaceCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCardViewController.swift; sourceTree = "<group>"; };
 		DA72EAF21E00F75C00066674 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		DA93633D1DFF9B8500FE1676 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
@@ -152,8 +141,6 @@
 		DA10D7131DFBDD4B0083CEBD /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				DA23235C1E0A2613003F4AD2 /* CardView.swift */,
-				DA23235E1E0A261C003F4AD2 /* CardContentView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -178,22 +165,10 @@
 			name = Helpers;
 			sourceTree = "<group>";
 		};
-		DA5C4C231E0A200C00BC88E8 /* ZLSwipeableViewSwift */ = {
-			isa = PBXGroup;
-			children = (
-				DA5C4C1B1E0A1FFF00BC88E8 /* Direction.swift */,
-				DA5C4C1C1E0A1FFF00BC88E8 /* Scheduler.swift */,
-				DA5C4C1D1E0A1FFF00BC88E8 /* ViewManager.swift */,
-				DA5C4C1E1E0A1FFF00BC88E8 /* ZLSwipeableView.swift */,
-			);
-			name = ZLSwipeableViewSwift;
-			sourceTree = "<group>";
-		};
 		DAC9B56C1DFBDB5F007A5008 = {
 			isa = PBXGroup;
 			children = (
 				DAC9B5771DFBDB5F007A5008 /* MeetupWithFriends */,
-				DA5C4C231E0A200C00BC88E8 /* ZLSwipeableViewSwift */,
 				DAC9B58C1DFBDB60007A5008 /* MeetupWithFriendsTests */,
 				DAC9B5971DFBDB60007A5008 /* MeetupWithFriendsUITests */,
 				DAC9B5761DFBDB5F007A5008 /* Products */,
@@ -216,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				DAC9B5781DFBDB5F007A5008 /* AppDelegate.swift */,
+				DA5304C71E0F695300EFCD49 /* SwiftExample-Bridging-Header.h */,
 				DA10D7111DFBDD3C0083CEBD /* Controllers */,
 				DA10D7121DFBDD450083CEBD /* Models */,
 				DA10D7131DFBDD4B0083CEBD /* Views */,
@@ -366,7 +342,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA23235F1E0A261C003F4AD2 /* CardContentView.xib in Resources */,
 				DAC9B5831DFBDB60007A5008 /* LaunchScreen.storyboard in Resources */,
 				DAE48C591DFBEDD30099E181 /* Settings.plist in Resources */,
 				DAC9B5801DFBDB60007A5008 /* Assets.xcassets in Resources */,
@@ -450,16 +425,11 @@
 				DAE922FB1E08E944009EC66A /* ActivityViewController.swift in Sources */,
 				DAE48C5D1DFD11300099E181 /* GoogleMapsConvenience.swift in Sources */,
 				DA93633E1DFF9B8500FE1676 /* Helpers.swift in Sources */,
-				DA5C4C1F1E0A1FFF00BC88E8 /* Direction.swift in Sources */,
 				DA5C4C251E0A21B700BC88E8 /* PlaceCardViewController.swift in Sources */,
-				DA5C4C211E0A1FFF00BC88E8 /* ViewManager.swift in Sources */,
 				DAC9B5791DFBDB5F007A5008 /* AppDelegate.swift in Sources */,
 				DA72EAF31E00F75C00066674 /* Place.swift in Sources */,
-				DA5C4C201E0A1FFF00BC88E8 /* Scheduler.swift in Sources */,
 				DA10D7171DFBE2B80083CEBD /* GoogleConstants.swift in Sources */,
 				DA10D7151DFBE1D00083CEBD /* HistoryTableViewController.swift in Sources */,
-				DA23235D1E0A2613003F4AD2 /* CardView.swift in Sources */,
-				DA5C4C221E0A1FFF00BC88E8 /* ZLSwipeableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,67 +7,24 @@
 //
 
 import UIKit
-import Cartography
-
-public func +(lhs: CGPoint, rhs: CGPoint) -> CGPoint {
-    return CGPoint(x: lhs.x + rhs.x, y: lhs.y + rhs.y)
-}
+import iCarousel
 
 class PlaceCardViewController: UIViewController {
     
     // Mark: Properties
     
-    @IBOutlet weak var swipeableView: ZLSwipeableView!
-    let backgroundColor = UIColor.groupTableViewBackground
-    var loadCardsFromXib = false
+    @IBOutlet weak var carousel: iCarousel!
+    
+    var places: Places!
+    var placeIndex: Int = 0
     
     // Mark: View Lifecycle
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        swipeableView.nextView = {
-            return self.nextCardView()
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.clipsToBounds = true
         
-        // debug text
-        swipeableView.didStart = {view, location in
-            print("Did start swiping view at location: \(location)")
-        }
-        swipeableView.swiping = {view, location, translation in
-            print("Swiping at view location: \(location) translation: \(translation)")
-        }
-        swipeableView.didEnd = {view, location in
-            print("Did end swiping view at location: \(location)")
-        }
-        swipeableView.didSwipe = {view, direction, vector in
-            print("Did swipe view in direction: \(direction), vector: \(vector)")
-        }
-        swipeableView.didCancel = {view in
-            print("Did cancel swiping view")
-        }
-        swipeableView.didTap = {view, location in
-            print("Did tap at location \(location)")
-        }
-        swipeableView.didDisappear = { view in
-            print("Did disappear swiping view")
-        }
-        
-        
-        swipeableView.numberOfHistoryItem = UInt.max
-        swipeableView.allowedDirection = Direction.All
-        
-        swipeableView.previousView = {
-            if let view = self.nextCardView() {
-                self.applyRandomTansform(view)
-                return view
-            }
-            return nil
-        }
+        carousel.delegate = self
+        carousel.dataSource = self
     }
     
     // MARK: - Actions
@@ -75,54 +32,81 @@ class PlaceCardViewController: UIViewController {
     @IBAction func closeButtonClicked() {
         self.dismiss(animated: true, completion: nil)
     }
-    
-    @IBAction func previousButtonClicked() {
-        self.swipeableView.rewind()
-    }
-    
-    // MARK: ()
-    func nextCardView() -> UIView? {
-        
-        let cardView = CardView(frame: swipeableView.bounds)
-        cardView.backgroundColor = backgroundColor
-        
-        if loadCardsFromXib {
-            let contentView = Bundle.main.loadNibNamed("CardContentView", owner: self, options: nil)?.first! as! UIView
-            contentView.translatesAutoresizingMaskIntoConstraints = false
-            contentView.backgroundColor = cardView.backgroundColor
-            cardView.addSubview(contentView)
-            
-            // This is important:
-            // https://github.com/zhxnlai/ZLSwipeableView/issues/9
-            /*// Alternative:
-             let metrics = ["width":cardView.bounds.width, "height": cardView.bounds.height]
-             let views = ["contentView": contentView, "cardView": cardView]
-             cardView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[contentView(width)]", options: .AlignAllLeft, metrics: metrics, views: views))
-             cardView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[contentView(height)]", options: .AlignAllLeft, metrics: metrics, views: views))
-             */
-            constrain(contentView, cardView) { view1, view2 in
-                view1.left == view2.left
-                view1.top == view2.top
-                view1.width == cardView.bounds.width
-                view1.height == cardView.bounds.height
-            }
-        }
-        return cardView
-    }
-    
-    func applyRandomTansform(_ view: UIView) {
-        let width = swipeableView.bounds.width
-        let height = swipeableView.bounds.height
-        let distance = max(width, height)
-        
-        func randomRadian() -> CGFloat {
-            return CGFloat(arc4random() % 360)  * CGFloat(M_PI / 180)
-        }
-        
-        var transform = CGAffineTransform(rotationAngle: randomRadian())
-        transform = transform.translatedBy(x: distance, y: 0)
-        transform = transform.rotated(by: randomRadian())
-        view.transform = transform
-    }
 
+}
+
+// Mark: - iCarouselDelegate, iCarouselDataSource
+extension PlaceCardViewController: iCarouselDelegate, iCarouselDataSource {
+    
+    func numberOfItems(in carousel: iCarousel) -> Int {
+        return places.places.count
+    }
+    
+    func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
+
+        var contentView: UIView
+        var image: UIImageView
+        var label: UILabel
+        let place = places.places[index]
+        
+        //reuse view if available, otherwise create a new view
+        if let view = view as? UIImageView {
+            contentView = view
+            //get a reference to the label in the recycled view
+            image = contentView.viewWithTag(1) as! UIImageView
+            label = contentView.viewWithTag(2) as! UILabel
+        } else {
+            //don't do anything specific to the index within
+            //this `if ... else` statement because the view will be
+            //recycled and used with other index values later
+            contentView = UIView(frame: CGRect(x: -20, y: -20, width: carousel.frame.width - 40, height: carousel.frame.height - 40))
+            contentView.backgroundColor = UIColor.lightGray
+            contentView.layer.borderWidth = 2.0
+            contentView.layer.borderColor = UIColor.red.cgColor
+            
+            // set the image
+            image = UIImageView(frame: CGRect(x: 0, y: 0, width: contentView.frame.width, height: contentView.frame.height * 0.25))
+            image.tag = 1
+            contentView.addSubview(image)
+            
+            // set the label
+            label = UILabel(frame: CGRect(x: 0, y: image.frame.height + 1, width: contentView.frame.width, height: 40))
+            label.textAlignment = .center
+            label.font = label.font.withSize(20)
+            label.tag = 2
+            contentView.addSubview(label)
+        }
+        
+        //set item label
+        //remember to always set any properties of your carousel item
+        //views outside of the `if (view == nil) {...}` check otherwise
+        //you'll get weird issues with carousel item content appearing
+        //in the wrong place in the carousel
+        
+        GooglePlacesConvenience.getPlacePhoto(reference: place.photos[0]["photo_reference"] as! String, maxWidth: Int(image.frame.width), maxHeight: Int(image.frame.width), withCompletionHandler: { (photo, error) in
+            
+            performUIUpdatesOnMain {
+                image.image = photo
+            }
+        })
+        
+        label.text = "\(places.places[index].name)"
+        
+        return contentView
+    }
+    
+    func carousel(_ carousel: iCarousel, valueFor option: iCarouselOption, withDefault value: CGFloat) -> CGFloat {
+        
+        var newValue: CGFloat
+        switch option {
+        case .spacing:
+            newValue = 1.2
+            break
+        default:
+            newValue = value
+            break
+        }
+        
+        return newValue
+    }
 }
