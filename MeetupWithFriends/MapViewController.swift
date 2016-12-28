@@ -135,7 +135,7 @@ class MapViewController: UIViewController {
         googleMapView.animate(to: camera)
     }
     
-    func displayCards() {
+    @IBAction func displayCards() {
         let controller = storyboard?.instantiateViewController(withIdentifier: "PlaceCardViewController") as! PlaceCardViewController
         
         // load places
