@@ -17,10 +17,11 @@ struct Place {
     var name: String
     var openNow: Bool
     var photos = [[String: Any]]()
-    var placeID: String
+    var placeID = String()
     var priceLevel: GMSPlacesPriceLevel
     var rating: Double
     var types: [String]
+    var placeDetails: PlaceDetails?
     
     init(json: SwiftyJSON.JSON) {
         let keys = GoogleConstants.ResponseKeys.self
@@ -68,73 +69,70 @@ struct Place {
     }
     
     // get details separately so we're not making several calls to the Google Place Details API when loading search results.
-    func getPlaceDetails(withCompletionHandler: @escaping (_ details: Place.PlaceDetails?, _ error: String?) -> Void) {
+    func getPlaceDetails(withCompletionHandler: @escaping (_ details: PlaceDetails?, _ error: String?) -> Void) {
         
-        GooglePlacesConvenience.getPlaceDetails(placeID: placeID, withCompletionHandler: { (placeDetails, error) in
+        GooglePlacesConvenience.getPlaceDetails(placeID: placeID, withCompletionHandler: { (details, error) in
             
             guard error == nil else {
                 withCompletionHandler(nil, error)
                 return
             }
             
-            if let placeDetails = placeDetails {
-                withCompletionHandler(placeDetails, nil)
+            if let details = details {
+                withCompletionHandler(details, nil)
             }
         })
     }
     
-    func getPlaceDetailsArrayForDisplay(withCompletionHandler: @escaping (_ details: [Any]?, _ error: String?) -> Void) {
+    func getPlaceDetailsArrayForDisplay() -> [Any] {
         
         let openNowString = openNow ? "Yes" : "No"
         let priceLevelString = String(repeating: "$", count: priceLevel.rawValue)
-            
-        self.getPlaceDetails { (placeDetails, error) in
-            guard error == nil else {
-                withCompletionHandler(nil, error)
-                return
-            }
-            
-            if let placeDetails = placeDetails {
-                let detailsArray: [Any] = [
-                    ["Open Now", openNowString],
-                    ["Price", priceLevelString],
-                    ["Rating", String(describing: self.rating)],
-                    ["Address", placeDetails.address],
-                    ["Phone", placeDetails.phoneNumber],
-                    ["Website", String(describing: placeDetails.website!)],
-                    ["Latitude", String(describing: self.latitude)],
-                    ["Longitude", String(describing: self.longitude)],
-                    // TODO: implement later
-                    //["Attributions", placeDetails.attributions],
-                ]
-                
-                withCompletionHandler(detailsArray, nil)
-            }
-        }
+        
+        let detailsArray: [Any] = [
+            ["Open Now", openNowString],
+            ["Price", priceLevelString],
+            ["Rating", String(describing: self.rating)],
+            ["Address", placeDetails!.address],
+            ["Phone", placeDetails!.phoneNumber],
+            ["Website", placeDetails!.website],
+            ["Latitude", String(describing: self.latitude)],
+            ["Longitude", String(describing: self.longitude)],
+            // TODO: implement later
+            //["Attributions", placeDetails.attributions],
+        ]
+        
+        return detailsArray
     }
     
 
     struct PlaceDetails {
         var address: String?
         var phoneNumber: String?
-        var website: URL?
-        var attributions: NSAttributedString?
+        var website: String?
+        // TODO: deal with attributions
+        //var attributions: String?
+        var url: String
         
-        init(place: GMSPlace) {
-            if let address = place.formattedAddress {
-                self.address = address
+        init(json: [String: SwiftyJSON.JSON]) {
+            let keys = GoogleConstants.ResponseKeys.self
+            
+            if let address = json[keys.formattedAddress] {
+                self.address = address.stringValue
             }
             
-            if let phoneNumber = place.phoneNumber {
-                self.phoneNumber = phoneNumber
+            if let phoneNumber = json[keys.formattedPhoneNumber] {
+                self.phoneNumber = phoneNumber.stringValue
             }
             
-            if let website = place.website {
-                self.website = website
+            if let website = json[keys.website] {
+                self.website = website.stringValue
             }
             
-            if let attributions = place.attributions {
-                self.attributions = attributions
+            if let url = json[keys.url] {
+                self.url = url.stringValue
+            } else {
+                self.url = ""
             }
         }
     }

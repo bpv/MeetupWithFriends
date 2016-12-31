@@ -66,19 +66,47 @@ class GooglePlacesConvenience {
     
     class func getPlaceDetails(placeID: String, withCompletionHandler: @escaping (_ data: Place.PlaceDetails?, _ error: String?) -> Void) {
         
-        let placesClient = GMSPlacesClient.shared()
+        let url = GoogleConstants.Places.baseURL + GoogleConstants.Places.Methods.details
         
-        placesClient.lookUpPlaceID(placeID, callback: { (place, error) -> Void in
+        let parameters: [String: Any] = [
+            GoogleConstants.Places.ParameterKeys.apiKey: GoogleConstants.API.apiKey,
+            GoogleConstants.Places.ParameterKeys.placeID: placeID
+        ]
+        
+        Alamofire.request(url, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).validate().responseJSON { (response) in
             
-            guard error == nil else {
-                withCompletionHandler(nil, "Lookup PlaceID query error: \(error?.localizedDescription)")
-                return
+            switch response.result {
+            case .success:
+                if let jsonObject = response.result.value {
+                    let json = JSON(jsonObject)
+                    
+                    guard json[GoogleConstants.ResponseKeys.status].stringValue == GoogleConstants.ResponseValues.StatusValues.ok else {
+                        if json[GoogleConstants.ResponseKeys.status].stringValue == GoogleConstants.ResponseValues.StatusValues.zeroResults {
+                            withCompletionHandler(nil, "No results found. Please try again later.")
+                        } else {
+                            // TODO: handle more errors
+                            withCompletionHandler(nil, "There was an error. Please try again later.")
+                        }
+                        
+                        return
+                    }
+                    
+                    guard json[GoogleConstants.ResponseKeys.result].exists() else {
+                        withCompletionHandler(nil, json[GoogleConstants.ResponseKeys.result].error?.localizedDescription)
+                        return
+                    }
+                    
+                    guard let detailsJSON = json[GoogleConstants.ResponseKeys.result].dictionary else {
+                        withCompletionHandler(nil, "There were no results. Please try again later.")
+                        return
+                    }
+                
+                    withCompletionHandler(Place.PlaceDetails(json: detailsJSON), nil)
+                }
+            case .failure(let error):
+                withCompletionHandler(nil, error.localizedDescription)
             }
-            
-            if let place = place {
-                withCompletionHandler(Place.PlaceDetails(place: place), nil)
-            }
-        })
+        }
     }
     
     class func getPlacePhoto(reference: String, maxWidth: Int, maxHeight: Int, withCompletionHandler: @escaping (_ photo: UIImage?, _ error: String?) -> Void) {

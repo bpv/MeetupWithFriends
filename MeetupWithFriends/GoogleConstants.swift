@@ -50,6 +50,7 @@ struct GoogleConstants {
         struct Methods {
             static var nearbySearch = "nearbysearch/json"
             static var photo = "photo"
+            static var details = "details/json"
         }
         
         struct ParameterKeys {
@@ -63,19 +64,23 @@ struct GoogleConstants {
             static var photoReference = "photoreference"
             static var maxHeight = "maxheight"
             static var maxWidth = "maxWidth"
+            
+            static var placeID = "placeid"
         }
     }
     
     struct ResponseKeys {
         static var results = "results"
+        static var result = "result"
         static var id = "id"
         static var geometry = "geometry"
         static var location = "location"
         static var lat = "lat"
         static var lon = "lng"
         static var status = "status"
+        static var htmlAttributions = "html_attributions"
         
-        // Places API specifc keys
+        // Places Nearby specifc keys
         static var icon = "icon"
         static var name = "name"
         static var openingHours = "opening_hours"
@@ -86,11 +91,16 @@ struct GoogleConstants {
         static var types = "types"
         static var nextPageToken = "next_page_token"
         
-        // Place photo specific keys
+        // Place Photo specific keys
         static var height = "height"
         static var width = "width"
-        static var htmlAttributions = "html_attributions"
         static var photoReference = "photo_reference"
+        
+        // Place Details specific keys
+        static var formattedAddress = "formatted_address"
+        static var formattedPhoneNumber = "formatted_phone_number"
+        static var website = "website"
+        static var url = "url"
     }
     
     struct ResponseValues {

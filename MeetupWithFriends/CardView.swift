@@ -18,7 +18,7 @@ class CardView: UIView {
     let nibName = "CardView"
     var view: CardView!
     var place: Place!
-    var placeDetails = [Any]()
+    var placeDetailsArray = [Any]()
     
     // Mark: Initializers
     
@@ -48,22 +48,34 @@ class CardView: UIView {
     }
     
     @IBAction func shareButtonPressed(_ sender: Any) {
-        
+        /*
+        if let details = placeDetails {
+            let url = URL(string: details.url)
+            
+            let activityVC = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+            // for iPads
+            activityVC.popoverPresentationController?.sourceView = self.view
+            
+            self.window.
+        }*/ // TODO: what should be done if details not present
     }
     
     func loadPlaceDetails() {
-        place.getPlaceDetailsArrayForDisplay { (details, error) in
-            
+        place.getPlaceDetails { (placeDetails, error) in
             performUIUpdatesOnMain {
                 guard error == nil else {
+                    // TODO: delegate error to VC
                     print(error)
                     return
                 }
                 
-                if let details = details {
-                    self.placeDetails = details
-                    self.detailsTable.reloadData()
-                }
+                // set the details
+                self.place.placeDetails = placeDetails
+                
+                self.placeDetailsArray = self.place.getPlaceDetailsArrayForDisplay()
+                
+                // reload the table
+                self.detailsTable.reloadData()
             }
         }
     }
@@ -95,14 +107,14 @@ extension CardView {
 
 extension CardView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return placeDetails.count
+        return placeDetailsArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: PlaceAttributeCell.reuseIdentifier, for: indexPath) as! PlaceAttributeCell
         
-        let placeDetail = placeDetails[indexPath.item] as! [String]
+        let placeDetail = placeDetailsArray[indexPath.item] as! [String]
         
         cell.propertyName.text = placeDetail[0]
         cell.propertyValue.text = placeDetail[1]
