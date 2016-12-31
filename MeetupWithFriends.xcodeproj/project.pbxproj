@@ -26,6 +26,9 @@
 		DAC9B5831DFBDB60007A5008 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAC9B5811DFBDB60007A5008 /* LaunchScreen.storyboard */; };
 		DAC9B58E1DFBDB60007A5008 /* MeetupWithFriendsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC9B58D1DFBDB60007A5008 /* MeetupWithFriendsTests.swift */; };
 		DAC9B5991DFBDB60007A5008 /* MeetupWithFriendsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC9B5981DFBDB60007A5008 /* MeetupWithFriendsUITests.swift */; };
+		DACCD1391E183E560071C04E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DACCD1381E183E560071C04E /* GoogleService-Info.plist */; };
+		DACCD13A1E183E560071C04E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DACCD1381E183E560071C04E /* GoogleService-Info.plist */; };
+		DACCD13B1E183E560071C04E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DACCD1381E183E560071C04E /* GoogleService-Info.plist */; };
 		DAE48C591DFBEDD30099E181 /* Settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAE48C581DFBEDD30099E181 /* Settings.plist */; };
 		DAE48C5B1DFBEE270099E181 /* Settings.Example.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAE48C5A1DFBEE270099E181 /* Settings.Example.plist */; };
 		DAE48C5D1DFD11300099E181 /* GoogleMapsConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE48C5C1DFD11300099E181 /* GoogleMapsConvenience.swift */; };
@@ -79,6 +82,7 @@
 		DAC9B5941DFBDB60007A5008 /* MeetupWithFriendsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeetupWithFriendsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAC9B5981DFBDB60007A5008 /* MeetupWithFriendsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetupWithFriendsUITests.swift; sourceTree = "<group>"; };
 		DAC9B59A1DFBDB60007A5008 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DACCD1381E183E560071C04E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DAE48C581DFBEDD30099E181 /* Settings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
 		DAE48C5A1DFBEE270099E181 /* Settings.Example.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Settings.Example.plist; sourceTree = "<group>"; };
 		DAE48C5C1DFD11300099E181 /* GoogleMapsConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleMapsConvenience.swift; sourceTree = "<group>"; };
@@ -243,6 +247,7 @@
 				DAC9B5841DFBDB60007A5008 /* Info.plist */,
 				DAE48C581DFBEDD30099E181 /* Settings.plist */,
 				DAE48C5A1DFBEE270099E181 /* Settings.Example.plist */,
+				DACCD1381E183E560071C04E /* GoogleService-Info.plist */,
 			);
 			name = Config;
 			sourceTree = "<group>";
@@ -364,6 +369,7 @@
 				DAC9B5801DFBDB60007A5008 /* Assets.xcassets in Resources */,
 				DAE48C5B1DFBEE270099E181 /* Settings.Example.plist in Resources */,
 				DAC9B57E1DFBDB60007A5008 /* Main.storyboard in Resources */,
+				DACCD1391E183E560071C04E /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,6 +377,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DACCD13A1E183E560071C04E /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,6 +385,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DACCD13B1E183E560071C04E /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
