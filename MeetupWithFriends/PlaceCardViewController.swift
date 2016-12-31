@@ -44,53 +44,32 @@ extension PlaceCardViewController: iCarouselDelegate, iCarouselDataSource {
     
     func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
 
-        var contentView: UIView
-        var image: UIImageView
-        var label: UILabel
+        var contentView: CardView
         let place = places.places[index]
         
-        //reuse view if available, otherwise create a new view
-        if let view = view as? UIImageView {
-            contentView = view
-            //get a reference to the label in the recycled view
-            image = contentView.viewWithTag(1) as! UIImageView
-            label = contentView.viewWithTag(2) as! UILabel
+        if let view = view {
+            //reuse view if available, otherwise create a new view
+            
+            contentView = view as! CardView
         } else {
             //don't do anything specific to the index within
             //this `if ... else` statement because the view will be
             //recycled and used with other index values later
-            contentView = UIView(frame: CGRect(x: -20, y: -20, width: carousel.frame.width - 40, height: carousel.frame.height - 40))
-            contentView.backgroundColor = UIColor.lightGray
-            contentView.layer.borderWidth = 2.0
-            contentView.layer.borderColor = UIColor.red.cgColor
             
-            // set the image
-            image = UIImageView(frame: CGRect(x: 0, y: 0, width: contentView.frame.width, height: contentView.frame.height * 0.25))
-            image.tag = 1
-            contentView.addSubview(image)
-            
-            // set the label
-            label = UILabel(frame: CGRect(x: 0, y: image.frame.height + 1, width: contentView.frame.width, height: 40))
-            label.textAlignment = .center
-            label.font = label.font.withSize(20)
-            label.tag = 2
-            contentView.addSubview(label)
+            contentView = CardView(place: place, frame: carousel.frame).view
+            contentView.clipsToBounds = true
         }
         
-        //set item label
-        //remember to always set any properties of your carousel item
-        //views outside of the `if (view == nil) {...}` check otherwise
-        //you'll get weird issues with carousel item content appearing
-        //in the wrong place in the carousel
+        contentView.loadPlaceDetails()
         
-        GooglePlacesConvenience.getPlacePhoto(reference: place.photos[0]["photo_reference"] as! String, maxWidth: Int(image.frame.width), maxHeight: Int(image.frame.width), withCompletionHandler: { (photo, error) in
+        GooglePlacesConvenience.getPlacePhoto(reference: place.photos[0]["photo_reference"] as! String, maxWidth: Int(contentView.imageView.frame.width), maxHeight: Int(contentView.imageView.frame.height), withCompletionHandler: { (photo, error) in
             
             performUIUpdatesOnMain {
-                image.image = photo
+                contentView.imageView.image = photo
             }
         })
         
-        label.text = "\(places.places[index].name)"
+        contentView.nameLabel.text = "\(place.name)"
         
         return contentView
     }

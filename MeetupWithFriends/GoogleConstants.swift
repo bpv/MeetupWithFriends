@@ -68,6 +68,7 @@ struct GoogleConstants {
     
     struct ResponseKeys {
         static var results = "results"
+        static var id = "id"
         static var geometry = "geometry"
         static var location = "location"
         static var lat = "lat"

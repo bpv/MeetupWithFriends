@@ -66,9 +66,76 @@ struct Place {
         types = json[keys.types].arrayValue.map({$0.stringValue})
 
     }
-}
+    
+    // get details separately so we're not making several calls to the Google Place Details API when loading search results.
+    func getPlaceDetails(withCompletionHandler: @escaping (_ details: Place.PlaceDetails?, _ error: String?) -> Void) {
+        
+        GooglePlacesConvenience.getPlaceDetails(placeID: placeID, withCompletionHandler: { (placeDetails, error) in
+            
+            guard error == nil else {
+                withCompletionHandler(nil, error)
+                return
+            }
+            
+            if let placeDetails = placeDetails {
+                withCompletionHandler(placeDetails, nil)
+            }
+        })
+    }
+    
+    func getPlaceDetailsArrayForDisplay(withCompletionHandler: @escaping (_ details: [Any]?, _ error: String?) -> Void) {
+        
+        let openNowString = openNow ? "Yes" : "No"
+        let priceLevelString = String(repeating: "$", count: priceLevel.rawValue)
+            
+        self.getPlaceDetails { (placeDetails, error) in
+            guard error == nil else {
+                withCompletionHandler(nil, error)
+                return
+            }
+            
+            if let placeDetails = placeDetails {
+                let detailsArray: [Any] = [
+                    ["Open Now", openNowString],
+                    ["Price", priceLevelString],
+                    ["Rating", String(describing: self.rating)],
+                    ["Address", placeDetails.address],
+                    ["Phone", placeDetails.phoneNumber],
+                    ["Website", String(describing: placeDetails.website!)],
+                    ["Latitude", String(describing: self.latitude)],
+                    ["Longitude", String(describing: self.longitude)],
+                    // TODO: implement later
+                    //["Attributions", placeDetails.attributions],
+                ]
+                
+                withCompletionHandler(detailsArray, nil)
+            }
+        }
+    }
+    
 
-struct Places {
-    var places: [Place]
-    var nextPageToken: String
+    struct PlaceDetails {
+        var address: String?
+        var phoneNumber: String?
+        var website: URL?
+        var attributions: NSAttributedString?
+        
+        init(place: GMSPlace) {
+            if let address = place.formattedAddress {
+                self.address = address
+            }
+            
+            if let phoneNumber = place.phoneNumber {
+                self.phoneNumber = phoneNumber
+            }
+            
+            if let website = place.website {
+                self.website = website
+            }
+            
+            if let attributions = place.attributions {
+                self.attributions = attributions
+            }
+        }
+    }
 }

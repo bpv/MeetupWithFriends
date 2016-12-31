@@ -9,6 +9,7 @@
 import Foundation
 import Alamofire
 import SwiftyJSON
+import GooglePlaces
 
 class GooglePlacesConvenience {
     class func getNearbyPlaces(latitude: Double, longitude: Double, type: String, pageToken: String?, withCompletionHandler: @escaping (_ places: Places?, _ error: String?) -> Void) {
@@ -61,6 +62,23 @@ class GooglePlacesConvenience {
                 withCompletionHandler(nil, error.localizedDescription)
             }
         }
+    }
+    
+    class func getPlaceDetails(placeID: String, withCompletionHandler: @escaping (_ data: Place.PlaceDetails?, _ error: String?) -> Void) {
+        
+        let placesClient = GMSPlacesClient.shared()
+        
+        placesClient.lookUpPlaceID(placeID, callback: { (place, error) -> Void in
+            
+            guard error == nil else {
+                withCompletionHandler(nil, "Lookup PlaceID query error: \(error?.localizedDescription)")
+                return
+            }
+            
+            if let place = place {
+                withCompletionHandler(Place.PlaceDetails(place: place), nil)
+            }
+        })
     }
     
     class func getPlacePhoto(reference: String, maxWidth: Int, maxHeight: Int, withCompletionHandler: @escaping (_ photo: UIImage?, _ error: String?) -> Void) {

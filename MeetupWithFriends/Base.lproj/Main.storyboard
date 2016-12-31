@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="EM8-Ue-aS2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="EM8-Ue-aS2">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -35,11 +36,18 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Find A Place" id="Wbb-2w-ss6">
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="Ln0-j7-YKw">
-                            <connections>
-                                <action selector="findAddress:" destination="BYZ-38-t0r" id="qHY-vh-nuQ"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="search" id="Ln0-j7-YKw">
+                                <connections>
+                                    <action selector="findAddress:" destination="BYZ-38-t0r" id="qHY-vh-nuQ"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="organize" id="LDA-GC-mZK">
+                                <connections>
+                                    <action selector="displayCards" destination="BYZ-38-t0r" id="3y0-ZJ-T9R"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="googleMapView" destination="E5M-T1-Mbp" id="GLN-iF-Vae"/>
@@ -73,7 +81,7 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3hZ-Tz-BDi" customClass="iCarousel">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3hZ-Tz-BDi" customClass="iCarousel">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>

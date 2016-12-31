@@ -11,9 +11,14 @@
 		DA10D7171DFBE2B80083CEBD /* GoogleConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA10D7161DFBE2B80083CEBD /* GoogleConstants.swift */; };
 		DA50B0531DFD1FE1007AE5CA /* GCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA50B0521DFD1FE1007AE5CA /* GCD.swift */; };
 		DA5C4C251E0A21B700BC88E8 /* PlaceCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5C4C241E0A21B700BC88E8 /* PlaceCardViewController.swift */; };
+		DA61DD321E145553000D0FA6 /* Places.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA61DD311E145553000D0FA6 /* Places.swift */; };
 		DA72EAF31E00F75C00066674 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA72EAF21E00F75C00066674 /* Place.swift */; };
 		DA93633E1DFF9B8500FE1676 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA93633D1DFF9B8500FE1676 /* Helpers.swift */; };
 		DA9363421DFFE14300FE1676 /* GooglePlacesConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9363411DFFE14300FE1676 /* GooglePlacesConvenience.swift */; };
+		DA9F75ED1E138C4A00EF5532 /* CardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA9F75EC1E138C4A00EF5532 /* CardView.xib */; };
+		DA9F75EF1E138DE000EF5532 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9F75EE1E138DE000EF5532 /* CardView.swift */; };
+		DAC68F441E15D34300A64131 /* PlaceAttributeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC68F421E15D34300A64131 /* PlaceAttributeCell.swift */; };
+		DAC68F451E15D34300A64131 /* PlaceAttributeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC68F431E15D34300A64131 /* PlaceAttributeCell.xib */; };
 		DAC9B5791DFBDB5F007A5008 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC9B5781DFBDB5F007A5008 /* AppDelegate.swift */; };
 		DAC9B57B1DFBDB5F007A5008 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC9B57A1DFBDB5F007A5008 /* MapViewController.swift */; };
 		DAC9B57E1DFBDB60007A5008 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAC9B57C1DFBDB60007A5008 /* Main.storyboard */; };
@@ -53,9 +58,14 @@
 		DA50B0521DFD1FE1007AE5CA /* GCD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCD.swift; sourceTree = "<group>"; };
 		DA5304C71E0F695300EFCD49 /* SwiftExample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftExample-Bridging-Header.h"; sourceTree = "<group>"; };
 		DA5C4C241E0A21B700BC88E8 /* PlaceCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCardViewController.swift; sourceTree = "<group>"; };
+		DA61DD311E145553000D0FA6 /* Places.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Places.swift; sourceTree = "<group>"; };
 		DA72EAF21E00F75C00066674 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		DA93633D1DFF9B8500FE1676 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		DA9363411DFFE14300FE1676 /* GooglePlacesConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GooglePlacesConvenience.swift; sourceTree = "<group>"; };
+		DA9F75EC1E138C4A00EF5532 /* CardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardView.xib; sourceTree = "<group>"; };
+		DA9F75EE1E138DE000EF5532 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		DAC68F421E15D34300A64131 /* PlaceAttributeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceAttributeCell.swift; sourceTree = "<group>"; };
+		DAC68F431E15D34300A64131 /* PlaceAttributeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceAttributeCell.xib; sourceTree = "<group>"; };
 		DAC9B5751DFBDB5F007A5008 /* MeetupWithFriends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeetupWithFriends.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAC9B5781DFBDB5F007A5008 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DAC9B57A1DFBDB5F007A5008 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -141,6 +151,10 @@
 		DA10D7131DFBDD4B0083CEBD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DA9F75EC1E138C4A00EF5532 /* CardView.xib */,
+				DA9F75EE1E138DE000EF5532 /* CardView.swift */,
+				DAC68F421E15D34300A64131 /* PlaceAttributeCell.swift */,
+				DAC68F431E15D34300A64131 /* PlaceAttributeCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -152,6 +166,7 @@
 				DAE48C5C1DFD11300099E181 /* GoogleMapsConvenience.swift */,
 				DA9363411DFFE14300FE1676 /* GooglePlacesConvenience.swift */,
 				DA72EAF21E00F75C00066674 /* Place.swift */,
+				DA61DD311E145553000D0FA6 /* Places.swift */,
 			);
 			name = Google;
 			sourceTree = "<group>";
@@ -343,7 +358,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAC9B5831DFBDB60007A5008 /* LaunchScreen.storyboard in Resources */,
+				DAC68F451E15D34300A64131 /* PlaceAttributeCell.xib in Resources */,
 				DAE48C591DFBEDD30099E181 /* Settings.plist in Resources */,
+				DA9F75ED1E138C4A00EF5532 /* CardView.xib in Resources */,
 				DAC9B5801DFBDB60007A5008 /* Assets.xcassets in Resources */,
 				DAE48C5B1DFBEE270099E181 /* Settings.Example.plist in Resources */,
 				DAC9B57E1DFBDB60007A5008 /* Main.storyboard in Resources */,
@@ -423,12 +440,15 @@
 				DAC9B57B1DFBDB5F007A5008 /* MapViewController.swift in Sources */,
 				DA9363421DFFE14300FE1676 /* GooglePlacesConvenience.swift in Sources */,
 				DAE922FB1E08E944009EC66A /* ActivityViewController.swift in Sources */,
+				DA61DD321E145553000D0FA6 /* Places.swift in Sources */,
 				DAE48C5D1DFD11300099E181 /* GoogleMapsConvenience.swift in Sources */,
 				DA93633E1DFF9B8500FE1676 /* Helpers.swift in Sources */,
 				DA5C4C251E0A21B700BC88E8 /* PlaceCardViewController.swift in Sources */,
 				DAC9B5791DFBDB5F007A5008 /* AppDelegate.swift in Sources */,
+				DAC68F441E15D34300A64131 /* PlaceAttributeCell.swift in Sources */,
 				DA72EAF31E00F75C00066674 /* Place.swift in Sources */,
 				DA10D7171DFBE2B80083CEBD /* GoogleConstants.swift in Sources */,
+				DA9F75EF1E138DE000EF5532 /* CardView.swift in Sources */,
 				DA10D7151DFBE1D00083CEBD /* HistoryTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
