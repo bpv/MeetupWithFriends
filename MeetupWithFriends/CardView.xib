@@ -32,17 +32,10 @@
                             </constraints>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A2R-do-8tR">
-                            <rect key="frame" x="8" y="235" width="40" height="30"/>
-                            <state key="normal" title="Share"/>
+                            <rect key="frame" x="8" y="235" width="44" height="30"/>
+                            <state key="normal" title="Select"/>
                             <connections>
-                                <action selector="shareButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="LbD-hB-y7N"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kzC-63-fPp">
-                            <rect key="frame" x="56" y="235" width="70" height="30"/>
-                            <state key="normal" title="Bookmark"/>
-                            <connections>
-                                <action selector="bookmarkButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="jEJ-rs-TOd"/>
+                                <action selector="selectButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="ACx-dN-t7G"/>
                             </connections>
                         </button>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3i8-3K-8XJ">
@@ -53,18 +46,16 @@
                     <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="WOU-jB-iGN" firstAttribute="top" secondItem="3Fl-ap-75q" secondAttribute="bottom" constant="8" symbolic="YES" id="4Oa-h1-gYd"/>
-                        <constraint firstItem="kzC-63-fPp" firstAttribute="leading" secondItem="A2R-do-8tR" secondAttribute="trailing" constant="8" symbolic="YES" id="7k6-qc-nwO"/>
                         <constraint firstItem="3i8-3K-8XJ" firstAttribute="leading" secondItem="A2R-do-8tR" secondAttribute="leading" id="Cgo-2W-vJe"/>
-                        <constraint firstItem="3i8-3K-8XJ" firstAttribute="top" secondItem="kzC-63-fPp" secondAttribute="bottom" constant="8" id="HQG-1e-2hf"/>
                         <constraint firstItem="A2R-do-8tR" firstAttribute="leading" secondItem="WOU-jB-iGN" secondAttribute="leading" id="Lgn-Oj-qyM"/>
                         <constraint firstItem="A2R-do-8tR" firstAttribute="top" secondItem="WOU-jB-iGN" secondAttribute="bottom" constant="8" symbolic="YES" id="M9P-Pb-0qp"/>
+                        <constraint firstItem="3i8-3K-8XJ" firstAttribute="top" secondItem="A2R-do-8tR" secondAttribute="bottom" constant="8" symbolic="YES" id="Qc2-Qa-rLZ"/>
                         <constraint firstItem="3Fl-ap-75q" firstAttribute="trailing" secondItem="iG9-v7-AZt" secondAttribute="trailingMargin" id="Vbt-oP-uk9"/>
                         <constraint firstItem="3i8-3K-8XJ" firstAttribute="bottom" secondItem="iG9-v7-AZt" secondAttribute="bottomMargin" id="VtO-up-upT"/>
                         <constraint firstItem="3i8-3K-8XJ" firstAttribute="trailing" secondItem="WOU-jB-iGN" secondAttribute="trailing" id="fmr-f3-DAY"/>
                         <constraint firstItem="A2R-do-8tR" firstAttribute="leading" secondItem="3Fl-ap-75q" secondAttribute="leading" id="ibT-tB-j6U"/>
                         <constraint firstItem="3Fl-ap-75q" firstAttribute="top" secondItem="iG9-v7-AZt" secondAttribute="topMargin" id="jiO-RA-CbA"/>
                         <constraint firstItem="3Fl-ap-75q" firstAttribute="leading" secondItem="iG9-v7-AZt" secondAttribute="leadingMargin" id="mYA-gT-sQf"/>
-                        <constraint firstItem="A2R-do-8tR" firstAttribute="baseline" secondItem="kzC-63-fPp" secondAttribute="baseline" id="x02-vc-P4U"/>
                         <constraint firstItem="WOU-jB-iGN" firstAttribute="trailing" secondItem="3Fl-ap-75q" secondAttribute="trailing" id="xJS-Hr-beK"/>
                     </constraints>
                 </view>

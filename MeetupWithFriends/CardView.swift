@@ -8,6 +8,12 @@
 
 import UIKit
 
+protocol CardViewDelegate {
+    func selectButtonPressed(place: Place)
+    
+    func errorMessageNeedsDisplay(error: String)
+}
+
 class CardView: UIView {
     
     // Mark: Properties
@@ -19,6 +25,7 @@ class CardView: UIView {
     var view: CardView!
     var place: Place!
     var placeDetailsArray = [Any]()
+    var delegate: CardViewDelegate! = nil
     
     // Mark: Initializers
     
@@ -43,29 +50,15 @@ class CardView: UIView {
     
     // Mark: Actions
     
-    @IBAction func bookmarkButtonPressed(_ sender: Any) {
-        
-    }
-    
-    @IBAction func shareButtonPressed(_ sender: Any) {
-        /*
-        if let details = placeDetails {
-            let url = URL(string: details.url)
-            
-            let activityVC = UIActivityViewController(activityItems: [url], applicationActivities: nil)
-            // for iPads
-            activityVC.popoverPresentationController?.sourceView = self.view
-            
-            self.window.
-        }*/ // TODO: what should be done if details not present
+    @IBAction func selectButtonPressed(_ sender: Any) {
+        delegate!.selectButtonPressed(place: place)
     }
     
     func loadPlaceDetails() {
         place.getPlaceDetails { (placeDetails, error) in
             performUIUpdatesOnMain {
                 guard error == nil else {
-                    // TODO: delegate error to VC
-                    print(error)
+                    self.delegate!.errorMessageNeedsDisplay(error: error!)
                     return
                 }
                 
