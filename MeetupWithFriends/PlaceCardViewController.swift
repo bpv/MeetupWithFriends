@@ -56,8 +56,8 @@ extension PlaceCardViewController: iCarouselDelegate, iCarouselDataSource {
             //this `if ... else` statement because the view will be
             //recycled and used with other index values later
             
-            contentView = CardView(place: place, frame: carousel.frame).view
-            contentView.clipsToBounds = true
+            contentView = CardView(place: place, frame: CGRect(x: 10, y: 10, width: carousel.frame.width - 20, height: carousel.frame.height - 20)).view
+            //contentView.clipsToBounds = true
         }
         
         contentView.loadPlaceDetails()
