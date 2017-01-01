@@ -30,7 +30,7 @@ class ActivityViewController: UIViewController {
     // Mark: Config
     
     func configureAuth() {
-        let provider: [FUIAuthProvider] = [FUIGoogleAuth()]
+        let provider: [FUIAuthProvider] = [FUIGoogleAuth(), FUIFacebookAuth()]
         FUIAuth.defaultAuthUI()?.providers = provider
         
         // listen for changes in the authorization state
@@ -51,6 +51,19 @@ class ActivityViewController: UIViewController {
     }
     
     // Mark: Actions
+    
+    @IBAction func signOutButtonPressed(_ sender: Any) {
+        // sign out
+        do {
+            try FIRAuth.auth()?.signOut()
+            
+            // show login screen
+            Helpers.loginSession(view: self)
+        } catch {
+            Helpers.displayError(view: self, errorString: "Error signing out. Please try again later.")
+        }
+    }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //if segue.identifier == "ActivityToMap" {
