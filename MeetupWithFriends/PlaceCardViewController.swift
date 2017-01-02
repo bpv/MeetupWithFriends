@@ -8,26 +8,47 @@
 
 import UIKit
 import iCarousel
+import Firebase
+
+// Mark: - PlaceCardViewController
 
 class PlaceCardViewController: UIViewController {
     
     // Mark: Properties
     
-    @IBOutlet weak var carousel: iCarousel!
-    
+    var user: FIRUser!
     var places: Places!
     var placeIndex: Int = 0
+    var ref: FIRDatabaseReference!
+    fileprivate var _refHandle: FIRDatabaseHandle!
     
-    // Mark: View Lifecycle
+    // Mark: Outlets
+    
+    @IBOutlet weak var carousel: iCarousel!
+    
+    // Mark: Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         carousel.delegate = self
         carousel.dataSource = self
+        
+        configureDatabase()
     }
     
-    // MARK: - Actions
+    deinit {
+        ref.child("placeHistory").removeObserver(withHandle: _refHandle)
+    }
+    
+    // Mark: Config
+    
+    func configureDatabase() {
+        ref = FIRDatabase.database().reference()
+    }
+
+    
+    // MARK: Actions
     
     @IBAction func closeButtonClicked() {
         self.dismiss(animated: true, completion: nil)
@@ -35,7 +56,8 @@ class PlaceCardViewController: UIViewController {
 
 }
 
-// Mark: - iCarouselDelegate, iCarouselDataSource
+// Mark: - PlaceCardViewController: iCarouselDelegate, iCarouselDataSource
+
 extension PlaceCardViewController: iCarouselDelegate, iCarouselDataSource {
     
     func numberOfItems(in carousel: iCarousel) -> Int {
@@ -91,7 +113,7 @@ extension PlaceCardViewController: iCarouselDelegate, iCarouselDataSource {
     }
 }
 
-// Mark: - CardViewDelegate
+// Mark: - PlaceCardViewController: CardViewDelegate
 
 extension PlaceCardViewController: CardViewDelegate {
     func selectButtonPressed(place: Place) {
@@ -103,11 +125,29 @@ extension PlaceCardViewController: CardViewDelegate {
         
         activityVC.excludedActivityTypes = [UIActivityType.addToReadingList]
         
+        activityVC.completionWithItemsHandler = {(activity, success, items, error) in
+            if success {
+                let value: [String: Any] = [
+                    "placeID": place.placeID,
+                    "dateTimeAdded": NSDate().timeIntervalSince1970
+                ]
+                
+                // insert this Place into the Database
+                self.ref.child("placeHistory").child(self.user.uid).childByAutoId().setValue(value)
+                
+                self.dismiss(animated: true, completion: {
+                    // show the history view
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "HistoryTableViewController") as! HistoryTableViewController
+                    self.present(vc, animated: true, completion: nil)
+                })
+            }
+        }
+        
         // iPad
         activityVC.popoverPresentationController?.sourceView = self.view
         
-        // TODO, save the place to firebase
-        self.present(activityVC, animated: true, completion: nil)
+        // save the place to firebase
+        present(activityVC, animated: true, completion: nil)
     }
     
     func errorMessageNeedsDisplay(error: String) {

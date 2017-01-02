@@ -21,6 +21,8 @@ class ActivityViewController: UIViewController {
     
     let activities = ["restaurant", "bar", "night_club", "cafe", "movie_theater"]
 
+    // Mark: Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -66,10 +68,10 @@ class ActivityViewController: UIViewController {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //if segue.identifier == "ActivityToMap" {
-            let button = sender as! UIButton
-            let controller = segue.destination as! MapViewController
-            controller.type = activities[button.tag]
-        //}
+        let button = sender as! UIButton
+        let controller = segue.destination as! MapViewController
+        
+        controller.user = user
+        controller.type = activities[button.tag]
     }
 }

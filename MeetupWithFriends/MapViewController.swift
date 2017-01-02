@@ -9,6 +9,7 @@
 import UIKit
 import GoogleMaps
 import CoreLocation
+import Firebase
 
 // Mark: - MapViewController
 
@@ -19,6 +20,7 @@ class MapViewController: UIViewController {
     var locationManager = CLLocationManager()
     var places: Places!
     var type: String!
+    var user: FIRUser!
     
     // Mark: Outlets
     
@@ -148,6 +150,7 @@ class MapViewController: UIViewController {
         
         // load places
         controller.places = places
+        controller.user = user
         
         present(controller, animated: true, completion: nil)
     }

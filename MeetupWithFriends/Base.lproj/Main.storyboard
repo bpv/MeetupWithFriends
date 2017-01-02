@@ -108,7 +108,7 @@
         <!--History-->
         <scene sceneID="p2G-pU-Z1Q">
             <objects>
-                <tableViewController id="hLl-MS-aHj" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="HistoryTableViewController" id="hLl-MS-aHj" customClass="HistoryTableViewController" customModule="MeetupWithFriends" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="M2L-Eq-GIw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -153,11 +153,11 @@
             </objects>
             <point key="canvasLocation" x="117.59999999999999" y="123.68815592203899"/>
         </scene>
-        <!--Map-->
+        <!--Place Finder-->
         <scene sceneID="rRj-fG-mu8">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Acg-F9-TS0" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Map" id="sW9-Sg-gMM"/>
+                    <tabBarItem key="tabBarItem" title="Place Finder" id="sW9-Sg-gMM"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="mGI-mI-R08">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
