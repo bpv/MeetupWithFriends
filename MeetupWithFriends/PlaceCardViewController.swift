@@ -128,7 +128,7 @@ extension PlaceCardViewController: iCarouselDelegate, iCarouselDataSource {
 // Mark: - PlaceCardViewController: CardViewDelegate
 
 extension PlaceCardViewController: CardViewDelegate {
-    func selectButtonPressed(place: Place) {
+    func didPressShare(place: Place) {
         let url = NSURL(string: place.placeDetails!.url)
         
         let activityItems: [Any] = [place.name, url]
@@ -160,6 +160,14 @@ extension PlaceCardViewController: CardViewDelegate {
         
         // save the place to firebase
         present(activityVC, animated: true, completion: nil)
+    }
+    
+    func didPressLeftArrow() {
+        carousel.scroll(byNumberOfItems: -1, duration: TimeInterval(carousel.scrollSpeed))
+    }
+    
+    func didPressRightArrow() {
+        carousel.scroll(byNumberOfItems: 1, duration: TimeInterval(carousel.scrollSpeed))
     }
     
     func errorMessageNeedsDisplay(error: String) {

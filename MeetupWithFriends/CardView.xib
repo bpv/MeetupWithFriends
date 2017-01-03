@@ -31,32 +31,57 @@
                                 <constraint firstAttribute="height" constant="190" id="RGy-Cm-TFQ"/>
                             </constraints>
                         </imageView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A2R-do-8tR">
-                            <rect key="frame" x="8" y="235" width="44" height="30"/>
-                            <state key="normal" title="Select"/>
-                            <connections>
-                                <action selector="selectButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="ACx-dN-t7G"/>
-                            </connections>
-                        </button>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3i8-3K-8XJ">
-                            <rect key="frame" x="8" y="273" width="359" height="386"/>
+                            <rect key="frame" x="8" y="235" width="359" height="389"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </tableView>
+                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A2R-do-8tR">
+                            <rect key="frame" x="151" y="632" width="73" height="25"/>
+                            <state key="normal" title="Share" image="share"/>
+                            <connections>
+                                <action selector="didPressShare:" destination="iN0-l3-epB" eventType="touchUpInside" id="8Wc-Bi-h1U"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kAo-8D-jap">
+                            <rect key="frame" x="8" y="631" width="25" height="27"/>
+                            <state key="normal" image="arrow-left"/>
+                            <connections>
+                                <action selector="didPressLeftArrow:" destination="iN0-l3-epB" eventType="touchUpInside" id="CxX-Oh-GPR"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jap-I6-P2T">
+                            <rect key="frame" x="342" y="631" width="25" height="27"/>
+                            <state key="normal" image="arrow-right"/>
+                            <connections>
+                                <action selector="didPressRightArrow:" destination="iN0-l3-epB" eventType="touchUpInside" id="Esh-u7-Fbj"/>
+                            </connections>
+                        </button>
                     </subviews>
-                    <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="1" green="0.97647058823529409" blue="0.76862745098039209" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstItem="WOU-jB-iGN" firstAttribute="top" secondItem="3Fl-ap-75q" secondAttribute="bottom" constant="8" symbolic="YES" id="4Oa-h1-gYd"/>
-                        <constraint firstItem="3i8-3K-8XJ" firstAttribute="leading" secondItem="A2R-do-8tR" secondAttribute="leading" id="Cgo-2W-vJe"/>
-                        <constraint firstItem="A2R-do-8tR" firstAttribute="leading" secondItem="WOU-jB-iGN" secondAttribute="leading" id="Lgn-Oj-qyM"/>
-                        <constraint firstItem="A2R-do-8tR" firstAttribute="top" secondItem="WOU-jB-iGN" secondAttribute="bottom" constant="8" symbolic="YES" id="M9P-Pb-0qp"/>
-                        <constraint firstItem="3i8-3K-8XJ" firstAttribute="top" secondItem="A2R-do-8tR" secondAttribute="bottom" constant="8" symbolic="YES" id="Qc2-Qa-rLZ"/>
+                        <constraint firstAttribute="bottom" secondItem="Jap-I6-P2T" secondAttribute="bottom" constant="9" id="28e-vJ-Ht4"/>
+                        <constraint firstItem="Jap-I6-P2T" firstAttribute="leading" secondItem="A2R-do-8tR" secondAttribute="trailing" constant="118" id="52J-rH-7Pn"/>
+                        <constraint firstItem="WOU-jB-iGN" firstAttribute="top" secondItem="3Fl-ap-75q" secondAttribute="bottom" constant="8" id="5PJ-Tg-Brl"/>
+                        <constraint firstItem="3i8-3K-8XJ" firstAttribute="top" secondItem="WOU-jB-iGN" secondAttribute="bottom" constant="8" id="7OH-Gh-8kF"/>
+                        <constraint firstItem="3i8-3K-8XJ" firstAttribute="top" secondItem="WOU-jB-iGN" secondAttribute="bottom" constant="8" id="CRl-zX-WZ7"/>
+                        <constraint firstAttribute="trailing" secondItem="3i8-3K-8XJ" secondAttribute="trailing" constant="8" id="FiE-au-r4W"/>
+                        <constraint firstItem="A2R-do-8tR" firstAttribute="leading" secondItem="kAo-8D-jap" secondAttribute="trailing" constant="118" id="Mu0-Qf-pvP"/>
                         <constraint firstItem="3Fl-ap-75q" firstAttribute="trailing" secondItem="iG9-v7-AZt" secondAttribute="trailingMargin" id="Vbt-oP-uk9"/>
-                        <constraint firstItem="3i8-3K-8XJ" firstAttribute="bottom" secondItem="iG9-v7-AZt" secondAttribute="bottomMargin" id="VtO-up-upT"/>
-                        <constraint firstItem="3i8-3K-8XJ" firstAttribute="trailing" secondItem="WOU-jB-iGN" secondAttribute="trailing" id="fmr-f3-DAY"/>
-                        <constraint firstItem="A2R-do-8tR" firstAttribute="leading" secondItem="3Fl-ap-75q" secondAttribute="leading" id="ibT-tB-j6U"/>
+                        <constraint firstAttribute="trailing" secondItem="Jap-I6-P2T" secondAttribute="trailing" constant="8" id="WQK-w8-r7y"/>
+                        <constraint firstAttribute="bottom" secondItem="kAo-8D-jap" secondAttribute="bottom" constant="9" id="XT3-zy-Fme"/>
+                        <constraint firstItem="Jap-I6-P2T" firstAttribute="top" secondItem="3i8-3K-8XJ" secondAttribute="bottom" constant="7" id="YOF-hX-h4S"/>
+                        <constraint firstItem="A2R-do-8tR" firstAttribute="leading" secondItem="kAo-8D-jap" secondAttribute="trailing" constant="118" id="bl3-ZV-Tzp"/>
+                        <constraint firstItem="WOU-jB-iGN" firstAttribute="leading" secondItem="iG9-v7-AZt" secondAttribute="leading" constant="8" id="fUh-se-74M"/>
                         <constraint firstItem="3Fl-ap-75q" firstAttribute="top" secondItem="iG9-v7-AZt" secondAttribute="topMargin" id="jiO-RA-CbA"/>
+                        <constraint firstItem="kAo-8D-jap" firstAttribute="leading" secondItem="iG9-v7-AZt" secondAttribute="leading" constant="8" id="lJe-Ey-eRl"/>
+                        <constraint firstAttribute="trailing" secondItem="WOU-jB-iGN" secondAttribute="trailing" constant="8" id="m9Q-cH-f7W"/>
                         <constraint firstItem="3Fl-ap-75q" firstAttribute="leading" secondItem="iG9-v7-AZt" secondAttribute="leadingMargin" id="mYA-gT-sQf"/>
-                        <constraint firstItem="WOU-jB-iGN" firstAttribute="trailing" secondItem="3Fl-ap-75q" secondAttribute="trailing" id="xJS-Hr-beK"/>
+                        <constraint firstAttribute="bottom" secondItem="A2R-do-8tR" secondAttribute="bottom" constant="10" id="osB-0D-RRG"/>
+                        <constraint firstItem="A2R-do-8tR" firstAttribute="top" secondItem="3i8-3K-8XJ" secondAttribute="bottom" constant="8" id="tFa-iq-yiH"/>
+                        <constraint firstItem="Jap-I6-P2T" firstAttribute="leading" secondItem="A2R-do-8tR" secondAttribute="trailing" constant="118" id="wSh-gZ-Dci"/>
+                        <constraint firstItem="kAo-8D-jap" firstAttribute="top" secondItem="3i8-3K-8XJ" secondAttribute="bottom" constant="7" id="wmc-je-E7K"/>
+                        <constraint firstItem="3i8-3K-8XJ" firstAttribute="leading" secondItem="iG9-v7-AZt" secondAttribute="leading" constant="8" id="wri-D7-bUj"/>
+                        <constraint firstItem="Jap-I6-P2T" firstAttribute="top" secondItem="3i8-3K-8XJ" secondAttribute="bottom" constant="7" id="xJQ-dr-FY3"/>
                     </constraints>
                 </view>
             </subviews>
@@ -76,4 +101,9 @@
             <point key="canvasLocation" x="25.5" y="51.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="arrow-left" width="25" height="25"/>
+        <image name="arrow-right" width="25" height="25"/>
+        <image name="share" width="25" height="25"/>
+    </resources>
 </document>

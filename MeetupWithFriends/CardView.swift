@@ -9,7 +9,11 @@
 import UIKit
 
 protocol CardViewDelegate {
-    func selectButtonPressed(place: Place)
+    func didPressShare(place: Place)
+    
+    func didPressLeftArrow()
+    
+    func didPressRightArrow()
     
     func errorMessageNeedsDisplay(error: String)
 }
@@ -50,8 +54,16 @@ class CardView: UIView {
     
     // Mark: Actions
     
-    @IBAction func selectButtonPressed(_ sender: Any) {
-        delegate!.selectButtonPressed(place: place)
+    @IBAction func didPressShare(_ sender: Any) {
+        delegate!.didPressShare(place: place)
+    }
+    
+    @IBAction func didPressLeftArrow(_ sender: Any) {
+        delegate!.didPressLeftArrow()
+    }
+
+    @IBAction func didPressRightArrow(_ sender: Any) {
+        delegate!.didPressRightArrow()
     }
     
     func loadPlaceDetails() {
