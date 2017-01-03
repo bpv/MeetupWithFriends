@@ -87,12 +87,17 @@ extension PlaceCardViewController: iCarouselDelegate, iCarouselDataSource {
         contentView.delegate = self
         contentView.loadPlaceDetails()
         
-        GooglePlacesConvenience.getPlacePhoto(reference: place.photos[0]["photo_reference"] as! String, maxWidth: Int(contentView.imageView.frame.width), maxHeight: Int(contentView.imageView.frame.height), withCompletionHandler: { (photo, error) in
-            
-            performUIUpdatesOnMain {
-                contentView.imageView.image = photo
-            }
-        })
+        if place.photos.count > 0 {
+            GooglePlacesConvenience.getPlacePhoto(reference: place.photos[0]["photo_reference"] as! String, maxWidth: Int(contentView.imageView.frame.width), maxHeight: Int(contentView.imageView.frame.height), withCompletionHandler: { (photo, error) in
+                
+                performUIUpdatesOnMain {
+                    contentView.imageView.image = photo
+                }
+            })
+        } else {
+            // TODO: Put in placeholder image
+            contentView.imageView.image = nil
+        }
         
         contentView.nameLabel.text = "\(place.name)"
         
