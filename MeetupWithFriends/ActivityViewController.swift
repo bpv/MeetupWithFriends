@@ -54,16 +54,8 @@ class ActivityViewController: UIViewController {
     
     // Mark: Actions
     
-    @IBAction func signOutButtonPressed(_ sender: Any) {
-        // sign out
-        do {
-            try FIRAuth.auth()?.signOut()
-            
-            // show login screen
-            Helpers.loginSession(view: self)
-        } catch {
-            Helpers.displayError(view: self, errorString: "Error signing out. Please try again later.")
-        }
+    @IBAction func didPressSignOut(_ sender: Any) {
+        Helpers.signOut(view: self)
     }
     
     // MARK: - Navigation

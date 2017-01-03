@@ -8,13 +8,14 @@
 
 import Foundation
 import UIKit
+import FirebaseAuth
 import FirebaseAuthUI
 
 // Mark: - Helpers
 
 class Helpers {
     
-    class func displayError(view: UIViewController!, errorString: String!) {
+    class func displayError(view: UIViewController, errorString: String!) {
         if let errorString = errorString {
             let alert = UIAlertController(title: "Error", message: errorString, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
@@ -22,9 +23,20 @@ class Helpers {
         }
     }
     
-    class func loginSession(view: UIViewController!) {
+    class func loginSession(view: UIViewController) {
         let authViewController = FUIAuth.defaultAuthUI()!.authViewController()
         view.present(authViewController, animated: true, completion: nil)
+    }
+    
+    class func signOut(view: UIViewController) {
+        do {
+            try FIRAuth.auth()?.signOut()
+            
+            // show login screen
+            Helpers.loginSession(view: view)
+        } catch {
+            Helpers.displayError(view: view, errorString: "Error signing out. Please try again later.")
+        }
     }
     
     class func launchNavigationApp(name: String, latitude: Double, longitude: Double) {
