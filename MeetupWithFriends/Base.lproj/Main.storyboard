@@ -250,7 +250,7 @@
             </objects>
             <point key="canvasLocation" x="1056.8" y="123.68815592203899"/>
         </scene>
-        <!--Activity View Controller-->
+        <!--Which Activity?-->
         <scene sceneID="WLN-JA-qpZ">
             <objects>
                 <viewController id="8wo-FL-h1G" customClass="ActivityViewController" customModule="MeetupWithFriends" customModuleProvider="target" sceneMemberID="viewController">
@@ -319,7 +319,7 @@
                             <constraint firstItem="zis-k8-6wX" firstAttribute="leading" secondItem="2Zg-3w-mnS" secondAttribute="leading" id="fxc-ip-MVl"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="dMV-lr-Ag5">
+                    <navigationItem key="navigationItem" title="Which Activity?" id="dMV-lr-Ag5">
                         <barButtonItem key="rightBarButtonItem" title="Sign Out" id="pJh-b4-toe">
                             <connections>
                                 <action selector="didPressSignOut:" destination="8wo-FL-h1G" id="RnH-dw-YnX"/>
