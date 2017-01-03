@@ -38,7 +38,9 @@ class PlaceCardViewController: UIViewController {
     }
     
     deinit {
-        ref.child("placeHistory").removeObserver(withHandle: _refHandle)
+        if let _refHandle = _refHandle {
+            ref.child("placeHistory").removeObserver(withHandle: _refHandle)
+        }
     }
     
     // Mark: Config

@@ -15,11 +15,11 @@ struct Place {
     var latitude: Double
     var longitude: Double
     var name: String
-    var openNow: Bool
+    var openNow: Bool?
     var photos = [[String: Any]]()
     var placeID = String()
-    var priceLevel: GMSPlacesPriceLevel
-    var rating: Double
+    var priceLevel: Int?
+    var rating: Double?
     var types: [String]
     var placeDetails: PlaceDetails?
     
@@ -30,7 +30,12 @@ struct Place {
         latitude = json[keys.geometry][keys.location][keys.lat].doubleValue
         longitude = json[keys.geometry][keys.location][keys.lon].doubleValue
         name = json[keys.name].stringValue
-        openNow = json[keys.openingHours][keys.openNow].boolValue
+        
+        if let openingHours = json[keys.openingHours].dictionary {
+            if let openNow = openingHours[keys.openNow] {
+                self.openNow = openNow.bool
+            }
+        }
         
         for photoRow in json[keys.photos].arrayValue {
             var tempDict = [String: Any]()
@@ -62,8 +67,9 @@ struct Place {
         }
         
         placeID = json[keys.placeID].stringValue
-        priceLevel = GMSPlacesPriceLevel(rawValue: json[keys.priceLevel].intValue)!
-        rating = json[keys.rating].doubleValue
+        priceLevel = json[keys.priceLevel].int
+        rating = json[keys.rating].double
+        
         types = json[keys.types].arrayValue.map({$0.stringValue})
 
     }

@@ -29,7 +29,7 @@ class HistoryTableViewCell: UITableViewCell {
     // Mark: Actions
     
     @IBAction func didPressNavigate(_ sender: Any) {
-        Helpers.launchNavigationApp(name: placeDetails.name!, latitude: placeDetails.latitude!, longitude: placeDetails.longitude!)
+        Helpers.launchNavigationApp(name: placeDetails.name, latitude: placeDetails.latitude, longitude: placeDetails.longitude)
     }
 
 }

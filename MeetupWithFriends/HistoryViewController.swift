@@ -18,7 +18,6 @@ class HistoryViewController: UIViewController {
     
     var ref: FIRDatabaseReference!
     var places = [[String: Any]]()
-    fileprivate var _refHandle: FIRDatabaseHandle!
     
     // Mark: Outlets
     
@@ -91,7 +90,7 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
                 }
                 
                 if let details = details {
-                    cell.nameLabel.text = details.name!
+                    cell.nameLabel.text = details.name
                     cell.phoneLabel.text = details.phoneNumber!
                     cell.placeDetails = details
                 }

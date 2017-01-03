@@ -10,10 +10,10 @@ import Foundation
 import SwiftyJSON
 
 struct PlaceDetails {
-    var placeID: String?
-    var longitude: Double?
-    var latitude: Double?
-    var name: String?
+    var placeID: String
+    var longitude: Double
+    var latitude: Double
+    var name: String
     var openNow: Bool?
     var priceLevel: Int?
     var rating = Double()
@@ -25,24 +25,15 @@ struct PlaceDetails {
     init(json: [String: SwiftyJSON.JSON]) {
         let keys = GoogleConstants.ResponseKeys.self
     
-        if let placeID = json[keys.placeID] {
-            self.placeID = placeID.stringValue
-        }
+        placeID = (json[keys.placeID]?.stringValue)!
+        latitude = (json[keys.geometry]?[keys.location][keys.lat].doubleValue)!
+        longitude = (json[keys.geometry]?[keys.location][keys.lon].doubleValue)!
+        name = (json[keys.name]?.stringValue)!
         
-        if let latitude = json[keys.geometry]?[keys.location][keys.lat] {
-            self.latitude = latitude.doubleValue
-        }
-        
-        if let longitude = json[keys.geometry]?[keys.location][keys.lon] {
-            self.longitude = longitude.doubleValue
-        }
-        
-        if let name = json[keys.name] {
-            self.name = name.stringValue
-        }
-        
-        if let openNow = json[keys.openingHours]?[keys.openNow] {
-            self.openNow = openNow.boolValue
+        if let openingHours = json[keys.openingHours]?.dictionary {
+            if let openNow = openingHours[keys.openNow] {
+                self.openNow = openNow.boolValue
+            }
         }
         
         if let priceLevel = json[keys.priceLevel] {
@@ -74,8 +65,15 @@ struct PlaceDetails {
     
     func getPlaceDetailsArrayForDisplay() -> [Any] {
         
-        let openNowString = openNow! ? "Yes" : "No"
-        let priceLevelString = String(repeating: "$", count: priceLevel!)
+        var openNowString = "Unavailable"
+        if let openNow = openNow {
+            openNowString = openNow ? "Yes" : "No"
+        }
+        
+        var priceLevelString = "Unavailable"
+        if let priceLevel = priceLevel {
+            priceLevelString = String(repeating: "$", count: priceLevel)
+        }
         
         let detailsArray: [Any] = [
             ["Open Now", openNowString],
