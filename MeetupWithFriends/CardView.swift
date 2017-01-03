@@ -8,6 +8,8 @@
 
 import UIKit
 
+// Mark: - CardViewDelegate
+
 protocol CardViewDelegate {
     func didPressShare(place: Place)
     
@@ -18,13 +20,18 @@ protocol CardViewDelegate {
     func errorMessageNeedsDisplay(error: String)
 }
 
+// Mark: - CardView
+
 class CardView: UIView {
     
-    // Mark: Properties
+    // Mark: Outlets
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var detailsTable: UITableView!
+    
+    // Mark: Properties
+    
     let nibName = "CardView"
     var view: CardView!
     var place: Place!
@@ -42,6 +49,8 @@ class CardView: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
+    
+    // Mark: Life Cycle
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -108,9 +117,9 @@ extension CardView {
     }
 }
 
-// Mark: - UITableViewDelegate, UITableViewDataSource
+// Mark: - CardView: UITableViewDataSource
 
-extension CardView: UITableViewDelegate, UITableViewDataSource {
+extension CardView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return placeDetailsArray.count
     }
