@@ -42,8 +42,8 @@ class HistoryViewController: UIViewController {
         ref.child("placeHistory").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
             
             if let value = snapshot.value as? NSDictionary {
-                for (key, placeDictRaw) in value {
-                    var placeDict = placeDictRaw as! [String: Any]
+                for (_, placeDictRaw) in value {
+                    let placeDict = placeDictRaw as! [String: Any]
                     
                     self.places.append(placeDict)
                 }
