@@ -18,7 +18,7 @@ class PlaceCardViewController: UIViewController {
     
     var user: FIRUser!
     var places: Places!
-    var placeIndex: Int = 0
+    var startingIndex: Int = 0
     var ref: FIRDatabaseReference!
     fileprivate var _refHandle: FIRDatabaseHandle!
     
@@ -35,6 +35,11 @@ class PlaceCardViewController: UIViewController {
         carousel.dataSource = self
         
         configureDatabase()
+        
+        // set the first card
+        if startingIndex > 0 {
+            carousel.scrollToItem(at: startingIndex, animated: true)
+        }
     }
     
     deinit {

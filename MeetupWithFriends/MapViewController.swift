@@ -74,7 +74,7 @@ class MapViewController: UIViewController {
 
             self.createMarkersForNearbyPlaces()
             
-            self.displayCards()
+            self.displayCards(startingIndex: 0)
         })
     }
     
@@ -104,10 +104,9 @@ class MapViewController: UIViewController {
     
     func createMarkersForNearbyPlaces() {
         performUIUpdatesOnMain {
-            for place in self.places.places {
+            for (index, place) in self.places.places.enumerated() {
                 let position = CLLocationCoordinate2D(latitude: place.latitude, longitude: place.longitude)
                 let marker = GMSMarker(position: position)
-                marker.title = place.name
                 
                 // get the image
                 var data: Data
@@ -116,6 +115,8 @@ class MapViewController: UIViewController {
                 } catch {
                     continue
                 }
+                marker.userData = index
+                marker.title = place.name
                 marker.icon = UIImage(data: data, scale: 3)
                 marker.map = self.googleMapView
             }
@@ -165,12 +166,13 @@ class MapViewController: UIViewController {
         present(addressAlert, animated: true, completion: nil)
     }
     
-    @IBAction func displayCards() {
+    @IBAction func displayCards(startingIndex: Int) {
         let controller = storyboard?.instantiateViewController(withIdentifier: "PlaceCardViewController") as! PlaceCardViewController
         
         // load places
         controller.places = places
         controller.user = user
+        controller.startingIndex = startingIndex
         
         present(controller, animated: true, completion: nil)
     }
@@ -235,6 +237,10 @@ extension MapViewController: GMSMapViewDelegate {
     
     func mapView(_ mapView: GMSMapView, didLongPressAt coordinate: CLLocationCoordinate2D) {
         searchNearby(latitude: coordinate.latitude, longitude: coordinate.longitude)
+    }
+    
+    func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
+        displayCards(startingIndex: marker.userData as! Int)
     }
 }
 
