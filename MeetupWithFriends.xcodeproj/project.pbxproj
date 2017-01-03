@@ -11,6 +11,7 @@
 		DA4C32111E1B2C840015FA68 /* PlaceDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4C32101E1B2C840015FA68 /* PlaceDetails.swift */; };
 		DA4C32131E1B363D0015FA68 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4C32121E1B363D0015FA68 /* HistoryTableViewCell.swift */; };
 		DA50B0531DFD1FE1007AE5CA /* GCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA50B0521DFD1FE1007AE5CA /* GCD.swift */; };
+		DA5A84D41E1BB80C007EEDF7 /* CustomAuthPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5A84D31E1BB80C007EEDF7 /* CustomAuthPickerViewController.swift */; };
 		DA5C4C251E0A21B700BC88E8 /* PlaceCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5C4C241E0A21B700BC88E8 /* PlaceCardViewController.swift */; };
 		DA616F001E1A1D12009FAEF8 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA616EFF1E1A1D12009FAEF8 /* HistoryViewController.swift */; };
 		DA61DD321E145553000D0FA6 /* Places.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA61DD311E145553000D0FA6 /* Places.swift */; };
@@ -62,6 +63,7 @@
 		DA4C32101E1B2C840015FA68 /* PlaceDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceDetails.swift; sourceTree = "<group>"; };
 		DA4C32121E1B363D0015FA68 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		DA50B0521DFD1FE1007AE5CA /* GCD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCD.swift; sourceTree = "<group>"; };
+		DA5A84D31E1BB80C007EEDF7 /* CustomAuthPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAuthPickerViewController.swift; sourceTree = "<group>"; };
 		DA5C4C241E0A21B700BC88E8 /* PlaceCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCardViewController.swift; sourceTree = "<group>"; };
 		DA616EFF1E1A1D12009FAEF8 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		DA61DD311E145553000D0FA6 /* Places.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Places.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				DAE922FA1E08E944009EC66A /* ActivityViewController.swift */,
 				DA5C4C241E0A21B700BC88E8 /* PlaceCardViewController.swift */,
 				DA616EFF1E1A1D12009FAEF8 /* HistoryViewController.swift */,
+				DA5A84D31E1BB80C007EEDF7 /* CustomAuthPickerViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -456,6 +459,7 @@
 				DAE922FB1E08E944009EC66A /* ActivityViewController.swift in Sources */,
 				DA61DD321E145553000D0FA6 /* Places.swift in Sources */,
 				DAE48C5D1DFD11300099E181 /* GoogleMapsConvenience.swift in Sources */,
+				DA5A84D41E1BB80C007EEDF7 /* CustomAuthPickerViewController.swift in Sources */,
 				DA93633E1DFF9B8500FE1676 /* Helpers.swift in Sources */,
 				DA5C4C251E0A21B700BC88E8 /* PlaceCardViewController.swift in Sources */,
 				DA4C32131E1B363D0015FA68 /* HistoryTableViewCell.swift in Sources */,

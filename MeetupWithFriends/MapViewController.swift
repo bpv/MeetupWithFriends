@@ -177,6 +177,7 @@ class MapViewController: UIViewController {
         controller.places = places
         controller.user = user
         controller.startingIndex = startingIndex
+        controller.delegate = self
         
         present(controller, animated: true, completion: nil)
     }
@@ -245,6 +246,14 @@ extension MapViewController: GMSMapViewDelegate {
     
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
         displayCards(startingIndex: marker.userData as! Int)
+    }
+}
+
+// Mark: - MapViewController: PlaceCardViewDelegate
+
+extension MapViewController: PlaceCardViewDelegate {
+    func viewDidDismiss() {
+        tabBarController?.selectedIndex = 1
     }
 }
 

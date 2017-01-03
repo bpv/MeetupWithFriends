@@ -10,6 +10,11 @@ import UIKit
 import iCarousel
 import Firebase
 
+// Mark: - PlaceCardViewDelegate {
+protocol PlaceCardViewDelegate {
+    func viewDidDismiss()
+}
+
 // Mark: - PlaceCardViewController
 
 class PlaceCardViewController: UIViewController {
@@ -19,6 +24,7 @@ class PlaceCardViewController: UIViewController {
     var user: FIRUser!
     var places: Places!
     var startingIndex: Int = 0
+    var delegate: PlaceCardViewDelegate! = nil
     var ref: FIRDatabaseReference!
     fileprivate var _refHandle: FIRDatabaseHandle!
     
@@ -148,9 +154,7 @@ extension PlaceCardViewController: CardViewDelegate {
                 self.ref.child("placeHistory").child(self.user.uid).childByAutoId().setValue(value)
                 
                 self.dismiss(animated: true, completion: {
-                    // show the history view
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "HistoryViewController") as! HistoryViewController
-                    self.present(vc, animated: true, completion: nil)
+                    self.delegate!.viewDidDismiss()
                 })
             }
         }
