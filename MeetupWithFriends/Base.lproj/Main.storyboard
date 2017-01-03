@@ -40,7 +40,7 @@
                         <rightBarButtonItems>
                             <barButtonItem systemItem="search" id="Ln0-j7-YKw">
                                 <connections>
-                                    <action selector="findAddress:" destination="BYZ-38-t0r" id="qHY-vh-nuQ"/>
+                                    <action selector="didPressFindAddress:" destination="BYZ-38-t0r" id="9TO-a6-nHd"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem systemItem="organize" id="LDA-GC-mZK">
@@ -138,7 +138,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lQv-a6-CRq" id="YKC-kc-txR">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NNe-cc-De2">
@@ -237,7 +237,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Acg-F9-TS0" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Place Finder" id="sW9-Sg-gMM"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="mGI-mI-R08">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mGI-mI-R08">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

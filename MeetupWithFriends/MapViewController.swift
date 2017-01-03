@@ -24,7 +24,6 @@ class MapViewController: UIViewController {
     var user: FIRUser!
     var zoomLevel = GoogleConstants.Configuration.startingZoom
     var defaultLocation = GoogleConstants.Configuration.defaultLocation
-    var didLoadInitialNearbyPlaces = false
     
     // Mark: Outlets
     
@@ -45,7 +44,11 @@ class MapViewController: UIViewController {
         configureMap()
     }
     
+    // Mark: Config
+    
     func configureMap() {
+        googleMapView.delegate = self
+        
         // create GMSCamera and assign to map
         let camera = GMSCameraPosition.camera(withLatitude: defaultLocation.coordinate.latitude, longitude: defaultLocation.coordinate.latitude, zoom: zoomLevel)
         googleMapView.camera = camera
@@ -69,13 +72,37 @@ class MapViewController: UIViewController {
             
             self.places = places
 
-            self.createMarkers()
+            self.createMarkersForNearbyPlaces()
             
             self.displayCards()
         })
     }
     
-    func createMarkers() {
+    // Mark: Map Manipulation
+    
+    // wrapper method to perform necessary tasks on map when searching nearby
+    func searchNearby(latitude: Double, longitude: Double) {
+        googleMapView.clear()
+        
+        createMarker(latitude: latitude, longitude: longitude)
+        
+        centerMap(latitude: latitude, longitude: longitude)
+        
+        loadNearbyPlaces(latitude: latitude, longitude: longitude, pageToken: nil)
+    }
+    
+    func createMarker(latitude: Double, longitude: Double) {
+        let position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        let marker = GMSMarker(position: position)
+        marker.map = self.googleMapView
+    }
+    
+    func centerMap(latitude: Double, longitude: Double) {
+        let camera = GMSCameraPosition.camera(withLatitude: latitude, longitude: longitude, zoom: zoomLevel)
+        googleMapView.animate(to: camera)
+    }
+    
+    func createMarkersForNearbyPlaces() {
         performUIUpdatesOnMain {
             for place in self.places.places {
                 let position = CLLocationCoordinate2D(latitude: place.latitude, longitude: place.longitude)
@@ -83,7 +110,6 @@ class MapViewController: UIViewController {
                 marker.title = place.name
                 
                 // get the image
-                // TODO: cache icon images
                 var data: Data
                 do {
                     data = try Data(contentsOf: URL(string: place.icon)!)
@@ -96,16 +122,10 @@ class MapViewController: UIViewController {
         }
     }
     
-    // Mark: Center Map
-    
-    func centerMap(latitude: Double, longitude: Double) {
-        let camera = GMSCameraPosition.camera(withLatitude: latitude, longitude: longitude, zoom: zoomLevel)
-        googleMapView.animate(to: camera)
-    }
 
     // Mark: Actions
     
-    @IBAction func findAddress(_ sender: Any) {
+    @IBAction func didPressFindAddress(_ sender: Any) {
         // present an alertView to get address
         let addressAlert = UIAlertController(title: "Search by Address", message: "Enter an address to search around.", preferredStyle: .alert)
         
@@ -130,15 +150,8 @@ class MapViewController: UIViewController {
                     return
                 }
                 
-                // create marker
-                let position = CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude)
-                let marker = GMSMarker(position: position)
-                marker.map = self.googleMapView
-                
-                // center the map
-                self.centerMap(latitude: coordinate.latitude, longitude: coordinate.longitude)
-                
-                self.loadNearbyPlaces(latitude: coordinate.latitude, longitude: coordinate.longitude, pageToken: nil)
+                // clear everything
+                self.searchNearby(latitude: coordinate.latitude, longitude: coordinate.longitude)
             })
         }
         
@@ -183,11 +196,10 @@ extension MapViewController: CLLocationManagerDelegate {
             googleMapView.animate(to: camera)
         }
         
-        // only load places once automatically, subsequent requests must be triggered manually
-        if didLoadInitialNearbyPlaces == false {
-            loadNearbyPlaces(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude, pageToken: nil)
-            didLoadInitialNearbyPlaces = true
-        }
+
+        loadNearbyPlaces(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude, pageToken: nil)
+        
+        createMarker(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
     }
     
     // Handle authorization for the location manager.
@@ -219,5 +231,10 @@ extension MapViewController: CLLocationManagerDelegate {
 
 extension MapViewController: GMSMapViewDelegate {
     
+    // drop a marker to do a search
+    
+    func mapView(_ mapView: GMSMapView, didLongPressAt coordinate: CLLocationCoordinate2D) {
+        searchNearby(latitude: coordinate.latitude, longitude: coordinate.longitude)
+    }
 }
 
