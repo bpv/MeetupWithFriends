@@ -58,7 +58,6 @@ class CardView: UIView {
         detailsTable.register(PlaceAttributeCell.nib, forCellReuseIdentifier: PlaceAttributeCell.reuseIdentifier)
         
         detailsTable.dataSource = self
-        detailsTable.delegate = self
     }
     
     // Mark: Actions
