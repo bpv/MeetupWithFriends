@@ -91,7 +91,7 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
                 
                 if let details = details {
                     cell.nameLabel.text = details.name
-                    cell.phoneLabel.text = details.phoneNumber!
+                    cell.phoneLabel.text = details.phoneNumber
                     cell.placeDetails = details
                 }
             }
