@@ -29,6 +29,7 @@ class CardView: UIView {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var detailsTable: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // Mark: Properties
     
@@ -89,6 +90,8 @@ class CardView: UIView {
                 
                 // reload the table
                 self.detailsTable.reloadData()
+                
+                self.activityIndicator.stopAnimating()
             }
         }
     }

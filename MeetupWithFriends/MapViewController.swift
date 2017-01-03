@@ -28,6 +28,7 @@ class MapViewController: UIViewController {
     // Mark: Outlets
     
     @IBOutlet weak var googleMapView: GMSMapView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // Mark: Life Cycle
     
@@ -84,11 +85,15 @@ class MapViewController: UIViewController {
     func searchNearby(latitude: Double, longitude: Double) {
         googleMapView.clear()
         
+        activityIndicator.startAnimating()
+        
         createMarker(latitude: latitude, longitude: longitude)
         
         centerMap(latitude: latitude, longitude: longitude)
         
         loadNearbyPlaces(latitude: latitude, longitude: longitude, pageToken: nil)
+        
+        activityIndicator.stopAnimating()
     }
     
     func createMarker(latitude: Double, longitude: Double) {
@@ -207,6 +212,8 @@ extension MapViewController: CLLocationManagerDelegate {
         loadNearbyPlaces(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude, pageToken: nil)
         
         createMarker(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        
+        activityIndicator.stopAnimating()
     }
     
     // Handle authorization for the location manager.

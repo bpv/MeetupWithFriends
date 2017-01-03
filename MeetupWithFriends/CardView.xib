@@ -59,6 +59,9 @@
                                 <action selector="didPressRightArrow:" destination="iN0-l3-epB" eventType="touchUpInside" id="Esh-u7-Fbj"/>
                             </connections>
                         </button>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Zhq-Cf-vjf">
+                            <rect key="frame" x="169" y="85" width="37" height="37"/>
+                        </activityIndicatorView>
                     </subviews>
                     <color key="backgroundColor" red="1" green="0.83529411764705885" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -66,19 +69,23 @@
                         <constraint firstItem="3i8-3K-8XJ" firstAttribute="top" secondItem="WOU-jB-iGN" secondAttribute="bottom" constant="8" id="7OH-Gh-8kF"/>
                         <constraint firstItem="A2R-do-8tR" firstAttribute="centerX" secondItem="iG9-v7-AZt" secondAttribute="centerX" id="8cM-YJ-mVb"/>
                         <constraint firstItem="A2R-do-8tR" firstAttribute="bottom" secondItem="iG9-v7-AZt" secondAttribute="bottomMargin" id="9KY-uf-UGn"/>
+                        <constraint firstItem="Zhq-Cf-vjf" firstAttribute="leading" secondItem="iG9-v7-AZt" secondAttribute="leading" constant="169" id="9f2-xO-Nfa"/>
                         <constraint firstItem="3i8-3K-8XJ" firstAttribute="top" secondItem="WOU-jB-iGN" secondAttribute="bottom" constant="8" id="CRl-zX-WZ7"/>
                         <constraint firstItem="Jap-I6-P2T" firstAttribute="trailing" secondItem="3i8-3K-8XJ" secondAttribute="trailing" id="EWP-F7-5I4"/>
                         <constraint firstAttribute="trailing" secondItem="3i8-3K-8XJ" secondAttribute="trailing" constant="8" id="FiE-au-r4W"/>
                         <constraint firstItem="kAo-8D-jap" firstAttribute="top" secondItem="Jap-I6-P2T" secondAttribute="top" id="R9a-Vn-nUe"/>
                         <constraint firstItem="3Fl-ap-75q" firstAttribute="trailing" secondItem="iG9-v7-AZt" secondAttribute="trailingMargin" id="Vbt-oP-uk9"/>
+                        <constraint firstItem="WOU-jB-iGN" firstAttribute="top" secondItem="Zhq-Cf-vjf" secondAttribute="bottom" constant="84" id="Z8J-Yw-vFa"/>
                         <constraint firstItem="WOU-jB-iGN" firstAttribute="leading" secondItem="iG9-v7-AZt" secondAttribute="leading" constant="8" id="fUh-se-74M"/>
                         <constraint firstItem="A2R-do-8tR" firstAttribute="top" secondItem="3i8-3K-8XJ" secondAttribute="bottom" constant="8" symbolic="YES" id="gCL-V4-yCA"/>
+                        <constraint firstAttribute="trailing" secondItem="Zhq-Cf-vjf" secondAttribute="trailing" constant="169" id="gf9-0n-XgB"/>
                         <constraint firstItem="3Fl-ap-75q" firstAttribute="top" secondItem="iG9-v7-AZt" secondAttribute="topMargin" id="jiO-RA-CbA"/>
                         <constraint firstAttribute="trailing" secondItem="WOU-jB-iGN" secondAttribute="trailing" constant="8" id="m9Q-cH-f7W"/>
                         <constraint firstItem="3Fl-ap-75q" firstAttribute="leading" secondItem="iG9-v7-AZt" secondAttribute="leadingMargin" id="mYA-gT-sQf"/>
                         <constraint firstItem="kAo-8D-jap" firstAttribute="top" secondItem="3i8-3K-8XJ" secondAttribute="bottom" constant="7" id="uP6-cg-Dvq"/>
                         <constraint firstItem="kAo-8D-jap" firstAttribute="leading" secondItem="3i8-3K-8XJ" secondAttribute="leading" id="vse-1g-dSm"/>
                         <constraint firstItem="3i8-3K-8XJ" firstAttribute="leading" secondItem="iG9-v7-AZt" secondAttribute="leading" constant="8" id="wri-D7-bUj"/>
+                        <constraint firstItem="Zhq-Cf-vjf" firstAttribute="top" secondItem="iG9-v7-AZt" secondAttribute="top" constant="85" id="wu7-ho-Awj"/>
                     </constraints>
                 </view>
             </subviews>
@@ -91,6 +98,7 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <connections>
+                <outlet property="activityIndicator" destination="Zhq-Cf-vjf" id="8YE-bh-ed8"/>
                 <outlet property="detailsTable" destination="3i8-3K-8XJ" id="sKn-Ts-YTz"/>
                 <outlet property="imageView" destination="3Fl-ap-75q" id="8Et-Sv-nUN"/>
                 <outlet property="nameLabel" destination="WOU-jB-iGN" id="c8U-Ck-Hbc"/>

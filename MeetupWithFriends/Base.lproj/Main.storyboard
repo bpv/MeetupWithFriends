@@ -27,13 +27,19 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="7Rk-Nb-ZsR">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                <color key="color" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="7Rk-Nb-ZsR" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="9Ab-AH-jnu"/>
                             <constraint firstItem="E5M-T1-Mbp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="O38-EB-ZT2"/>
                             <constraint firstAttribute="trailing" secondItem="E5M-T1-Mbp" secondAttribute="trailing" id="TRB-hh-Y1I"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="E5M-T1-Mbp" secondAttribute="bottom" id="Uem-6N-jOh"/>
                             <constraint firstItem="E5M-T1-Mbp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="sv9-3S-i2o"/>
+                            <constraint firstItem="7Rk-Nb-ZsR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vGG-GP-3k0"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Find A Place" id="Wbb-2w-ss6">
@@ -51,6 +57,7 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="7Rk-Nb-ZsR" id="pvM-Jy-ids"/>
                         <outlet property="googleMapView" destination="E5M-T1-Mbp" id="GLN-iF-Vae"/>
                     </connections>
                 </viewController>
@@ -190,6 +197,10 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="13a-1P-puq">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                <color key="color" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -197,14 +208,17 @@
                             <constraint firstItem="Amp-Hj-0wM" firstAttribute="leading" secondItem="xAl-pe-Hp0" secondAttribute="leading" id="J6f-0N-viw"/>
                             <constraint firstItem="HUm-A2-7zR" firstAttribute="top" secondItem="Amp-Hj-0wM" secondAttribute="bottom" id="T2l-FI-9hU"/>
                             <constraint firstItem="Amp-Hj-0wM" firstAttribute="top" secondItem="B8t-bl-hx7" secondAttribute="bottom" id="UmN-zH-SKq"/>
+                            <constraint firstItem="13a-1P-puq" firstAttribute="centerY" secondItem="xAl-pe-Hp0" secondAttribute="centerY" id="Vep-EP-jIo"/>
                             <constraint firstItem="B8t-bl-hx7" firstAttribute="leading" secondItem="xAl-pe-Hp0" secondAttribute="leading" id="XUC-N5-Wfg"/>
                             <constraint firstAttribute="trailing" secondItem="Amp-Hj-0wM" secondAttribute="trailing" id="gcv-St-gzZ"/>
                             <constraint firstItem="B8t-bl-hx7" firstAttribute="top" secondItem="m4M-th-wpp" secondAttribute="bottom" id="kIO-Gj-SMb"/>
+                            <constraint firstItem="13a-1P-puq" firstAttribute="centerX" secondItem="xAl-pe-Hp0" secondAttribute="centerX" id="pDt-qS-CHY"/>
                             <constraint firstAttribute="trailing" secondItem="B8t-bl-hx7" secondAttribute="trailing" id="zdV-8e-9Lj"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="history" id="UoN-Th-h7K"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="13a-1P-puq" id="Hj4-sj-evs"/>
                         <outlet property="historyTable" destination="Amp-Hj-0wM" id="CdG-i9-KTG"/>
                     </connections>
                 </viewController>
@@ -237,7 +251,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Acg-F9-TS0" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Find Place" image="map" selectedImage="map-selected" id="sW9-Sg-gMM"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mGI-mI-R08">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="mGI-mI-R08">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -276,7 +290,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2em-RZ-ydY">
-                                        <rect key="frame" x="0.0" y="111" width="375" height="111"/>
+                                        <rect key="frame" x="0.0" y="111" width="375" height="110.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <color key="tintColor" red="0.95686274509803915" green="0.2627450980392157" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Drink" image="drink"/>
@@ -285,7 +299,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yHJ-SX-MNC">
-                                        <rect key="frame" x="0.0" y="222" width="375" height="110"/>
+                                        <rect key="frame" x="0.0" y="221.5" width="375" height="111"/>
                                         <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <color key="tintColor" red="0.61176470588235299" green="0.15294117647058825" blue="0.69019607843137254" alpha="1" colorSpace="calibratedRGB"/>
@@ -295,7 +309,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zph-Vg-2D2">
-                                        <rect key="frame" x="0.0" y="332" width="375" height="111"/>
+                                        <rect key="frame" x="0.0" y="332.5" width="375" height="110.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <color key="tintColor" red="0.0" green="0.58823529411764708" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title=" Chat" image="chat"/>

@@ -22,6 +22,7 @@ class HistoryViewController: UIViewController {
     // Mark: Outlets
     
     @IBOutlet weak var historyTable: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // Mark: Life Cycle
     
@@ -49,6 +50,8 @@ class HistoryViewController: UIViewController {
                 }
                 
                 self.historyTable.reloadData()
+                
+                self.activityIndicator.stopAnimating()
             }
             
         }) { (error) in
