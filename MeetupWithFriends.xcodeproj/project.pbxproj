@@ -32,6 +32,7 @@
 		DACCD1391E183E560071C04E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DACCD1381E183E560071C04E /* GoogleService-Info.plist */; };
 		DACCD13A1E183E560071C04E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DACCD1381E183E560071C04E /* GoogleService-Info.plist */; };
 		DACCD13B1E183E560071C04E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DACCD1381E183E560071C04E /* GoogleService-Info.plist */; };
+		DAD597451E1C3DBA00F8BD56 /* AuthHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD597441E1C3DBA00F8BD56 /* AuthHelpers.swift */; };
 		DAE48C591DFBEDD30099E181 /* Settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAE48C581DFBEDD30099E181 /* Settings.plist */; };
 		DAE48C5B1DFBEE270099E181 /* Settings.Example.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAE48C5A1DFBEE270099E181 /* Settings.Example.plist */; };
 		DAE48C5D1DFD11300099E181 /* GoogleMapsConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE48C5C1DFD11300099E181 /* GoogleMapsConvenience.swift */; };
@@ -88,6 +89,7 @@
 		DAC9B5981DFBDB60007A5008 /* MeetupWithFriendsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetupWithFriendsUITests.swift; sourceTree = "<group>"; };
 		DAC9B59A1DFBDB60007A5008 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DACCD1381E183E560071C04E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DAD597441E1C3DBA00F8BD56 /* AuthHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthHelpers.swift; sourceTree = "<group>"; };
 		DAE48C581DFBEDD30099E181 /* Settings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
 		DAE48C5A1DFBEE270099E181 /* Settings.Example.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Settings.Example.plist; sourceTree = "<group>"; };
 		DAE48C5C1DFD11300099E181 /* GoogleMapsConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleMapsConvenience.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 			children = (
 				DA50B0521DFD1FE1007AE5CA /* GCD.swift */,
 				DA93633D1DFF9B8500FE1676 /* Helpers.swift */,
+				DAD597441E1C3DBA00F8BD56 /* AuthHelpers.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -462,6 +465,7 @@
 				DA5A84D41E1BB80C007EEDF7 /* CustomAuthPickerViewController.swift in Sources */,
 				DA93633E1DFF9B8500FE1676 /* Helpers.swift in Sources */,
 				DA5C4C251E0A21B700BC88E8 /* PlaceCardViewController.swift in Sources */,
+				DAD597451E1C3DBA00F8BD56 /* AuthHelpers.swift in Sources */,
 				DA4C32131E1B363D0015FA68 /* HistoryTableViewCell.swift in Sources */,
 				DAC9B5791DFBDB5F007A5008 /* AppDelegate.swift in Sources */,
 				DAC68F441E15D34300A64131 /* PlaceAttributeCell.swift in Sources */,

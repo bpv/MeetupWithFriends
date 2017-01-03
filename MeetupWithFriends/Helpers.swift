@@ -8,8 +8,6 @@
 
 import Foundation
 import UIKit
-import FirebaseAuth
-import FirebaseAuthUI
 
 // Mark: - Helpers
 
@@ -20,22 +18,6 @@ class Helpers {
             let alert = UIAlertController(title: "Error", message: errorString, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
             view.present(alert, animated: true, completion: nil)
-        }
-    }
-    
-    class func loginSession(view: UIViewController) {
-        let authViewController = FUIAuth.defaultAuthUI()!.authViewController()
-        view.present(authViewController, animated: true, completion: nil)
-    }
-    
-    class func signOut(view: UIViewController) {
-        do {
-            try FIRAuth.auth()?.signOut()
-            
-            // show login screen
-            Helpers.loginSession(view: view)
-        } catch {
-            Helpers.displayError(view: view, errorString: "Error signing out. Please try again later.")
         }
     }
     

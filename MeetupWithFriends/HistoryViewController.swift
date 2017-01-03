@@ -57,7 +57,7 @@ class HistoryViewController: UIViewController {
     }
 
     @IBAction func didPressSignOut(_ sender: Any) {
-        Helpers.signOut(view: self)
+        AuthHelpers.signOut(view: self)
     }
     
 }

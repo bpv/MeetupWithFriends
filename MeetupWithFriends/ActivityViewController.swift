@@ -37,7 +37,6 @@ class ActivityViewController: UIViewController {
         
         // listen for changes in the authorization state
         _authHandle = FIRAuth.auth()?.addStateDidChangeListener { (auth: FIRAuth, user: FIRUser?) in
-            // TODO: refresh data if necessary
             
             // check if there is a current user
             if let activeUser = user {
@@ -47,7 +46,7 @@ class ActivityViewController: UIViewController {
                 }
             } else {
                 // user must sign in
-                Helpers.loginSession(view: self)
+                AuthHelpers().loginSession(view: self)
             }
         }
     }
@@ -55,7 +54,7 @@ class ActivityViewController: UIViewController {
     // Mark: Actions
     
     @IBAction func didPressSignOut(_ sender: Any) {
-        Helpers.signOut(view: self)
+        AuthHelpers.signOut(view: self)
     }
     
     // MARK: - Navigation
