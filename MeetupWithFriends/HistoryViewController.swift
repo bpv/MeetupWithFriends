@@ -31,7 +31,6 @@ class HistoryViewController: UIViewController {
         configureDatabase()
         
         historyTable.dataSource = self
-        historyTable.delegate = self
     }
     
     // Mark: Config
@@ -63,9 +62,9 @@ class HistoryViewController: UIViewController {
     
 }
 
-// Mark: - HistoryViewController: UITableViewDelegate, UITableViewDataSource
+// Mark: - HistoryViewController: UITableViewDataSource
 
-extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
+extension HistoryViewController: UITableViewDataSource {
     
     // Mark: UITableViewDataSource
     
@@ -99,11 +98,4 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
-    
-    // Mark: UITableViewDelegate
-    
-    /*
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-    }*/
 }
