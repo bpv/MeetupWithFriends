@@ -31,6 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // configure FireBase
         FIRApp.configure()
+        FIRDatabase.database().persistenceEnabled = true
         
         return true
     }
