@@ -161,25 +161,25 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hG1-XL-PFd">
-                                                    <rect key="frame" x="304" y="25" width="63" height="30"/>
-                                                    <state key="normal" title="Navigate"/>
+                                                    <rect key="frame" x="323" y="25" width="44" height="31"/>
+                                                    <state key="normal" image="directions"/>
                                                     <connections>
                                                         <action selector="didPressNavigate:" destination="lQv-a6-CRq" eventType="touchUpInside" id="x1c-dP-EJ7"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="hG1-XL-PFd" firstAttribute="leading" secondItem="owq-de-xye" secondAttribute="trailing" constant="8" id="0s1-wr-SKe"/>
+                                                <constraint firstItem="hG1-XL-PFd" firstAttribute="leading" secondItem="owq-de-xye" secondAttribute="trailing" constant="27" id="0s1-wr-SKe"/>
                                                 <constraint firstItem="NNe-cc-De2" firstAttribute="leading" secondItem="YKC-kc-txR" secondAttribute="leading" constant="8" id="3eh-lH-odl"/>
                                                 <constraint firstItem="owq-de-xye" firstAttribute="bottom" secondItem="YKC-kc-txR" secondAttribute="bottomMargin" id="8cw-tT-EGc"/>
-                                                <constraint firstItem="hG1-XL-PFd" firstAttribute="leading" secondItem="owq-de-xye" secondAttribute="trailing" constant="8" id="DdD-Xd-JwG"/>
+                                                <constraint firstItem="hG1-XL-PFd" firstAttribute="leading" secondItem="owq-de-xye" secondAttribute="trailing" constant="27" id="DdD-Xd-JwG"/>
                                                 <constraint firstItem="owq-de-xye" firstAttribute="top" secondItem="NNe-cc-De2" secondAttribute="bottom" constant="3" id="Ez6-I8-N9M"/>
                                                 <constraint firstItem="owq-de-xye" firstAttribute="leading" secondItem="YKC-kc-txR" secondAttribute="leadingMargin" id="JvC-e3-2go"/>
                                                 <constraint firstItem="owq-de-xye" firstAttribute="top" secondItem="NNe-cc-De2" secondAttribute="bottom" constant="3" id="ch9-2J-Tn4"/>
                                                 <constraint firstAttribute="trailing" secondItem="NNe-cc-De2" secondAttribute="trailing" constant="8" id="fOL-gD-lDd"/>
                                                 <constraint firstItem="hG1-XL-PFd" firstAttribute="top" secondItem="YKC-kc-txR" secondAttribute="top" constant="25" id="g3B-iK-9eO"/>
                                                 <constraint firstAttribute="trailing" secondItem="hG1-XL-PFd" secondAttribute="trailing" constant="8" id="hGb-gF-c8S"/>
-                                                <constraint firstAttribute="bottom" secondItem="hG1-XL-PFd" secondAttribute="bottom" constant="4" id="nha-8i-bzv"/>
+                                                <constraint firstAttribute="bottom" secondItem="hG1-XL-PFd" secondAttribute="bottom" constant="3" id="nha-8i-bzv"/>
                                                 <constraint firstItem="NNe-cc-De2" firstAttribute="top" secondItem="YKC-kc-txR" secondAttribute="top" constant="6" id="qHb-mu-eUK"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -269,7 +269,8 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="111"/>
                                         <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <state key="normal" title="Eat"/>
+                                        <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title=" Eat" image="eat"/>
                                         <connections>
                                             <segue destination="BYZ-38-t0r" kind="show" id="fSp-xq-uHe"/>
                                         </connections>
@@ -277,7 +278,8 @@
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2em-RZ-ydY">
                                         <rect key="frame" x="0.0" y="111" width="375" height="110.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <state key="normal" title="Drink"/>
+                                        <color key="tintColor" red="0.95686274509803915" green="0.2627450980392157" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Drink" image="drink"/>
                                         <connections>
                                             <segue destination="BYZ-38-t0r" kind="show" id="bp4-O5-MQw"/>
                                         </connections>
@@ -286,7 +288,8 @@
                                         <rect key="frame" x="0.0" y="221.5" width="375" height="111"/>
                                         <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <state key="normal" title="Dance"/>
+                                        <color key="tintColor" red="0.61176470588235299" green="0.15294117647058825" blue="0.69019607843137254" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title=" Dance" image="dance"/>
                                         <connections>
                                             <segue destination="BYZ-38-t0r" kind="show" id="WeK-sA-bo8"/>
                                         </connections>
@@ -294,7 +297,8 @@
                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zph-Vg-2D2">
                                         <rect key="frame" x="0.0" y="332.5" width="375" height="110.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <state key="normal" title="Chat"/>
+                                        <color key="tintColor" red="0.0" green="0.58823529411764708" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title=" Chat" image="chat"/>
                                         <connections>
                                             <segue destination="BYZ-38-t0r" kind="show" id="RD7-tf-3Yr"/>
                                         </connections>
@@ -303,7 +307,7 @@
                                         <rect key="frame" x="0.0" y="443" width="375" height="111"/>
                                         <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <state key="normal" title="Watch"/>
+                                        <state key="normal" title=" Watch" image="watch"/>
                                         <connections>
                                             <segue destination="BYZ-38-t0r" kind="show" id="uIQ-bL-Gb2"/>
                                         </connections>
@@ -334,8 +338,14 @@
     </scenes>
     <resources>
         <image name="cards" width="25" height="25"/>
+        <image name="chat" width="50" height="50"/>
+        <image name="dance" width="50" height="50"/>
+        <image name="directions" width="25" height="25"/>
+        <image name="drink" width="50" height="50"/>
+        <image name="eat" width="50" height="50"/>
         <image name="map" width="25" height="25"/>
         <image name="map-selected" width="25" height="25"/>
+        <image name="watch" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="uIQ-bL-Gb2"/>
