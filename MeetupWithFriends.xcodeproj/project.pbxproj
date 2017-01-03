@@ -62,7 +62,6 @@
 		DA4C32101E1B2C840015FA68 /* PlaceDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceDetails.swift; sourceTree = "<group>"; };
 		DA4C32121E1B363D0015FA68 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		DA50B0521DFD1FE1007AE5CA /* GCD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCD.swift; sourceTree = "<group>"; };
-		DA5304C71E0F695300EFCD49 /* SwiftExample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftExample-Bridging-Header.h"; sourceTree = "<group>"; };
 		DA5C4C241E0A21B700BC88E8 /* PlaceCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCardViewController.swift; sourceTree = "<group>"; };
 		DA616EFF1E1A1D12009FAEF8 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		DA61DD311E145553000D0FA6 /* Places.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Places.swift; sourceTree = "<group>"; };
@@ -216,7 +215,6 @@
 			isa = PBXGroup;
 			children = (
 				DAC9B5781DFBDB5F007A5008 /* AppDelegate.swift */,
-				DA5304C71E0F695300EFCD49 /* SwiftExample-Bridging-Header.h */,
 				DA10D7111DFBDD3C0083CEBD /* Controllers */,
 				DA10D7121DFBDD450083CEBD /* Models */,
 				DA10D7131DFBDD4B0083CEBD /* Views */,
