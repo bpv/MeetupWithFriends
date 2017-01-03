@@ -165,8 +165,12 @@ class MapViewController: UIViewController {
         
         present(addressAlert, animated: true, completion: nil)
     }
+
+    @IBAction func didPressCards(_ sender: Any) {
+        displayCards(startingIndex: 0)
+    }
     
-    @IBAction func displayCards(startingIndex: Int) {
+    func displayCards(startingIndex: Int) {
         let controller = storyboard?.instantiateViewController(withIdentifier: "PlaceCardViewController") as! PlaceCardViewController
         
         // load places

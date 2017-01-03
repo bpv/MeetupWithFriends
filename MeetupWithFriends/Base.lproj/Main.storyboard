@@ -45,7 +45,7 @@
                             </barButtonItem>
                             <barButtonItem image="cards" id="LDA-GC-mZK">
                                 <connections>
-                                    <action selector="displayCards" destination="BYZ-38-t0r" id="3y0-ZJ-T9R"/>
+                                    <action selector="didPressCards:" destination="BYZ-38-t0r" id="KG2-VZ-CKa"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -74,7 +74,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
                                     <navigationItem title="Pick A Place" id="s7w-NV-uF9">
-                                        <barButtonItem key="leftBarButtonItem" title="Close" id="SrY-BD-Wc2">
+                                        <barButtonItem key="leftBarButtonItem" image="map2" id="SrY-BD-Wc2">
                                             <connections>
                                                 <action selector="closeButtonClicked" destination="KJi-yL-50A" id="eKF-0s-7Z2"/>
                                             </connections>
@@ -345,6 +345,7 @@
         <image name="eat" width="50" height="50"/>
         <image name="map" width="25" height="25"/>
         <image name="map-selected" width="25" height="25"/>
+        <image name="map2" width="25" height="25"/>
         <image name="watch" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
