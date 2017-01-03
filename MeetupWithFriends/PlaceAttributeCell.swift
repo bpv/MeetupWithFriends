@@ -8,21 +8,18 @@
 
 import UIKit
 
+// Mark: - PlaceAttributeCell
+
 class PlaceAttributeCell: UITableViewCell {
+    
+    // Mark: Properties
+    
     static let nib = { UINib(nibName: "PlaceAttributeCell", bundle: nil) }()
     static let reuseIdentifier = "PlaceAttributeCell"
+    
+    // Mark: Outlets
+    
     @IBOutlet weak var propertyName: UILabel!
     @IBOutlet weak var propertyValue: UILabel!
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
     
 }
