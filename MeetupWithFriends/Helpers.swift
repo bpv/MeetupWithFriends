@@ -28,14 +28,26 @@ class Helpers {
     }
     
     class func launchNavigationApp(name: String, latitude: Double, longitude: Double) {
-        // first, check if Google Maps is available
-        let googleTargetURL = URL(string: "comgooglemaps://?q=\(name)&center=\(latitude),\(longitude)")!
-        let appleTargetURL = URL(string: "http://maps.apple.com/?q=\(name)&ll=\(latitude),\(longitude)")!
         
-        if (UIApplication.shared.canOpenURL(googleTargetURL)) {
-            UIApplication.shared.open(googleTargetURL, options: [String: Any](), completionHandler: nil)
+        let latString = String(latitude)
+        let lonString = String(longitude)
+        
+        var googleTargetURL = URLComponents(string: "comgooglemaps://")
+        googleTargetURL?.queryItems = [
+            URLQueryItem(name: "q", value: name),
+            URLQueryItem(name: "center", value: latString + "," + lonString)
+        ]
+        
+        var appleTargetURL = URLComponents(string: "http://maps.apple.com/")
+        appleTargetURL?.queryItems = [
+            URLQueryItem(name: "q", value: name),
+            URLQueryItem(name: "ll", value: latString + "," + lonString)
+        ]
+        
+        if (UIApplication.shared.canOpenURL((googleTargetURL?.url)!)) {
+            UIApplication.shared.open((googleTargetURL?.url)!, options: [String: Any](), completionHandler: nil)
         } else {
-            UIApplication.shared.open(appleTargetURL, options: [String: Any](), completionHandler: nil)
+            UIApplication.shared.open((appleTargetURL?.url)!, options: [String: Any](), completionHandler: nil)
         }
     }
 }
