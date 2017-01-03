@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 struct GoogleConstants {
     private static var settingsDict: [String: AnyObject] {
@@ -32,6 +33,9 @@ struct GoogleConstants {
     
     struct Configuration {
         static var startingZoom: Float = 14.0
+        // set to Udacity's office
+        static var defaultLocation = CLLocation(latitude: 37.3998683, longitude: -122.1105883)
+
     }
     
     struct Geocoding {

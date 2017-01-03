@@ -18,9 +18,13 @@ class MapViewController: UIViewController {
     // Mark: Properties
     
     var locationManager = CLLocationManager()
+    var currentLocation: CLLocation?
     var places: Places!
     var type: String!
     var user: FIRUser!
+    var zoomLevel = GoogleConstants.Configuration.startingZoom
+    var defaultLocation = GoogleConstants.Configuration.defaultLocation
+    var didLoadInitialNearbyPlaces = false
     
     // Mark: Outlets
     
@@ -32,15 +36,18 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
         
         // set up Core Location
-        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
+        locationManager.distanceFilter = 50
+        locationManager.startUpdatingLocation()
+        locationManager.delegate = self
         
         configureMap()
     }
     
     func configureMap() {
         // create GMSCamera and assign to map
-        let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: GoogleConstants.Configuration.startingZoom)
+        let camera = GMSCameraPosition.camera(withLatitude: defaultLocation.coordinate.latitude, longitude: defaultLocation.coordinate.latitude, zoom: zoomLevel)
         googleMapView.camera = camera
         
         // map configuration
@@ -92,7 +99,7 @@ class MapViewController: UIViewController {
     // Mark: Center Map
     
     func centerMap(latitude: Double, longitude: Double) {
-        let camera = GMSCameraPosition.camera(withLatitude: latitude, longitude: longitude, zoom: GoogleConstants.Configuration.startingZoom)
+        let camera = GMSCameraPosition.camera(withLatitude: latitude, longitude: longitude, zoom: zoomLevel)
         googleMapView.animate(to: camera)
     }
 
@@ -156,16 +163,56 @@ class MapViewController: UIViewController {
     }
 }
 
-// Mark: - MapViewController: GMSMapViewDelegate
+// Mark: - MapViewController: CLLocationManagerDelegate
 
 extension MapViewController: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        if status == .authorizedWhenInUse {
-            googleMapView.isMyLocationEnabled = true
+    
+    // Handle incoming location events.
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location: CLLocation = locations.last!
+        print("Location: \(location)")
+        
+        let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude,
+                                              longitude: location.coordinate.longitude,
+                                              zoom: zoomLevel)
+        
+        if googleMapView.isHidden {
+            googleMapView.isHidden = false
+            googleMapView.camera = camera
         } else {
-            // TODO: prompt for location
+            googleMapView.animate(to: camera)
+        }
+        
+        // only load places once automatically, subsequent requests must be triggered manually
+        if didLoadInitialNearbyPlaces == false {
+            loadNearbyPlaces(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude, pageToken: nil)
+            didLoadInitialNearbyPlaces = true
         }
     }
+    
+    // Handle authorization for the location manager.
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
+        case .restricted:
+            print("Location access was restricted.")
+        case .denied:
+            print("User denied access to location.")
+            // Display the map using the default location.
+            googleMapView.isHidden = false
+        case .notDetermined:
+            print("Location status not determined.")
+        case .authorizedAlways: fallthrough
+        case .authorizedWhenInUse:
+            googleMapView.isMyLocationEnabled = true
+        }
+    }
+    
+    // Handle location manager errors.
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        locationManager.stopUpdatingLocation()
+        Helpers.displayError(view: self, errorString: error.localizedDescription)
+    }
+    
 }
 
 // Mark: - MapViewController: GMSMapViewDelegate
