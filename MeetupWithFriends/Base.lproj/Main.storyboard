@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -105,7 +106,7 @@
             </objects>
             <point key="canvasLocation" x="3416.8000000000002" y="123.68815592203899"/>
         </scene>
-        <!--History-->
+        <!--History View Controller-->
         <scene sceneID="Ntv-0l-Ray">
             <objects>
                 <viewController storyboardIdentifier="HistoryViewController" id="jFI-Bf-vyP" customClass="HistoryViewController" customModule="MeetupWithFriends" customModuleProvider="target" sceneMemberID="viewController">
@@ -123,33 +124,63 @@
                                     <navigationItem title="History" id="LRk-x9-A36"/>
                                 </items>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Amp-Hj-0wM">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Amp-Hj-0wM">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HistoryCell" textLabel="acH-Nt-WEq" detailTextLabel="lXP-Ej-i7G" style="IBUITableViewCellStyleSubtitle" id="lQv-a6-CRq">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HistoryCell" rowHeight="60" id="lQv-a6-CRq" customClass="HistoryTableViewCell" customModule="MeetupWithFriends" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lQv-a6-CRq" id="YKC-kc-txR">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="acH-Nt-WEq">
-                                                    <rect key="frame" x="15" y="5" width="33.5" height="20.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NNe-cc-De2">
+                                                    <rect key="frame" x="8" y="6" width="359" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="92O-GX-KJf"/>
+                                                        <constraint firstAttribute="width" constant="359" id="Ybs-Cd-Fg1"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lXP-Ej-i7G">
-                                                    <rect key="frame" x="15" y="25.5" width="44" height="14.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="owq-de-xye">
+                                                    <rect key="frame" x="8" y="30" width="288" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="288" id="GZj-F6-qrk"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hG1-XL-PFd">
+                                                    <rect key="frame" x="304" y="25" width="63" height="30"/>
+                                                    <state key="normal" title="Navigate"/>
+                                                    <connections>
+                                                        <action selector="didPressNavigate:" destination="lQv-a6-CRq" eventType="touchUpInside" id="x1c-dP-EJ7"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="hG1-XL-PFd" firstAttribute="leading" secondItem="owq-de-xye" secondAttribute="trailing" constant="8" id="0s1-wr-SKe"/>
+                                                <constraint firstItem="NNe-cc-De2" firstAttribute="leading" secondItem="YKC-kc-txR" secondAttribute="leading" constant="8" id="3eh-lH-odl"/>
+                                                <constraint firstItem="owq-de-xye" firstAttribute="bottom" secondItem="YKC-kc-txR" secondAttribute="bottomMargin" id="8cw-tT-EGc"/>
+                                                <constraint firstItem="hG1-XL-PFd" firstAttribute="leading" secondItem="owq-de-xye" secondAttribute="trailing" constant="8" id="DdD-Xd-JwG"/>
+                                                <constraint firstItem="owq-de-xye" firstAttribute="top" secondItem="NNe-cc-De2" secondAttribute="bottom" constant="3" id="Ez6-I8-N9M"/>
+                                                <constraint firstItem="owq-de-xye" firstAttribute="leading" secondItem="YKC-kc-txR" secondAttribute="leadingMargin" id="JvC-e3-2go"/>
+                                                <constraint firstItem="owq-de-xye" firstAttribute="top" secondItem="NNe-cc-De2" secondAttribute="bottom" constant="3" id="ch9-2J-Tn4"/>
+                                                <constraint firstAttribute="trailing" secondItem="NNe-cc-De2" secondAttribute="trailing" constant="8" id="fOL-gD-lDd"/>
+                                                <constraint firstItem="hG1-XL-PFd" firstAttribute="top" secondItem="YKC-kc-txR" secondAttribute="top" constant="25" id="g3B-iK-9eO"/>
+                                                <constraint firstAttribute="trailing" secondItem="hG1-XL-PFd" secondAttribute="trailing" constant="8" id="hGb-gF-c8S"/>
+                                                <constraint firstAttribute="bottom" secondItem="hG1-XL-PFd" secondAttribute="bottom" constant="4" id="nha-8i-bzv"/>
+                                                <constraint firstItem="NNe-cc-De2" firstAttribute="top" secondItem="YKC-kc-txR" secondAttribute="top" constant="6" id="qHb-mu-eUK"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="NNe-cc-De2" id="qp7-uV-PFE"/>
+                                            <outlet property="phoneLabel" destination="owq-de-xye" id="Av4-IG-ho2"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -166,7 +197,7 @@
                             <constraint firstAttribute="trailing" secondItem="B8t-bl-hx7" secondAttribute="trailing" id="zdV-8e-9Lj"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="History" id="UoN-Th-h7K"/>
+                    <tabBarItem key="tabBarItem" systemItem="history" id="UoN-Th-h7K"/>
                     <connections>
                         <outlet property="historyTable" destination="Amp-Hj-0wM" id="CdG-i9-KTG"/>
                     </connections>

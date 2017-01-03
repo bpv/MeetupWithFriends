@@ -47,27 +47,10 @@ class HistoryViewController: UIViewController {
                 for (key, placeDictRaw) in value {
                     var placeDict = placeDictRaw as! [String: Any]
                     
-                    // get the place details
-                    GooglePlacesConvenience.getPlaceDetails(placeID: placeDict["placeID"]! as! String, withCompletionHandler: { (details, error) in
-
-                        performUIUpdatesOnMain {
-                            guard error == nil else {
-                                // quietly omit from results
-                                return
-                            }
-                            
-                            if let details = details {
-                                placeDict["details"] = details
-                                self.places.append(placeDict)
-                            }
-                            
-
-                            // reload the table data once all place details have been retrieved
-                            // TODO: load only once
-                            self.historyTable.reloadData()
-                        }
-                    })
+                    self.places.append(placeDict)
                 }
+                
+                self.historyTable.reloadData()
             }
             
         }) { (error) in
@@ -90,14 +73,29 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryCell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryCell") as! HistoryTableViewCell
         
         let place = places[indexPath.item]
         
-        cell?.textLabel?.text = (place["details"] as! PlaceDetails).name
-        cell?.detailTextLabel?.text = (place["details"] as! PlaceDetails).phoneNumber
+        // get the place details
+        GooglePlacesConvenience.getPlaceDetails(placeID: place["placeID"] as! String, withCompletionHandler: { (details, error) in
+            
+            performUIUpdatesOnMain {
+                guard error == nil else {
+                    // move on, quietly
+                    print(error)
+                    return
+                }
+                
+                if let details = details {
+                    cell.nameLabel.text = details.name!
+                    cell.phoneLabel.text = details.phoneNumber!
+                    cell.placeDetails = details
+                }
+            }
+        })
         
-        return cell!
+        return cell
     }
     
     // Mark: UITableViewDelegate
