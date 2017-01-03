@@ -18,8 +18,8 @@ struct PlaceDetails {
     var priceLevel: Int?
     var rating = Double()
     var address = String()
-    var phoneNumber: String?
-    var website: String?
+    var phoneNumber = "Unavailable"
+    var website = "Unavailable"
     var url: String
     
     init(json: [String: SwiftyJSON.JSON]) {
