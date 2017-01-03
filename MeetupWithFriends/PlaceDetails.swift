@@ -29,11 +29,11 @@ struct PlaceDetails {
             self.placeID = placeID.stringValue
         }
         
-        if let latitude = json[keys.lat] {
+        if let latitude = json[keys.geometry]?[keys.location][keys.lat] {
             self.latitude = latitude.doubleValue
         }
         
-        if let longitude = json[keys.lon] {
+        if let longitude = json[keys.geometry]?[keys.location][keys.lon] {
             self.longitude = longitude.doubleValue
         }
         
@@ -41,12 +41,8 @@ struct PlaceDetails {
             self.name = name.stringValue
         }
         
-        if let openingHours = json[keys.openingHours] {
-            if let openingHoursDict = openingHours.dictionary {
-                if let openNow = openingHoursDict["openNow"] {
-                    self.openNow = openNow.boolValue
-                }
-            }
+        if let openNow = json[keys.openingHours]?[keys.openNow] {
+            self.openNow = openNow.boolValue
         }
         
         if let priceLevel = json[keys.priceLevel] {
