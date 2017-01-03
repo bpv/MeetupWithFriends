@@ -137,7 +137,7 @@ extension PlaceCardViewController: CardViewDelegate {
                 
                 self.dismiss(animated: true, completion: {
                     // show the history view
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "HistoryTableViewController") as! HistoryTableViewController
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "HistoryViewController") as! HistoryViewController
                     self.present(vc, animated: true, completion: nil)
                 })
             }

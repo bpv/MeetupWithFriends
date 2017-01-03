@@ -64,7 +64,7 @@ class GooglePlacesConvenience {
         }
     }
     
-    class func getPlaceDetails(placeID: String, withCompletionHandler: @escaping (_ data: Place.PlaceDetails?, _ error: String?) -> Void) {
+    class func getPlaceDetails(placeID: String, withCompletionHandler: @escaping (_ data: PlaceDetails?, _ error: String?) -> Void) {
         
         let url = GoogleConstants.Places.baseURL + GoogleConstants.Places.Methods.details
         
@@ -101,7 +101,7 @@ class GooglePlacesConvenience {
                         return
                     }
                 
-                    withCompletionHandler(Place.PlaceDetails(json: detailsJSON), nil)
+                    withCompletionHandler(PlaceDetails(json: detailsJSON), nil)
                 }
             case .failure(let error):
                 withCompletionHandler(nil, error.localizedDescription)

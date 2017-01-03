@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DA10D7151DFBE1D00083CEBD /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA10D7141DFBE1D00083CEBD /* HistoryTableViewController.swift */; };
 		DA10D7171DFBE2B80083CEBD /* GoogleConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA10D7161DFBE2B80083CEBD /* GoogleConstants.swift */; };
+		DA4C32111E1B2C840015FA68 /* PlaceDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4C32101E1B2C840015FA68 /* PlaceDetails.swift */; };
+		DA4C32131E1B363D0015FA68 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4C32121E1B363D0015FA68 /* HistoryTableViewCell.swift */; };
 		DA50B0531DFD1FE1007AE5CA /* GCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA50B0521DFD1FE1007AE5CA /* GCD.swift */; };
 		DA5C4C251E0A21B700BC88E8 /* PlaceCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5C4C241E0A21B700BC88E8 /* PlaceCardViewController.swift */; };
+		DA616F001E1A1D12009FAEF8 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA616EFF1E1A1D12009FAEF8 /* HistoryViewController.swift */; };
 		DA61DD321E145553000D0FA6 /* Places.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA61DD311E145553000D0FA6 /* Places.swift */; };
 		DA72EAF31E00F75C00066674 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA72EAF21E00F75C00066674 /* Place.swift */; };
 		DA93633E1DFF9B8500FE1676 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA93633D1DFF9B8500FE1676 /* Helpers.swift */; };
@@ -56,11 +58,13 @@
 /* Begin PBXFileReference section */
 		53AFE76579E9121851EC8100 /* Pods_MeetupWithFriends.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MeetupWithFriends.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A539F2F5DCEE0315F3B887B /* Pods-MeetupWithFriends.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeetupWithFriends.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MeetupWithFriends/Pods-MeetupWithFriends.debug.xcconfig"; sourceTree = "<group>"; };
-		DA10D7141DFBE1D00083CEBD /* HistoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
 		DA10D7161DFBE2B80083CEBD /* GoogleConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleConstants.swift; sourceTree = "<group>"; };
+		DA4C32101E1B2C840015FA68 /* PlaceDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceDetails.swift; sourceTree = "<group>"; };
+		DA4C32121E1B363D0015FA68 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		DA50B0521DFD1FE1007AE5CA /* GCD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCD.swift; sourceTree = "<group>"; };
 		DA5304C71E0F695300EFCD49 /* SwiftExample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftExample-Bridging-Header.h"; sourceTree = "<group>"; };
 		DA5C4C241E0A21B700BC88E8 /* PlaceCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCardViewController.swift; sourceTree = "<group>"; };
+		DA616EFF1E1A1D12009FAEF8 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		DA61DD311E145553000D0FA6 /* Places.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Places.swift; sourceTree = "<group>"; };
 		DA72EAF21E00F75C00066674 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		DA93633D1DFF9B8500FE1676 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
@@ -137,9 +141,9 @@
 			isa = PBXGroup;
 			children = (
 				DAC9B57A1DFBDB5F007A5008 /* MapViewController.swift */,
-				DA10D7141DFBE1D00083CEBD /* HistoryTableViewController.swift */,
 				DAE922FA1E08E944009EC66A /* ActivityViewController.swift */,
 				DA5C4C241E0A21B700BC88E8 /* PlaceCardViewController.swift */,
+				DA616EFF1E1A1D12009FAEF8 /* HistoryViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -159,6 +163,7 @@
 				DA9F75EE1E138DE000EF5532 /* CardView.swift */,
 				DAC68F421E15D34300A64131 /* PlaceAttributeCell.swift */,
 				DAC68F431E15D34300A64131 /* PlaceAttributeCell.xib */,
+				DA4C32121E1B363D0015FA68 /* HistoryTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -171,6 +176,7 @@
 				DA9363411DFFE14300FE1676 /* GooglePlacesConvenience.swift */,
 				DA72EAF21E00F75C00066674 /* Place.swift */,
 				DA61DD311E145553000D0FA6 /* Places.swift */,
+				DA4C32101E1B2C840015FA68 /* PlaceDetails.swift */,
 			);
 			name = Google;
 			sourceTree = "<group>";
@@ -444,20 +450,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA4C32111E1B2C840015FA68 /* PlaceDetails.swift in Sources */,
 				DA50B0531DFD1FE1007AE5CA /* GCD.swift in Sources */,
 				DAC9B57B1DFBDB5F007A5008 /* MapViewController.swift in Sources */,
 				DA9363421DFFE14300FE1676 /* GooglePlacesConvenience.swift in Sources */,
+				DA616F001E1A1D12009FAEF8 /* HistoryViewController.swift in Sources */,
 				DAE922FB1E08E944009EC66A /* ActivityViewController.swift in Sources */,
 				DA61DD321E145553000D0FA6 /* Places.swift in Sources */,
 				DAE48C5D1DFD11300099E181 /* GoogleMapsConvenience.swift in Sources */,
 				DA93633E1DFF9B8500FE1676 /* Helpers.swift in Sources */,
 				DA5C4C251E0A21B700BC88E8 /* PlaceCardViewController.swift in Sources */,
+				DA4C32131E1B363D0015FA68 /* HistoryTableViewCell.swift in Sources */,
 				DAC9B5791DFBDB5F007A5008 /* AppDelegate.swift in Sources */,
 				DAC68F441E15D34300A64131 /* PlaceAttributeCell.swift in Sources */,
 				DA72EAF31E00F75C00066674 /* Place.swift in Sources */,
 				DA10D7171DFBE2B80083CEBD /* GoogleConstants.swift in Sources */,
 				DA9F75EF1E138DE000EF5532 /* CardView.swift in Sources */,
-				DA10D7151DFBE1D00083CEBD /* HistoryTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

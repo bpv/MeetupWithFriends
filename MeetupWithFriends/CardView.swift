@@ -65,7 +65,7 @@ class CardView: UIView {
                 // set the details
                 self.place.placeDetails = placeDetails
                 
-                self.placeDetailsArray = self.place.getPlaceDetailsArrayForDisplay()
+                self.placeDetailsArray = (self.place.placeDetails?.getPlaceDetailsArrayForDisplay())!
                 
                 // reload the table
                 self.detailsTable.reloadData()
