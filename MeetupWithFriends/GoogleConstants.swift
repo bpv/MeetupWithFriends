@@ -84,6 +84,7 @@ struct GoogleConstants {
         static var icon = "icon"
         static var name = "name"
         static var openingHours = "opening_hours"
+        static var openNow = "open_now"
         static var photos = "photos"
         static var placeID = "place_id"
         static var priceLevel = "price_level"

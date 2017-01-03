@@ -30,7 +30,7 @@ struct Place {
         latitude = json[keys.geometry][keys.location][keys.lat].doubleValue
         longitude = json[keys.geometry][keys.location][keys.lon].doubleValue
         name = json[keys.name].stringValue
-        openNow = json[keys.openingHours]["open_now"].boolValue
+        openNow = json[keys.openingHours][keys.openNow].boolValue
         
         for photoRow in json[keys.photos].arrayValue {
             var tempDict = [String: Any]()
