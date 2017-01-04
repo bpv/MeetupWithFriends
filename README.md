@@ -11,7 +11,7 @@ This application leverages the following libraries:
 * iCarousel
 
 ## Install dependencies
-1. Install dependencies using: `<pod install>`
+1. Install dependencies using: `pod install`
 
 ## Functionality
 The application helps users find convenient places to meet up with friends.
