@@ -8,6 +8,7 @@ This application leverages the following libraries:
 * Google Maps SDK
 * Google Places SDK
 * Firebase
+* iCarousel
 
 ## Install dependencies
 1. Install dependencies using: `<pod install>`
@@ -36,8 +37,3 @@ The application helps users find convenient places to meet up with friends.
   * Table view with places that have been shared.
   * Clicking the map button will open the location in Google Maps if available 
   and Apple Maps if not available.
-
-## Known Issues
-* Sign In screen contains a UINavigationBar with a "Back" button that will take 
-you back to the ActivityController without signing in.  Any help in accessing the
-UINavigationBar in FUIAuthPickerViewController is greatly appreciated.
