@@ -65,4 +65,4 @@ fastlane/screenshots
 fastlane/test_output
 
 ## Project-specific
-Settings.plist
+#Settings.plist
