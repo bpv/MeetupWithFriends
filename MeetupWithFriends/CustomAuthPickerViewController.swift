@@ -35,6 +35,8 @@ class CustomAuthPickerViewController: FUIAuthPickerViewController {
         
         // add an image
         
+        super.navigationItem.leftBarButtonItem = nil
+        
         let image = UIImageView(frame: CGRect(x: 0, y: 0, width: width, height: height))
         image.image = UIImage(named: "logo")
         image.contentMode = UIViewContentMode.center
