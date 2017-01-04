@@ -8,6 +8,7 @@ This application leverages the following libraries:
 * Google Maps SDK
 * Google Places SDK
 * Firebase
+* iCarousel
 
 ## Install dependencies
 1. Install dependencies using: `<pod install>`
