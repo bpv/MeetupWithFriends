@@ -103,6 +103,7 @@ extension PlaceCardViewController: iCarouselDelegate, iCarouselDataSource {
                 
                 Helpers.performUIUpdatesOnMain {
                     contentView.imageView.image = photo
+                    contentView.activityIndicator.stopAnimating()
                 }
             })
         } else {

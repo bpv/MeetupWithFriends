@@ -23,6 +23,7 @@ class HistoryViewController: UIViewController {
     
     @IBOutlet weak var historyTable: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var tableActivityIndicator: UIActivityIndicatorView!
     
     // Mark: Life Cycle
     

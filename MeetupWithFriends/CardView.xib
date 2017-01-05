@@ -36,9 +36,9 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </tableView>
                         <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A2R-do-8tR">
-                            <rect key="frame" x="173.5" y="634" width="28" height="25"/>
+                            <rect key="frame" x="174" y="634" width="28" height="25"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="28" id="p8F-Ef-qkA"/>
+                                <constraint firstAttribute="width" constant="28" id="MxY-3D-UHj"/>
                             </constraints>
                             <state key="normal" image="share"/>
                             <connections>
@@ -62,30 +62,35 @@
                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Zhq-Cf-vjf">
                             <rect key="frame" x="169" y="85" width="37" height="37"/>
                         </activityIndicatorView>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="oXg-Yb-sFI">
+                            <rect key="frame" x="169" y="412" width="37" height="37"/>
+                            <color key="color" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                        </activityIndicatorView>
                     </subviews>
                     <color key="backgroundColor" red="1" green="0.83529411764705885" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
+                        <constraint firstItem="Jap-I6-P2T" firstAttribute="trailing" secondItem="3i8-3K-8XJ" secondAttribute="trailing" id="1dp-k4-NSv"/>
                         <constraint firstItem="WOU-jB-iGN" firstAttribute="top" secondItem="3Fl-ap-75q" secondAttribute="bottom" constant="8" id="5PJ-Tg-Brl"/>
                         <constraint firstItem="3i8-3K-8XJ" firstAttribute="top" secondItem="WOU-jB-iGN" secondAttribute="bottom" constant="8" id="7OH-Gh-8kF"/>
-                        <constraint firstItem="A2R-do-8tR" firstAttribute="centerX" secondItem="iG9-v7-AZt" secondAttribute="centerX" id="8cM-YJ-mVb"/>
-                        <constraint firstItem="A2R-do-8tR" firstAttribute="bottom" secondItem="iG9-v7-AZt" secondAttribute="bottomMargin" id="9KY-uf-UGn"/>
-                        <constraint firstItem="Zhq-Cf-vjf" firstAttribute="leading" secondItem="iG9-v7-AZt" secondAttribute="leading" constant="169" id="9f2-xO-Nfa"/>
+                        <constraint firstItem="Zhq-Cf-vjf" firstAttribute="centerX" secondItem="iG9-v7-AZt" secondAttribute="centerX" id="BSX-WF-iir"/>
                         <constraint firstItem="3i8-3K-8XJ" firstAttribute="top" secondItem="WOU-jB-iGN" secondAttribute="bottom" constant="8" id="CRl-zX-WZ7"/>
-                        <constraint firstItem="Jap-I6-P2T" firstAttribute="trailing" secondItem="3i8-3K-8XJ" secondAttribute="trailing" id="EWP-F7-5I4"/>
+                        <constraint firstItem="kAo-8D-jap" firstAttribute="leading" secondItem="3i8-3K-8XJ" secondAttribute="leading" id="Dce-di-W7K"/>
+                        <constraint firstItem="kAo-8D-jap" firstAttribute="top" secondItem="3i8-3K-8XJ" secondAttribute="bottom" constant="7" id="EYc-U8-V98"/>
                         <constraint firstAttribute="trailing" secondItem="3i8-3K-8XJ" secondAttribute="trailing" constant="8" id="FiE-au-r4W"/>
-                        <constraint firstItem="kAo-8D-jap" firstAttribute="top" secondItem="Jap-I6-P2T" secondAttribute="top" id="R9a-Vn-nUe"/>
+                        <constraint firstItem="A2R-do-8tR" firstAttribute="top" secondItem="3i8-3K-8XJ" secondAttribute="bottom" constant="8" symbolic="YES" id="FqX-ec-9Ot"/>
+                        <constraint firstItem="oXg-Yb-sFI" firstAttribute="top" secondItem="WOU-jB-iGN" secondAttribute="bottom" constant="185" id="JF1-KF-dd9"/>
+                        <constraint firstItem="oXg-Yb-sFI" firstAttribute="centerX" secondItem="iG9-v7-AZt" secondAttribute="centerX" id="MAN-Pj-cvI"/>
                         <constraint firstItem="3Fl-ap-75q" firstAttribute="trailing" secondItem="iG9-v7-AZt" secondAttribute="trailingMargin" id="Vbt-oP-uk9"/>
-                        <constraint firstItem="WOU-jB-iGN" firstAttribute="top" secondItem="Zhq-Cf-vjf" secondAttribute="bottom" constant="84" id="Z8J-Yw-vFa"/>
+                        <constraint firstItem="A2R-do-8tR" firstAttribute="centerX" secondItem="oXg-Yb-sFI" secondAttribute="centerX" id="Ydf-Gz-O1v"/>
+                        <constraint firstItem="Jap-I6-P2T" firstAttribute="top" secondItem="kAo-8D-jap" secondAttribute="top" id="cp0-M0-Kim"/>
                         <constraint firstItem="WOU-jB-iGN" firstAttribute="leading" secondItem="iG9-v7-AZt" secondAttribute="leading" constant="8" id="fUh-se-74M"/>
-                        <constraint firstItem="A2R-do-8tR" firstAttribute="top" secondItem="3i8-3K-8XJ" secondAttribute="bottom" constant="8" symbolic="YES" id="gCL-V4-yCA"/>
-                        <constraint firstAttribute="trailing" secondItem="Zhq-Cf-vjf" secondAttribute="trailing" constant="169" id="gf9-0n-XgB"/>
                         <constraint firstItem="3Fl-ap-75q" firstAttribute="top" secondItem="iG9-v7-AZt" secondAttribute="topMargin" id="jiO-RA-CbA"/>
                         <constraint firstAttribute="trailing" secondItem="WOU-jB-iGN" secondAttribute="trailing" constant="8" id="m9Q-cH-f7W"/>
                         <constraint firstItem="3Fl-ap-75q" firstAttribute="leading" secondItem="iG9-v7-AZt" secondAttribute="leadingMargin" id="mYA-gT-sQf"/>
-                        <constraint firstItem="kAo-8D-jap" firstAttribute="top" secondItem="3i8-3K-8XJ" secondAttribute="bottom" constant="7" id="uP6-cg-Dvq"/>
-                        <constraint firstItem="kAo-8D-jap" firstAttribute="leading" secondItem="3i8-3K-8XJ" secondAttribute="leading" id="vse-1g-dSm"/>
+                        <constraint firstItem="A2R-do-8tR" firstAttribute="bottom" secondItem="iG9-v7-AZt" secondAttribute="bottomMargin" id="r0L-LF-x6H"/>
+                        <constraint firstItem="Zhq-Cf-vjf" firstAttribute="top" secondItem="iG9-v7-AZt" secondAttribute="top" constant="85" id="wTh-Th-Qlh"/>
                         <constraint firstItem="3i8-3K-8XJ" firstAttribute="leading" secondItem="iG9-v7-AZt" secondAttribute="leading" constant="8" id="wri-D7-bUj"/>
-                        <constraint firstItem="Zhq-Cf-vjf" firstAttribute="top" secondItem="iG9-v7-AZt" secondAttribute="top" constant="85" id="wu7-ho-Awj"/>
+                        <constraint firstItem="WOU-jB-iGN" firstAttribute="top" secondItem="Zhq-Cf-vjf" secondAttribute="bottom" constant="84" id="xBc-S3-Cis"/>
                     </constraints>
                 </view>
             </subviews>
@@ -102,6 +107,7 @@
                 <outlet property="detailsTable" destination="3i8-3K-8XJ" id="sKn-Ts-YTz"/>
                 <outlet property="imageView" destination="3Fl-ap-75q" id="8Et-Sv-nUN"/>
                 <outlet property="nameLabel" destination="WOU-jB-iGN" id="c8U-Ck-Hbc"/>
+                <outlet property="tableActivityIndicator" destination="oXg-Yb-sFI" id="LAn-i1-GtQ"/>
             </connections>
             <point key="canvasLocation" x="25.5" y="51.5"/>
         </view>

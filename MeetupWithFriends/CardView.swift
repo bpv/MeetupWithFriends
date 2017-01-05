@@ -30,6 +30,7 @@ class CardView: UIView {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var detailsTable: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var tableActivityIndicator: UIActivityIndicatorView!
     
     // Mark: Properties
     
@@ -92,7 +93,7 @@ class CardView: UIView {
                 self.detailsTable.reloadData()
                 
                 Helpers.performUIUpdatesOnMain {
-                    self.activityIndicator.stopAnimating()
+                    self.tableActivityIndicator.stopAnimating()
                 }
             }
         }
