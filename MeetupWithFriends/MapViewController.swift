@@ -69,6 +69,9 @@ class MapViewController: UIViewController {
             
             guard error == nil else {
                 Helpers.displayError(view: self, errorString: error)
+                Helpers.performUIUpdatesOnMain {
+                    self.activityIndicator.stopAnimating()
+                }
                 return
             }
             
