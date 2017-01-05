@@ -75,7 +75,7 @@ extension HistoryViewController: UITableViewDataSource {
     // Mark: UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.places.count
+        return places.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -89,8 +89,6 @@ extension HistoryViewController: UITableViewDataSource {
             
             Helpers.performUIUpdatesOnMain {
                 guard error == nil else {
-                    // move on, quietly
-                    print(error)
                     return
                 }
                 
