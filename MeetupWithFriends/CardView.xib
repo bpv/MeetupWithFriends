@@ -106,7 +106,9 @@
                 <outlet property="activityIndicator" destination="Zhq-Cf-vjf" id="8YE-bh-ed8"/>
                 <outlet property="detailsTable" destination="3i8-3K-8XJ" id="sKn-Ts-YTz"/>
                 <outlet property="imageView" destination="3Fl-ap-75q" id="8Et-Sv-nUN"/>
+                <outlet property="leftArrow" destination="kAo-8D-jap" id="9oI-Px-TUo"/>
                 <outlet property="nameLabel" destination="WOU-jB-iGN" id="c8U-Ck-Hbc"/>
+                <outlet property="rightArrow" destination="Jap-I6-P2T" id="CwN-fn-NZl"/>
                 <outlet property="tableActivityIndicator" destination="oXg-Yb-sFI" id="LAn-i1-GtQ"/>
             </connections>
             <point key="canvasLocation" x="25.5" y="51.5"/>

@@ -107,11 +107,23 @@ extension PlaceCardViewController: iCarouselDelegate, iCarouselDataSource {
                 }
             })
         } else {
-            // TODO: Put in placeholder image
             contentView.imageView.image = nil
         }
         
         contentView.nameLabel.text = "\(place.name)"
+        
+        // disable arrow buttons as necessary
+        if index == 0 {
+            contentView.leftArrow.isEnabled = false
+        } else {
+            contentView.leftArrow.isEnabled = true
+        }
+        
+        if index == (places.places.count - 1) {
+            contentView.rightArrow.isEnabled = false
+        } else {
+            contentView.rightArrow.isEnabled = true
+        }
         
         return contentView
     }

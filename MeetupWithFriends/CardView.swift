@@ -31,6 +31,9 @@ class CardView: UIView {
     @IBOutlet weak var detailsTable: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var tableActivityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var leftArrow: UIButton!
+    @IBOutlet weak var rightArrow: UIButton!
+    
     
     // Mark: Properties
     
