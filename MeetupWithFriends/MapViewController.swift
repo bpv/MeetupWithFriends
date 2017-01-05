@@ -24,6 +24,7 @@ class MapViewController: UIViewController {
     var user: FIRUser!
     var zoomLevel = GoogleConstants.Configuration.startingZoom
     var defaultLocation = GoogleConstants.Configuration.defaultLocation
+    var iconCache = [String: UIImage]()
     
     // Mark: Outlets
     
@@ -76,6 +77,8 @@ class MapViewController: UIViewController {
             self.createMarkersForNearbyPlaces()
             
             self.displayCards(startingIndex: 0)
+            
+            self.activityIndicator.stopAnimating()
         })
     }
     
@@ -92,8 +95,6 @@ class MapViewController: UIViewController {
         centerMap(latitude: latitude, longitude: longitude)
         
         loadNearbyPlaces(latitude: latitude, longitude: longitude, pageToken: nil)
-        
-        activityIndicator.stopAnimating()
     }
     
     func createMarker(latitude: Double, longitude: Double) {
@@ -108,22 +109,34 @@ class MapViewController: UIViewController {
     }
     
     func createMarkersForNearbyPlaces() {
-        performUIUpdatesOnMain {
-            for (index, place) in self.places.places.enumerated() {
-                let position = CLLocationCoordinate2D(latitude: place.latitude, longitude: place.longitude)
-                let marker = GMSMarker(position: position)
-                
-                // get the image
-                var data: Data
-                do {
-                    data = try Data(contentsOf: URL(string: place.icon)!)
-                } catch {
-                    continue
-                }
-                marker.userData = index
-                marker.title = place.name
-                marker.icon = UIImage(data: data, scale: 3)
+        for (index, place) in self.places.places.enumerated() {
+            let position = CLLocationCoordinate2D(latitude: place.latitude, longitude: place.longitude)
+            let marker = GMSMarker(position: position)
+            
+            marker.userData = index
+            marker.title = place.name
+            marker.icon = getIconImage(iconURL: place.icon)
+            
+            performUIUpdatesOnMain {
                 marker.map = self.googleMapView
+            }
+        }
+    }
+    
+    func getIconImage(iconURL: String) -> UIImage {
+        // check if we already downloaded the image and reuse
+        if let image = iconCache[iconURL] {
+            return image
+        } else {
+            // download the image
+            var data: Data
+            do {
+                data = try Data(contentsOf: URL(string: iconURL)!)
+                let image = UIImage(data: data, scale: 3)!
+                iconCache[iconURL] = image
+                return image
+            } catch {
+                return UIImage()
             }
         }
     }
@@ -212,8 +225,6 @@ extension MapViewController: CLLocationManagerDelegate {
         loadNearbyPlaces(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude, pageToken: nil)
         
         createMarker(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-        
-        activityIndicator.stopAnimating()
     }
     
     // Handle authorization for the location manager.
