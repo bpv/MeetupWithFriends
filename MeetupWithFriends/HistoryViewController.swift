@@ -50,10 +50,12 @@ class HistoryViewController: UIViewController {
                 }
                 
                 self.historyTable.reloadData()
-                
-                self.activityIndicator.stopAnimating()
             }
             
+            Helpers.performUIUpdatesOnMain {
+                self.activityIndicator.stopAnimating()
+            }
+        
         }) { (error) in
             Helpers.displayError(view: self, errorString: error.localizedDescription)
         }

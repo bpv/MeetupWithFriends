@@ -78,7 +78,9 @@ class MapViewController: UIViewController {
             
             self.displayCards(startingIndex: 0)
             
-            self.activityIndicator.stopAnimating()
+            Helpers.performUIUpdatesOnMain {
+                self.activityIndicator.stopAnimating()
+            }
         })
     }
     
@@ -88,7 +90,9 @@ class MapViewController: UIViewController {
     func searchNearby(latitude: Double, longitude: Double) {
         googleMapView.clear()
         
-        activityIndicator.startAnimating()
+        Helpers.performUIUpdatesOnMain {
+            self.activityIndicator.startAnimating()
+        }
         
         createMarker(latitude: latitude, longitude: longitude)
         

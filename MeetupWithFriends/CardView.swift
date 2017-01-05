@@ -91,7 +91,9 @@ class CardView: UIView {
                 // reload the table
                 self.detailsTable.reloadData()
                 
-                self.activityIndicator.stopAnimating()
+                Helpers.performUIUpdatesOnMain {
+                    self.activityIndicator.stopAnimating()
+                }
             }
         }
     }
