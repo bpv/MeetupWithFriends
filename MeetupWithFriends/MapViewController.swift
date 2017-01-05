@@ -117,7 +117,7 @@ class MapViewController: UIViewController {
             marker.title = place.name
             marker.icon = getIconImage(iconURL: place.icon)
             
-            performUIUpdatesOnMain {
+            Helpers.performUIUpdatesOnMain {
                 marker.map = self.googleMapView
             }
         }

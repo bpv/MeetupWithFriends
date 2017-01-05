@@ -84,7 +84,7 @@ extension HistoryViewController: UITableViewDataSource {
         // get the place details
         GooglePlacesConvenience.getPlaceDetails(placeID: place["placeID"] as! String, withCompletionHandler: { (details, error) in
             
-            performUIUpdatesOnMain {
+            Helpers.performUIUpdatesOnMain {
                 guard error == nil else {
                     // move on, quietly
                     print(error)

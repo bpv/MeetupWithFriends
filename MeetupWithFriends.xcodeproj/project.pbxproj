@@ -10,7 +10,6 @@
 		DA10D7171DFBE2B80083CEBD /* GoogleConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA10D7161DFBE2B80083CEBD /* GoogleConstants.swift */; };
 		DA4C32111E1B2C840015FA68 /* PlaceDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4C32101E1B2C840015FA68 /* PlaceDetails.swift */; };
 		DA4C32131E1B363D0015FA68 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4C32121E1B363D0015FA68 /* HistoryTableViewCell.swift */; };
-		DA50B0531DFD1FE1007AE5CA /* GCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA50B0521DFD1FE1007AE5CA /* GCD.swift */; };
 		DA5A84D41E1BB80C007EEDF7 /* CustomAuthPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5A84D31E1BB80C007EEDF7 /* CustomAuthPickerViewController.swift */; };
 		DA5C4C251E0A21B700BC88E8 /* PlaceCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5C4C241E0A21B700BC88E8 /* PlaceCardViewController.swift */; };
 		DA616F001E1A1D12009FAEF8 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA616EFF1E1A1D12009FAEF8 /* HistoryViewController.swift */; };
@@ -63,7 +62,6 @@
 		DA10D7161DFBE2B80083CEBD /* GoogleConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleConstants.swift; sourceTree = "<group>"; };
 		DA4C32101E1B2C840015FA68 /* PlaceDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceDetails.swift; sourceTree = "<group>"; };
 		DA4C32121E1B363D0015FA68 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
-		DA50B0521DFD1FE1007AE5CA /* GCD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCD.swift; sourceTree = "<group>"; };
 		DA5A84D31E1BB80C007EEDF7 /* CustomAuthPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAuthPickerViewController.swift; sourceTree = "<group>"; };
 		DA5C4C241E0A21B700BC88E8 /* PlaceCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCardViewController.swift; sourceTree = "<group>"; };
 		DA616EFF1E1A1D12009FAEF8 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
@@ -188,7 +186,6 @@
 		DA50B0511DFD1FBA007AE5CA /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				DA50B0521DFD1FE1007AE5CA /* GCD.swift */,
 				DA93633D1DFF9B8500FE1676 /* Helpers.swift */,
 				DAD597441E1C3DBA00F8BD56 /* AuthHelpers.swift */,
 			);
@@ -455,7 +452,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA4C32111E1B2C840015FA68 /* PlaceDetails.swift in Sources */,
-				DA50B0531DFD1FE1007AE5CA /* GCD.swift in Sources */,
 				DAC9B57B1DFBDB5F007A5008 /* MapViewController.swift in Sources */,
 				DA9363421DFFE14300FE1676 /* GooglePlacesConvenience.swift in Sources */,
 				DA616F001E1A1D12009FAEF8 /* HistoryViewController.swift in Sources */,

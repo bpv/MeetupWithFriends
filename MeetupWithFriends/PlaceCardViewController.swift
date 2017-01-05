@@ -101,7 +101,7 @@ extension PlaceCardViewController: iCarouselDelegate, iCarouselDataSource {
         if place.photos.count > 0 {
             GooglePlacesConvenience.getPlacePhoto(reference: place.photos[0]["photo_reference"] as! String, maxWidth: Int(contentView.imageView.frame.width), maxHeight: Int(contentView.imageView.frame.height), withCompletionHandler: { (photo, error) in
                 
-                performUIUpdatesOnMain {
+                Helpers.performUIUpdatesOnMain {
                     contentView.imageView.image = photo
                 }
             })

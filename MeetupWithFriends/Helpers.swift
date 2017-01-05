@@ -44,4 +44,10 @@ class Helpers {
             UIApplication.shared.open((appleTargetURL?.url)!, options: [String: Any](), completionHandler: nil)
         }
     }
+    
+    class func performUIUpdatesOnMain(_ updates: @escaping () -> Void) {
+        DispatchQueue.main.async {
+            updates()
+        }
+    }
 }

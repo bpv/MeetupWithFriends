@@ -77,7 +77,7 @@ class CardView: UIView {
     
     func loadPlaceDetails() {
         place.getPlaceDetails { (placeDetails, error) in
-            performUIUpdatesOnMain {
+            Helpers.performUIUpdatesOnMain {
                 guard error == nil else {
                     self.delegate!.errorMessageNeedsDisplay(error: error!)
                     return
