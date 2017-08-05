@@ -11,15 +11,15 @@ import UIKit
 import FirebaseAuth
 import FirebaseAuthUI
 
-class AuthHelpers: NSObject {
-    func loginSession(view: UIViewController) {
+final class AuthHelpers: NSObject {
+    final func loginSession(view: UIViewController) {
         let authUI = FUIAuth.defaultAuthUI()!
         authUI.delegate = self
         
         view.present(authUI.authViewController(), animated: true, completion: nil)
     }
     
-    class func signOut(view: UIViewController) {
+    final class func signOut(view: UIViewController) {
         do {
             try FIRAuth.auth()?.signOut()
             
@@ -32,11 +32,11 @@ class AuthHelpers: NSObject {
 }
 
 extension AuthHelpers: FUIAuthDelegate {
-    func authUI(_ authUI: FUIAuth, didSignInWith user: FIRUser?, error: Error?) {
+    final func authUI(_ authUI: FUIAuth, didSignInWith user: FIRUser?, error: Error?) {
         // do nothing
     }
     
-    func authPickerViewController(forAuthUI authUI: FUIAuth) -> FUIAuthPickerViewController {
+    final func authPickerViewController(forAuthUI authUI: FUIAuth) -> FUIAuthPickerViewController {
         return CustomAuthPickerViewController(authUI: authUI)
     }
 }

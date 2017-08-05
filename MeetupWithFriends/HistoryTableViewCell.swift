@@ -9,7 +9,7 @@
 import UIKit
 
 // Mark: - HistoryTableViewCell
-class HistoryTableViewCell: UITableViewCell {
+final class HistoryTableViewCell: UITableViewCell {
 
     // Mark: Properties
     

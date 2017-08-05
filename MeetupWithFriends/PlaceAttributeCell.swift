@@ -10,7 +10,7 @@ import UIKit
 
 // Mark: - PlaceAttributeCell
 
-class PlaceAttributeCell: UITableViewCell {
+final class PlaceAttributeCell: UITableViewCell {
     
     // Mark: Properties
     

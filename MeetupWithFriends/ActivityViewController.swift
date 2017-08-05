@@ -12,14 +12,14 @@ import FirebaseAuthUI
 import FirebaseGoogleAuthUI
 import FirebaseFacebookAuthUI
 
-class ActivityViewController: UIViewController {
+final class ActivityViewController: UIViewController {
     
     // Mark: Properties
     
-    var user: FIRUser?
-    fileprivate var _authHandle: FIRAuthStateDidChangeListenerHandle!
+    final private var user: FIRUser?
+    final private var _authHandle: FIRAuthStateDidChangeListenerHandle!
     
-    let activities = ["restaurant", "bar", "night_club", "cafe", "movie_theater"]
+    final private let activities = ["restaurant", "bar", "night_club", "cafe", "movie_theater"]
 
     // Mark: Life Cycle
     
@@ -31,7 +31,7 @@ class ActivityViewController: UIViewController {
     
     // Mark: Config
     
-    func configureAuth() {
+    final private func configureAuth() {
         let provider: [FUIAuthProvider] = [FUIGoogleAuth(), FUIFacebookAuth()]
         FUIAuth.defaultAuthUI()?.providers = provider
         

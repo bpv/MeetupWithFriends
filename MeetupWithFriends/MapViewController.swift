@@ -13,18 +13,18 @@ import Firebase
 
 // Mark: - MapViewController
 
-class MapViewController: UIViewController {
+final class MapViewController: UIViewController {
     
     // Mark: Properties
     
-    var locationManager = CLLocationManager()
-    var currentLocation: CLLocation?
-    var places: Places!
-    var type: String!
-    var user: FIRUser!
-    var zoomLevel = GoogleConstants.Configuration.startingZoom
-    var defaultLocation = GoogleConstants.Configuration.defaultLocation
-    var iconCache = [String: UIImage]()
+    final var type: String!
+    final var user: FIRUser!
+    final fileprivate var locationManager = CLLocationManager()
+    final fileprivate var currentLocation: CLLocation?
+    final fileprivate var zoomLevel = GoogleConstants.Configuration.startingZoom
+    final private var places: Places!
+    final private var defaultLocation = GoogleConstants.Configuration.defaultLocation
+    final private var iconCache = [String: UIImage]()
     
     // Mark: Outlets
     
@@ -48,7 +48,7 @@ class MapViewController: UIViewController {
     
     // Mark: Config
     
-    func configureMap() {
+    final private func configureMap() {
         googleMapView.delegate = self
         
         // create GMSCamera and assign to map
@@ -63,7 +63,7 @@ class MapViewController: UIViewController {
     
     // Mark: Load Nearby Places
     
-    func loadNearbyPlaces(latitude: Double, longitude: Double, pageToken: String?) {
+    final fileprivate func loadNearbyPlaces(latitude: Double, longitude: Double, pageToken: String?) {
         // load resuts from Places API
         GooglePlacesConvenience.getNearbyPlaces(latitude: latitude, longitude: longitude, type: type, pageToken: nil, withCompletionHandler: { (places, error) in
             
@@ -90,7 +90,7 @@ class MapViewController: UIViewController {
     // Mark: Map Manipulation
     
     // wrapper method to perform necessary tasks on map when searching nearby
-    func searchNearby(latitude: Double, longitude: Double) {
+    final fileprivate func searchNearby(latitude: Double, longitude: Double) {
         googleMapView.clear()
         
         Helpers.performUIUpdatesOnMain {
@@ -104,18 +104,30 @@ class MapViewController: UIViewController {
         loadNearbyPlaces(latitude: latitude, longitude: longitude, pageToken: nil)
     }
     
-    func createMarker(latitude: Double, longitude: Double) {
+    final fileprivate func createMarker(latitude: Double, longitude: Double) {
         let position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         let marker = GMSMarker(position: position)
         marker.map = self.googleMapView
     }
     
-    func centerMap(latitude: Double, longitude: Double) {
+    final fileprivate func displayCards(startingIndex: Int) {
+        let controller = storyboard?.instantiateViewController(withIdentifier: "PlaceCardViewController") as! PlaceCardViewController
+        
+        // load places
+        controller.places = places
+        controller.user = user
+        controller.startingIndex = startingIndex
+        controller.delegate = self
+        
+        present(controller, animated: true, completion: nil)
+    }
+    
+    final private func centerMap(latitude: Double, longitude: Double) {
         let camera = GMSCameraPosition.camera(withLatitude: latitude, longitude: longitude, zoom: zoomLevel)
         googleMapView.animate(to: camera)
     }
     
-    func createMarkersForNearbyPlaces() {
+    final private func createMarkersForNearbyPlaces() {
         for (index, place) in self.places.places.enumerated() {
             let position = CLLocationCoordinate2D(latitude: place.latitude, longitude: place.longitude)
             let marker = GMSMarker(position: position)
@@ -130,7 +142,7 @@ class MapViewController: UIViewController {
         }
     }
     
-    func getIconImage(iconURL: String) -> UIImage {
+    final private func getIconImage(iconURL: String) -> UIImage {
         // check if we already downloaded the image and reuse
         if let image = iconCache[iconURL] {
             return image
@@ -193,18 +205,6 @@ class MapViewController: UIViewController {
 
     @IBAction func didPressCards(_ sender: Any) {
         displayCards(startingIndex: 0)
-    }
-    
-    func displayCards(startingIndex: Int) {
-        let controller = storyboard?.instantiateViewController(withIdentifier: "PlaceCardViewController") as! PlaceCardViewController
-        
-        // load places
-        controller.places = places
-        controller.user = user
-        controller.startingIndex = startingIndex
-        controller.delegate = self
-        
-        present(controller, animated: true, completion: nil)
     }
 }
 

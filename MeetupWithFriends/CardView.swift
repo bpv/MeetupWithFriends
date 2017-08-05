@@ -22,7 +22,15 @@ protocol CardViewDelegate {
 
 // Mark: - CardView
 
-class CardView: UIView {
+final class CardView: UIView {
+    
+    // Mark: Properties
+    
+    final var view: CardView!
+    final var place: Place!
+    final var delegate: CardViewDelegate! = nil
+    final fileprivate let nibName = "CardView"
+    final fileprivate var placeDetailsArray = [Any]()
     
     // Mark: Outlets
     
@@ -33,15 +41,6 @@ class CardView: UIView {
     @IBOutlet weak var tableActivityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var leftArrow: UIButton!
     @IBOutlet weak var rightArrow: UIButton!
-    
-    
-    // Mark: Properties
-    
-    let nibName = "CardView"
-    var view: CardView!
-    var place: Place!
-    var placeDetailsArray = [Any]()
-    var delegate: CardViewDelegate! = nil
     
     // Mark: Initializers
     
@@ -79,7 +78,7 @@ class CardView: UIView {
         delegate!.didPressRightArrow()
     }
     
-    func loadPlaceDetails() {
+    final func loadPlaceDetails() {
         place.getPlaceDetails { (placeDetails, error) in
             Helpers.performUIUpdatesOnMain {
                 guard error == nil else {

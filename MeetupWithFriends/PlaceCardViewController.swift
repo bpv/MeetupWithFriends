@@ -17,16 +17,16 @@ protocol PlaceCardViewDelegate {
 
 // Mark: - PlaceCardViewController
 
-class PlaceCardViewController: UIViewController {
+final class PlaceCardViewController: UIViewController {
     
     // Mark: Properties
     
-    var user: FIRUser!
-    var places: Places!
-    var startingIndex: Int = 0
-    var delegate: PlaceCardViewDelegate! = nil
-    var ref: FIRDatabaseReference!
-    fileprivate var _refHandle: FIRDatabaseHandle!
+    final var user: FIRUser!
+    final var places: Places!
+    final var startingIndex: Int = 0
+    final var delegate: PlaceCardViewDelegate! = nil
+    final fileprivate var ref: FIRDatabaseReference!
+    final fileprivate var _refHandle: FIRDatabaseHandle!
     
     // Mark: Outlets
     
@@ -56,7 +56,7 @@ class PlaceCardViewController: UIViewController {
     
     // Mark: Config
     
-    func configureDatabase() {
+    final private func configureDatabase() {
         ref = FIRDatabase.database().reference()
     }
 

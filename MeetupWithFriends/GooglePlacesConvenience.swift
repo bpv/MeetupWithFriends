@@ -11,8 +11,8 @@ import Alamofire
 import SwiftyJSON
 import GooglePlaces
 
-class GooglePlacesConvenience {
-    class func getNearbyPlaces(latitude: Double, longitude: Double, type: String, pageToken: String?, withCompletionHandler: @escaping (_ places: Places?, _ error: String?) -> Void) {
+final class GooglePlacesConvenience {
+    final class func getNearbyPlaces(latitude: Double, longitude: Double, type: String, pageToken: String?, withCompletionHandler: @escaping (_ places: Places?, _ error: String?) -> Void) {
         
         let url = GoogleConstants.Places.baseURL + GoogleConstants.Places.Methods.nearbySearch
         
@@ -64,7 +64,7 @@ class GooglePlacesConvenience {
         }
     }
     
-    class func getPlaceDetails(placeID: String, withCompletionHandler: @escaping (_ data: PlaceDetails?, _ error: String?) -> Void) {
+    final class func getPlaceDetails(placeID: String, withCompletionHandler: @escaping (_ data: PlaceDetails?, _ error: String?) -> Void) {
         
         let url = GoogleConstants.Places.baseURL + GoogleConstants.Places.Methods.details
         
@@ -109,7 +109,7 @@ class GooglePlacesConvenience {
         }
     }
     
-    class func getPlacePhoto(reference: String, maxWidth: Int, maxHeight: Int, withCompletionHandler: @escaping (_ photo: UIImage?, _ error: String?) -> Void) {
+    final class func getPlacePhoto(reference: String, maxWidth: Int, maxHeight: Int, withCompletionHandler: @escaping (_ photo: UIImage?, _ error: String?) -> Void) {
         
         let url = GoogleConstants.Places.baseURL + GoogleConstants.Places.Methods.photo
         

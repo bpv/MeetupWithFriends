@@ -11,9 +11,9 @@ import UIKit
 
 // Mark: - Helpers
 
-class Helpers {
+final class Helpers {
     
-    class func displayError(view: UIViewController, errorString: String!) {
+    final class func displayError(view: UIViewController, errorString: String!) {
         if let errorString = errorString {
             let alert = UIAlertController(title: "Error", message: errorString, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
@@ -21,7 +21,7 @@ class Helpers {
         }
     }
     
-    class func launchNavigationApp(name: String, latitude: Double, longitude: Double) {
+    final class func launchNavigationApp(name: String, latitude: Double, longitude: Double) {
         
         let latString = String(latitude)
         let lonString = String(longitude)
@@ -45,7 +45,7 @@ class Helpers {
         }
     }
     
-    class func performUIUpdatesOnMain(_ updates: @escaping () -> Void) {
+    final class func performUIUpdatesOnMain(_ updates: @escaping () -> Void) {
         DispatchQueue.main.async {
             updates()
         }

@@ -10,10 +10,10 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-class GoogleMapsConvenience {
+final class GoogleMapsConvenience {
     
     // Convert an address and return coordinates
-    class func geocodeAddress(address: String!, withCompletionHandler: @escaping (_ coordinate: (latitude: Double, longitude: Double)?, _ error: String?) -> Void) {
+    final class func geocodeAddress(address: String!, withCompletionHandler: @escaping (_ coordinate: (latitude: Double, longitude: Double)?, _ error: String?) -> Void) {
         guard let address = address else {
             withCompletionHandler(nil, "Address was not provided")
             return

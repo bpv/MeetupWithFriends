@@ -12,12 +12,12 @@ import FirebaseAuth
 
 // Mark: - HistoryViewController
 
-class HistoryViewController: UIViewController {
+final class HistoryViewController: UIViewController {
 
     // Mark: Properties
-    
-    var ref: FIRDatabaseReference!
-    var places = [[String: Any]]()
+
+    final fileprivate var places = [[String: Any]]()
+    final private var ref: FIRDatabaseReference!
     
     // Mark: Outlets
     
@@ -37,7 +37,7 @@ class HistoryViewController: UIViewController {
     
     // Mark: Config
     
-    func configureDatabase() {
+    final private func configureDatabase() {
         ref = FIRDatabase.database().reference()
         
         let userID = FIRAuth.auth()?.currentUser?.uid
