@@ -31,6 +31,8 @@ This application leverages the following libraries:
 * iCarousel
 
 ## Installation
+[CocoaPods](https://guides.cocoapods.org/using/getting-started.html) is used to install/manage dependencies.
+
 1. Download/Clone this repo.
 2. Install dependencies using: `pod install`
 
